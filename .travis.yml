@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- node
+
+branches:
+  only:
+  - master
+
+before_script:
+- npm install -g --silent
+
+script:
+- gulp frontend:build
+
+after_script:
+- gulp frontend:deploy
