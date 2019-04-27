@@ -1,14 +1,20 @@
-include partials/header.pug
+include partials/head.pug
 body
     div.wrapper
         header
             div.container 
-                h1 
-                    a(href="https://marceloglacial.github.io/snowfall-boilerplate/") Snowfall Boilerplate
+
+                div.navbar
+                    ul
+                        li
+                            a(href='#') Institucional
+                        li
+                            a(href='#') Notícias
         main.main
             div.container
-                img( src="assets/img/github.png" alt="gihub")/
+                h1 EcoMar
+                p Fundo de Desenvolvimento das Actividades Económicas do Mar e das Águas Interiores
         footer 
             div.container
                 p Created by <a href="http://marceloglacial.com">Marcelo Glacial</a>
-    include partials/footer.pug
+    include partials/foot.pug

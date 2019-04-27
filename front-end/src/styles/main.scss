@@ -8,7 +8,8 @@
 
 // 2. Vendors
 @import
-  'vendors/normalize';
+  'vendors/normalize',
+  '../../../node_modules/bootstrap/scss/bootstrap.scss';
 
 // 3. Base stuff
 @import
@@ -34,3 +35,4 @@
 // 7. Themes
 @import
   'themes/default';
+
