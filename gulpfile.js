@@ -10,7 +10,7 @@ const gulp = require('gulp'),
     del = require('del'),
     autoprefixer = require('gulp-autoprefixer'),
     imagemin = require('gulp-imagemin'),
-    pug = require('gulp-pug'),
+    handlebars = require('gulp-compile-handlebars'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -88,10 +88,16 @@ function images(src, dest) {
 
 // 2.5 - Complie templates
 // ------------------------------
-function templates(templates, dest, pretty) {
+function templates(templates, partials, dest) {
+    var templateData = {},
+        options = {
+            ignorePartials: true,
+            batch: [partials]
+        }
     return gulp.src(templates)
-        .pipe(pug({
-            pretty: pretty
+        .pipe(handlebars(templateData, options))
+        .pipe(rename(function (path) {
+            path.extname = '.html';
         }))
         .pipe(gulp.dest(dest))
 };
@@ -143,7 +149,8 @@ const frontend = new function () {
     this.styles = this.src + 'styles/**/*.scss';
     this.scripts = this.src + 'scripts/**/*.js';
     this.images = this.src + 'images/' + folders;
-    this.templates = this.src + 'templates/*.pug';
+    this.templates = this.src + 'templates/*.hbs';
+    this.partials = this.src + 'templates/partials';
 };
 
 // 3.2 - Assets
@@ -168,7 +175,7 @@ gulp.task('frontend:images', () => images(frontend.images, frontend.dist + 'asse
 
 // 3.7 - Templates
 // ------------------------------
-gulp.task('frontend:templates', () => templates(frontend.templates, frontend.dist));
+gulp.task('frontend:templates', () => templates(frontend.templates, frontend.partials, frontend.dist));
 
 // 3.8 - HTML
 // ------------------------------
@@ -202,7 +209,7 @@ gulp.task('frontend:develop',
         'frontend:styles',
         'frontend:scripts',
         () => copy(frontend.images, frontend.dist + 'assets/img/'),
-        () => templates(frontend.templates, frontend.dist, true)
+        'frontend:templates'
     )
 );
 

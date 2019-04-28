@@ -1,7 +1,7 @@
 {
-  "name": "ecomar-2019",
-  "version": "0.0.7",
-  "description": "EcoMar's website",
+  "name": "2019-ecomar",
+  "version": "0.0.1",
+  "description": "EcoMar's Website",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marceloglacial/2019-ecomar.git"
@@ -29,7 +29,6 @@
     "gulp-decompress": "^2.0.2",
     "gulp-download": "0.0.1",
     "gulp-imagemin": "^5.0.3",
-    "gulp-pug": "^4.0.1",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
