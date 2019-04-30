@@ -5,14 +5,23 @@
 
     .nav-item {
         position: relative;
+
+        &.show .nav-link{
+            color: $navbar-link-color;
+        }
+
     }
 
     .nav-item-divider {
         content: '';
-        background: white;
+        background: $navbar-link-color;
         display: flex;
         width: 1px;
         margin: 10px 0;
+    }
+
+    .dropdown-toggle::after {
+        display: none;
     }
 
     & &-nav {
