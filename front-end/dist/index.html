@@ -47,46 +47,65 @@
     <link rel="stylesheet" href="assets/css/main.min.css">
 </head>
 <body>
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
-          <h1>EcoMar</h1>
-          <p>Fundo de Desenvolvimento das Actividades Económicas do Mar e Águas Interiores</p>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Institucional</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+<header class="page-header container">
+    <div class="row align-items-center">
+        <div class="col-auto">
+            <a class="page-header-logo" href="/"><img src="assets/img/brand-logo.png" alt=""></a>
+            <h1 class="page-header-title">Ecomar</h1>
+        </div>
+        <div class="col">
+            <p class="page-header-description d-none d-md-none d-lg-block">Fundo de Desenvolvimento das Actividades
+                Económicas do Mar e Águas Interiores</p>
+        </div>
+        <div class="col-auto">
+            <div class="navbar-search">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </nav></div>
+        </div>
+    </div>
+</header>
 
+<nav class="navbar navbar-expand-lg navbar-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Institucional</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Notícias
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Em Andamento</a>
+                    <a class="dropdown-item" href="#">Concluídos</a>
+                    <a class="dropdown-item" href="#">Acesso à crédito</a>
+                    <a class="dropdown-item" href="#">Pesca Artesanal</a>
+                    <a class="dropdown-item" href="#">Semi-industrial</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Projetos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Trabalhe conosco</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contato</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
     <script async src="assets/js/jquery.min.js"></script>
     <script async src="assets/js/bootstrap.min.js"></script>

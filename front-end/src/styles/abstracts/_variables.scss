@@ -1,4 +1,76 @@
-// -----------------------------------------------------------------------------
-// This file contains all application-wide Sass variables.
-// -----------------------------------------------------------------------------
+// ============================================================================-
+// Basic Varibles
+// ============================================================================-
 
+// Colors
+// ------------------------------------------------
+$blue-light: #23AAE2;
+$blue-soft: #0D79BF;
+$blue: #20409A;
+$blue-dark: #1E469E;
+$blue-navy: #3B5998; // facebook
+$black: #000;
+$white: #FFF;
+
+// Fonts
+// ------------------------------------------------
+$open-sans: 'Open Sans', sans-serif;
+$roboto: 'Roboto', sans-serif;
+
+// Sizes
+// ------------------------------------------------
+$size-1: 1.75rem !default;
+$size-2: 2.5rem !default;
+$size-3: 2rem !default;
+$size-4: 1.5rem !default;
+$size-5: 1.25rem !default;
+$size-6: 1rem !default;
+$size-10: 0.625rem !default;
+$size-11: 0.6875rem !default;
+$size-12: 0.75rem !default;
+$size-13: 0.8125rem !default;
+$size-14: 0.875rem !default;
+$size-15: 0.9375rem !default;
+$size-16: $size-6 !default;
+$size-17: 1.0625rem !default;
+$size-18: 1.125rem !default;
+$size-19: 1.1875rem !default;
+$size-20: $size-5 !default;
+
+// Weight 
+// ------------------------------------------------
+$weight-ultra-light: 100 !default;
+$weight-light: 300 !default;
+$weight-normal: 400 !default;
+$weight-medium: 500 !default;
+$weight-semibold: 600 !default;
+$weight-bold: 700 !default;
+
+
+
+// ============================================================================-
+// Base
+// ============================================================================-
+
+// Body
+// ------------------------------------------------
+$body-font-family: $open-sans;
+$body-font-size: 1rem;
+$body-font-color: $black;
+$body-background-color: $white;
+
+
+// ============================================================================-
+// Components
+// ============================================================================-
+
+// Page Header 
+// ------------------------------------------------
+$page-header-logo-width: 100px;
+
+$page-header-title-display: none;
+
+$page-header-description-text-margin: 50px 0 0 0;
+$page-header-description-text-size: $size-12;
+$page-header-description-text-color: $blue;
+$page-header-description-text-transform: uppercase;

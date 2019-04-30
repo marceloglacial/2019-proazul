@@ -1,0 +1,15 @@
+.jumbotron {
+    top: -40px;
+    background: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+
+    &-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+    }
+}

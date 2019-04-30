@@ -2,3 +2,13 @@
 // This file contains very basic styles.
 // -----------------------------------------------------------------------------
 
+body {
+    font-family: $body-font-family;
+    font-size: $body-font-size;
+    color: $body-font-color;
+    background: $body-background-color;
+}
+
+img {
+    width: 100%;
+}

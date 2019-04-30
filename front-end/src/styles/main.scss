@@ -24,7 +24,9 @@
 
 // 5. Components
 @import
-  'components/navbar';
+'components/page-header',
+'components/navbar',
+  'components/hero';
 
 // 6. Page-specific styles
 @import

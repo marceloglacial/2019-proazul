@@ -1,0 +1,18 @@
+.page-header {
+    outline: solid 1px;
+    
+    &-logo img {
+        max-width: $page-header-logo-width;
+    }
+
+    &-title {
+        display: $page-header-title-display;
+    }
+
+    &-description {
+        font-size: $page-header-description-text-size;
+        margin: $page-header-description-text-margin;
+        color: $page-header-description-text-color;
+        text-transform: $page-header-description-text-transform;
+    }
+}
