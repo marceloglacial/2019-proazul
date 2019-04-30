@@ -1,0 +1,28 @@
+.navbar {
+    background: $navbar-background;
+    padding: $navbar-padding;
+    margin: $navbar-margin;
+
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-item-divider {
+        content: '';
+        background: white;
+        display: flex;
+        width: 1px;
+        margin: 10px 0;
+    }
+
+    & &-nav {
+        .nav-link {
+            color: $navbar-link-color;
+
+            &:hover {
+                color: $navbar-link-color;
+                opacity: .7;
+            }
+        }
+    }
+}

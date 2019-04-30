@@ -1,6 +1,7 @@
 .page-header {
     &-logo img {
         max-width: $page-header-logo-width;
+        margin: $page-header-logo-margin;
     }
 
     &-title {
