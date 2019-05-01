@@ -97,7 +97,19 @@ $search-form-btn: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmc
 
 // Navbar
 // ------------------------------------------------
-$navbar-background: rgba(0,0,0,0.5);
+$navbar-background: rgba(0,0,0,1);
 $navbar-padding: 0;
 $navbar-margin: 0;
 $navbar-link-color: $white;
+
+$dropdown-menu-background: $navbar-background;
+$dropdown-menu-background-border: none;
+$dropdown-menu-background-border-radius: 0;
+$dropdown-menu-background-margin: 0;
+$dropdown-menu-background-padding: 0;
+
+$dropdown-menu-item-text-color: $navbar-link-color;
+$dropdown-menu-item-link-color: $dropdown-menu-item-text-color;
+$dropdown-menu-item-background: $dropdown-menu-background;
+$dropdown-menu-item-padding: 0.5rem 1rem;
+$dropdown-menu-item-margin: unset;

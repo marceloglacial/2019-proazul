@@ -34,4 +34,22 @@
             }
         }
     }
+    .dropdown-menu {
+        padding: $dropdown-menu-background-padding;
+        margin: $dropdown-menu-background-margin;
+        background: $dropdown-menu-background;
+        border: $dropdown-menu-background-border;
+        border-radius: $dropdown-menu-background-border-radius;
+
+        .dropdown-item {
+            margin: $dropdown-menu-item-margin;
+            padding: $dropdown-menu-item-padding;
+            color: $dropdown-menu-item-text-color;
+            &:hover {
+                background: $dropdown-menu-item-background;
+                color: $dropdown-menu-item-link-color;
+                opacity: 0.7;
+            }
+        }
+    }
 }
