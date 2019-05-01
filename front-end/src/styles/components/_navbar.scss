@@ -34,6 +34,10 @@
                 color: $navbar-link-color;
                 opacity: .7;
             }
+            &:focus {
+                color: $navbar-link-color;
+                outline: none;
+            }
         }
     }
     .dropdown-menu {
