@@ -5,6 +5,8 @@
 
     .nav-item {
         position: relative;
+        flex-grow: 1;
+        text-align: center;
 
         &.show .nav-link{
             color: $navbar-link-color;
@@ -40,6 +42,7 @@
         background: $dropdown-menu-background;
         border: $dropdown-menu-background-border;
         border-radius: $dropdown-menu-background-border-radius;
+        width: 100%;
 
         .dropdown-item {
             margin: $dropdown-menu-item-margin;
