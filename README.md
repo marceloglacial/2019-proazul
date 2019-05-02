@@ -1,5 +1,4 @@
 # EcoMac (2019)
-[![Build Status](https://travis-ci.org/marceloglacial/2019-ecomar.svg?branch=master)](https://travis-ci.org/marceloglacial/2019-ecomar)
 
 ## Front-end Development
 - HTML5
