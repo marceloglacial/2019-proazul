@@ -10,7 +10,7 @@
 ### Back-end Development
 - WordPress
 
-### Design 
+# Design 
 
 ![scrrenshot](design/dist/01-home.png)
 
