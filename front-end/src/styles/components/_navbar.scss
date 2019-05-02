@@ -5,6 +5,7 @@
     padding: $navbar-padding;
     margin: $navbar-margin;
 
+
     .nav-item {
         position: relative;
         flex-grow: 1;
@@ -32,6 +33,7 @@
         @include mq('large', max) {
             padding: 1rem 0;
             background: $navbar-background-mobile;
+            max-width: 100%;
         }
 
         .nav-link {
