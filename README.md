@@ -1,16 +1,16 @@
 # EcoMac (2019)
 
-## Front-end Development
+### Front-end Development
 - HTML5
 - CSS3
 - JavaScript
 - Bootstrap
 - jQuery
 
-## Back-end Development
+### Back-end Development
 - WordPress
 
-# Design 
+### Design 
 
 <img src="design/dist/01-home.png" style="width: 100%; box-shadow: 0px 10px 50px -5px #999;">
 
