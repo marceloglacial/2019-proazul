@@ -1,3 +1,24 @@
-.no-text .card-text {
-    display: none;
+.card {
+    margin-bottom: $size-16*2;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.21);
+
+    &-img-top {
+        border-radius: 0;
+    }
+
+    &-title {
+        font-size: $size-16;
+        font-weight: $weight-bold;
+        line-height: normal;
+        margin-bottom: 0;
+    }
+
+    &-text {
+        font-size: $size-16;
+        font-weight: $weight-normal;
+        line-height: normal;
+        margin-top: $size-16/2;
+    }
 }
