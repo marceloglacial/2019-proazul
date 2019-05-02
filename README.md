@@ -15,4 +15,4 @@
 ![scrrenshot](design/dist/01-home.png)
 
 # References
-- Created with <a href="https://github.com/marceloglacial/snowfall-boilerplate">Snowfall Boilerplate</a> 
+- Created using <a href="https://github.com/marceloglacial/snowfall-boilerplate">Snowfall Boilerplate</a> 
