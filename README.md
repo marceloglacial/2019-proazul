@@ -1,5 +1,7 @@
 # EcoMac (2019)
 
+Front-end and back-end development of EcoMar - Fundo de Desenvolvimento das Actividades Económicas do Mar e Águas Interiores
+
 ### Front-end Development
 - HTML5
 - CSS3
@@ -10,7 +12,7 @@
 ### Back-end Development
 - WordPress
 
-# Design 
+# Screenshot
 
 ![scrrenshot](design/dist/01-home.png)
 
