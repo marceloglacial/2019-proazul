@@ -2,6 +2,11 @@
     &-logo img {
         max-width: $page-header-logo-width;
         margin: $page-header-logo-margin;
+
+        @include mq('large', max) {
+            max-width: 60px;
+            margin: 10px 0;
+        }
     }
 
     &-title {
@@ -14,6 +19,7 @@
         color: $page-header-description-text-color;
         text-transform: $page-header-description-text-transform;
     }
+
     .page-header-share {
         padding-left: 0;
     }

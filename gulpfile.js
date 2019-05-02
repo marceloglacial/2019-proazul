@@ -49,7 +49,7 @@ function styles(src, dest) {
         .pipe(autoprefixer({
             browsers: ['last 3 versions'],
         }))
-        .pipe(sourcemaps.write('./maps'))
+        // .pipe(sourcemaps.write('./maps'))
         .pipe(rename({
             suffix: '.min'
         }))

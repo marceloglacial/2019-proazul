@@ -64,7 +64,7 @@ $icon-facebook: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DV
 $breakpoints: (
     "small": 560px,
     "medium": 768px,
-    "large": 1200px
+    "large": 991px
 );
 
 
@@ -111,6 +111,7 @@ $search-form-btn: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmc
 // ------------------------------------------------
 $navbar-background: $black-soft;
 $navbar-background-hover: $black-soft;
+$navbar-background-mobile: $black;
 $navbar-padding: 0;
 $navbar-margin: 0;
 $navbar-link-color: $white;

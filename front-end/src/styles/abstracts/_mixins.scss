@@ -3,6 +3,8 @@
 // -----------------------------------------------------------------------------
 
 // Media Queries
+// https://engageinteractive.co.uk/blog/top-10-scss-mixins
+// -------------------------------------------------------
 @mixin mq($width, $type: min) {
     @if map_has_key($breakpoints, $width) {
         $width: map_get($breakpoints, $width);

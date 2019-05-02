@@ -10,6 +10,11 @@
     background-image: url($hero-background-image);
     background-size: cover;
 
+    @include mq('large', max) {
+        top: 0;
+        margin-bottom: 0;
+    }
+
     .hero-text {
         position: relative;
         min-height: $hero-height;
@@ -18,6 +23,11 @@
             width: 50%;
             color: $hero-text-color;
             text-align: right;
+
+            @include mq('large', max) {
+                width: auto;
+                text-align: center;
+            }
 
             &:hover {
                 color: $hero-text-color-hover;
