@@ -204,9 +204,9 @@ gulp.task('frontend:build',
 gulp.task('frontend:develop',
     gulp.series(
         'frontend:clean',
+        'frontend:styles',
         'frontend:assets',
         'frontend:vendors',
-        'frontend:styles',
         'frontend:scripts',
         () => copy(frontend.images, frontend.dist + 'assets/img/'),
         'frontend:templates'

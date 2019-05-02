@@ -1,0 +1,7 @@
+.home-content {
+    padding: $size-16*2 0;
+
+    @include mq('small', max) {
+        padding: $size-16;
+    }
+}

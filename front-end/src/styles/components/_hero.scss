@@ -15,12 +15,20 @@
         margin-bottom: 0;
     }
 
+    &-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+    }
+
     .hero-text {
         position: relative;
         min-height: $hero-height;
 
         a {
-            width: 50%;
+            width: 60%;
             color: $hero-text-color;
             text-align: right;
 
@@ -35,12 +43,14 @@
             }
         }
     }
-
-    &-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: -1;
+    .hero-title {
+        font-size: $hero-title-size;
+        font-weight: $hero-title-weight;
+        text-transform: $hero-title-transform;
+    }
+    .hero-lead {
+        font-size: $hero-lead-size;
+        font-weight: $hero-lead-weight;
+        text-transform: $hero-lead-transform;
     }
 }
