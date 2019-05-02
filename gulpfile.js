@@ -302,7 +302,7 @@ function ftpDeploy(local, remote) {
     }
     let remoteFolder = remote ? credentials.remoteFolder + remote : credentials.remoteFolder
     return gulp.src(globs, options)
-        .pipe(conn.newer(remoteFolder)) // only upload newer files
+        // .pipe(conn.newer(remoteFolder)) // only upload newer files
         .pipe(conn.dest(remoteFolder));
 }
 gulp.task('frontend:deploy', gulp.series('frontend:build', () => ftpDeploy(frontend.dist)));
