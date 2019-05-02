@@ -12,7 +12,7 @@
 
 ### Design 
 
-<img src="design/dist/01-home.png" style="width: 100%; box-shadow: 0px 10px 50px -5px #999;">
+![scrrenshot](design/dist/01-home.png)
 
 # References
 - Created with <a href="https://github.com/marceloglacial/snowfall-boilerplate">Snowfall Boilerplate</a> 
