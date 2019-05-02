@@ -10,9 +10,11 @@ $blue: #20409A;
 $blue-dark: #1E469E;
 $blue-navy: #3B5998; // facebook
 $black: #000;
+$black-soft: rgba(0,0,0,0.7);
 $grey: #F9FAFB;
 $grey-dark: #717171;
 $white: #FFF;
+$white-soft: rgba(255,255,255,0.7);
 
 // Fonts
 // ------------------------------------------------
@@ -97,7 +99,8 @@ $search-form-btn: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmc
 
 // Navbar
 // ------------------------------------------------
-$navbar-background: rgba(0,0,0,0.5);
+$navbar-background: $black-soft;
+$navbar-background-hover: $black-soft;
 $navbar-padding: 0;
 $navbar-margin: 0;
 $navbar-link-color: $white;
@@ -113,3 +116,12 @@ $dropdown-menu-item-link-color: $dropdown-menu-item-text-color;
 $dropdown-menu-item-background: $dropdown-menu-background;
 $dropdown-menu-item-padding: 0.5rem 1rem;
 $dropdown-menu-item-margin: unset;
+
+// Hero / Jumbotron
+// ------------------------------------------------
+
+$hero-height: 500px;
+$hero-background-image: '/assets/img/hero.jpg'; // Photo by Sebastian Pena Lambarri on Unsplash
+$hero-text-color: $white;
+$hero-text-color-hover: $white-soft;
+$hero-text-decoration-hover: none;

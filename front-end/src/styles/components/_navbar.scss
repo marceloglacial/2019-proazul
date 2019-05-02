@@ -1,4 +1,6 @@
 .navbar {
+    position: relative;
+    z-index: 10;
     background: $navbar-background;
     padding: $navbar-padding;
     margin: $navbar-margin;
@@ -32,7 +34,7 @@
 
             &:hover {
                 color: $navbar-link-color;
-                opacity: .7;
+                background: $navbar-background-hover;
             }
             &:focus {
                 color: $navbar-link-color;
@@ -55,7 +57,6 @@
             &:hover {
                 background: $dropdown-menu-item-background;
                 color: $dropdown-menu-item-link-color;
-                opacity: 0.7;
             }
         }
     }

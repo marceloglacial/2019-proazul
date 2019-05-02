@@ -1,9 +1,30 @@
 .jumbotron {
     top: -40px;
+    margin-bottom: -40px;
     background: none;
     position: relative;
     overflow: hidden;
-    z-index: 10;
+    min-height: $hero-height;
+    z-index: 0;
+    background: center no-repeat;
+    background-image: url($hero-background-image);
+    background-size: cover;
+
+    .hero-text {
+        position: relative;
+        min-height: $hero-height;
+
+        a {
+            width: 50%;
+            color: $hero-text-color;
+            text-align: right;
+
+            &:hover {
+                color: $hero-text-color-hover;
+                text-decoration: $hero-text-decoration-hover;
+            }
+        }
+    }
 
     &-image {
         position: absolute;
