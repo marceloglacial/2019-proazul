@@ -27,15 +27,15 @@
     }
 
     &-title {
-        font-size: $size-16;
-        font-weight: $weight-bold;
+        font-size: $card-title-size;
+        font-weight: $card-title-weight;
         line-height: normal;
         margin-bottom: 0;
     }
 
     &-text {
-        font-size: $size-16;
-        font-weight: $weight-normal;
+        font-size: $card-text-size;
+        font-weight: $card-text-weight;
         line-height: normal;
         margin-top: $size-16/2;
     }
@@ -52,8 +52,9 @@
         }
 
         .card-title {
-            font-size: $size-18;
-        }
+            font-size: $card-big-title-size;
+            font-weight: $card-big-title-weight;
+            }
 
         .card-body {
             padding: $size-16/2 0 0 0;
