@@ -65,7 +65,8 @@ $icon-facebook: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DV
 $breakpoints: (
     "small": 560px,
     "medium": 768px,
-    "large": 991px
+    "large": 991px,
+    "extra-large": 1200px
 );
 
 
@@ -164,6 +165,10 @@ $news-list-title-size: $size-20;
 $news-list-title-weight: $weight-bold;
 $news-list-title-color: $black;
 $news-list-title-transform: uppercase;
+
+$news-list-item-size: $size-14;
+$news-list-item-weight: $weight-normal;
+$news-list-item-color: $black;
 
 $news-list-item-size: $size-14;
 $news-list-item-weight: $weight-normal;

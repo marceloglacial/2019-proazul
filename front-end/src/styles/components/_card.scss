@@ -12,7 +12,7 @@
         border-radius: 0;
         max-height: 130px;
 
-        @include mq('large', max) {
+        @include mq('extra-large', max) {
             max-height: unset;
         }
 
@@ -46,7 +46,7 @@
         .card-img {
             max-height: 230px;
 
-            @include mq('large', max) {
+            @include mq('extra-large', max) {
                 max-height: unset;
             }
         }

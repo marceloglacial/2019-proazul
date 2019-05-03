@@ -1,0 +1,36 @@
+.photo-gallery {
+    margin-bottom: $size-16*2;
+
+    &-title {
+        font-size: $size-20;
+        font-weight: $weight-bold;
+        text-transform: uppercase;
+        margin-bottom: $size-16;
+    }
+
+    &-container {
+        position: relative;
+        z-index: 0;
+
+        &-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            text-indent: -99999px;
+            height: 40px;
+            width: 40px;
+            background: url('../img/photo-gallery-arrow.svg') no-repeat center rgba(0, 0, 0, 0.1);
+
+            &:hover {
+                opacity: .8;
+                cursor: pointer;
+            }
+
+            &.next {
+                right: 0;
+                transform: scaleX(-1) translateY(-50%);
+            }
+        }
+    }
+}

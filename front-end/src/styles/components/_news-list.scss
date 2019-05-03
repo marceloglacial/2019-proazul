@@ -1,4 +1,6 @@
 .news-list {
+    margin-bottom: $size-16*2;
+
     &-title {
         font-size: $news-list-title-size;
         font-weight: $news-list-title-weight;
