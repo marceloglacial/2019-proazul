@@ -1,0 +1,39 @@
+.news-list {
+    &-title {
+        font-size: $news-list-title-size;
+        font-weight: $news-list-title-weight;
+        text-transform: $news-list-title-transform;
+        color: $news-list-title-color;
+        padding: 0;
+        margin: 0;
+    }
+
+    &-items {
+        padding: 0;
+        list-style: none;
+    }
+
+    &-item {
+        font-size: $news-list-item-size;
+        font-weight: $news-list-item-weight;
+        padding-top: $size-16;
+
+        &-link {
+            color: $news-list-item-color;
+
+            &:hover {
+                color: $news-list-item-color;
+            }
+        }
+    }
+
+    &-more-link {
+        font-size: $news-list-more-size;
+        font-weight: $news-list-more-weight;
+        color: $news-list-more-color;
+
+        &:hover {
+            color: $news-list-more-color;
+        }
+    }
+}
