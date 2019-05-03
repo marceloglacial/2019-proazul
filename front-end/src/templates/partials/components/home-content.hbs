@@ -1,36 +1,35 @@
 <section class="section container home-content">
-    <div class="row first-line">
-        <div class="col-12 col-lg-4 no-text">
-            {{> components/card-big}}
-        </div>
-        <div class="col">
+    <div class="row">
+        <div class="col-12 col-xl-4 no-text">
             <div class="row">
-                <div class="col-12 col-lg-6 col-xl">
-                    {{> components/card}}
+                <div class="col-12 col-lg-6 col-xl-12">
+                    {{> components/card-big}}
                 </div>
-                <div class="col-12 col-lg-6 col-xl">
-                    {{> components/card}}
-                </div>
-                <div class="col-12 col-lg-6 col-xl">
-                    {{> components/card}}
+                <div class="col-12 col-lg-6 col-xl-12">
+                    {{> components/card-big}}
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="row second-line">
-        <div class="col-12 col-lg-4 no-text">
-            {{> components/card-big}}
-        </div>
         <div class="col">
-          <div class="row">
-              <div class="col">
-                  {{> components/news-list}}
-              </div>
-              <div class="col">
-                  {{> components/photo-gallery}}
-              </div>
-          </div>  
+            <div class="row">
+                <div class="col-12 col-lg">
+                    {{> components/card}}
+                </div>
+                <div class="col-12 col-lg">
+                    {{> components/card}}
+                </div>
+                <div class="col-12 col-lg">
+                    {{> components/card}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    {{> components/news-list}}
+                </div>
+                <div class="col-12 col-lg-6">
+                    {{> components/photo-gallery}}
+                </div>
+            </div>
         </div>
     </div>
 </section>
