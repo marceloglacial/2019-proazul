@@ -4,8 +4,26 @@
     border-radius: 0;
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.21);
 
-    &-img-top {
+    &-img {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        background: #000;
         border-radius: 0;
+        max-height: 130px;
+
+        @include mq('large', max) {
+            max-height: unset;
+        }
+
+
+        &-top {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            border-radius: 0;
+        }
     }
 
     &-title {
@@ -20,5 +38,25 @@
         font-weight: $weight-normal;
         line-height: normal;
         margin-top: $size-16/2;
+    }
+
+    &.card-big {
+        box-shadow: none;
+
+        .card-img {
+            max-height: 230px;
+
+            @include mq('large', max) {
+                max-height: unset;
+            }
+        }
+
+        .card-title {
+            font-size: $size-18;
+        }
+
+        .card-body {
+            padding: $size-16/2 0 0 0;
+        }
     }
 }

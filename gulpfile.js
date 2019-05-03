@@ -14,6 +14,7 @@ const gulp = require('gulp'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
+    babel = require('gulp-babel'),
     uglify = require('gulp-uglify'),
     util = require('gulp-util'),
     vinyl_ftp = require('vinyl-ftp');
@@ -65,6 +66,9 @@ function scripts(src, dist) {
         .src(src, {
             sourcemaps: true
         })
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
         .pipe(uglify())
         .pipe(rename({
             suffix: '.min'
