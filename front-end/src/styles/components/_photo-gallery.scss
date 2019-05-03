@@ -2,9 +2,9 @@
     margin-bottom: $size-16*2;
 
     &-title {
-        font-size: $size-20;
-        font-weight: $weight-bold;
-        text-transform: uppercase;
+        font-size: $photo-gallery-title-size;
+        font-weight: $photo-gallery-title-weight;
+        text-transform: $photo-gallery-title-transform;
         margin-bottom: $size-16;
     }
 
@@ -18,9 +18,10 @@
             transform: translateY(-50%);
             z-index: 10;
             text-indent: -99999px;
-            height: 40px;
-            width: 40px;
-            background: url('../img/photo-gallery-arrow.svg') no-repeat center rgba(0, 0, 0, 0.1);
+            height: $photo-gallery-arrow-size;
+            width: $photo-gallery-arrow-size;
+            background: url($photo-gallery-arrow-icon) no-repeat center rgba(0, 0, 0, 0.1);
+            background-size: 75%;
 
             &:hover {
                 opacity: .8;
