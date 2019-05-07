@@ -1,0 +1,56 @@
+.jumbotron {
+    top: -40px;
+    margin: 0 0 -40px 0;
+    background: none;
+    position: relative;
+    overflow: hidden;
+    min-height: $hero-height;
+    z-index: 0;
+    background: center no-repeat;
+    background-image: url($hero-background-image);
+    background-size: cover;
+
+    @include mq('large', max) {
+        top: 0;
+        margin-bottom: 0;
+    }
+
+    &-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+    }
+
+    .hero-text {
+        position: relative;
+        min-height: $hero-height;
+
+        a {
+            width: 60%;
+            color: $hero-text-color;
+            text-align: right;
+
+            @include mq('large', max) {
+                width: auto;
+                text-align: center;
+            }
+
+            &:hover {
+                color: $hero-text-color-hover;
+                text-decoration: $hero-text-decoration-hover;
+            }
+        }
+    }
+    .hero-title {
+        font-size: $hero-title-size;
+        font-weight: $hero-title-weight;
+        text-transform: $hero-title-transform;
+    }
+    .hero-lead {
+        font-size: $hero-lead-size;
+        font-weight: $hero-lead-weight;
+        text-transform: $hero-lead-transform;
+    }
+}

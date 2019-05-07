@@ -1,0 +1,22 @@
+.search-form {
+    position: relative;
+    .form-control {
+        background: $search-form-background;
+        border: $search-form-border;
+        border-radius: $search-form-radius;
+        box-shadow: $search-form-shadow;
+        padding: $search-form-padding;
+        font-size: $search-form-text-size;
+        font-style: $search-form-text-style;
+        text-align: $search-form-text-align;
+    }
+    .btn {
+        position: absolute;
+        right: 0;
+        border-radius: 0;
+        padding: 0 0.8rem;
+        text-indent: -9999px;
+        background:url($search-form-btn) no-repeat center;
+        background-size: contain;
+    }
+}
