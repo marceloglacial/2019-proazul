@@ -1,3 +1,37 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
+
+.page-footer {
+    background: $page-footer-background;
+    margin: $page-footer-margin;
+    padding: $page-footer-padding;
+
+    &-list {
+        margin: $page-footer-list-margin;
+        padding: $page-footer-list-padding;
+        list-style: $page-footer-list-style;
+
+        &-title {
+            font-size: $page-footer-list-title-text-size;
+            font-weight: $page-footer-list-title-text-weight;
+            color: $page-footer-list-title-text-color;
+            text-transform: $page-footer-list-title-text-transform;
+
+            &-link {
+                color: $page-footer-list-title-text-color;
+
+                &:hover {
+                    color: $page-footer-list-title-text-color;
+                }
+            }
+        }
+
+        &-link {
+            color: $page-footer-list-link-color;
+            &:hover {
+                color: $page-footer-list-link-color;
+            }
+        }
+    }
+}
