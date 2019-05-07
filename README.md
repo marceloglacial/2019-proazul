@@ -1,21 +1,24 @@
 # EcoMac (2019)
-[![Build Status](https://travis-ci.org/marceloglacial/2019-ecomar.svg?branch=master)](https://travis-ci.org/marceloglacial/2019-ecomar)
+Front-end and Back-end Development of EcoMar - Fundo de Desenvolvimento das Actividades Económicas do Mar e Águas Interiores.
 
-### Front-end Development
+## Front-end Development
 - HTML5 starter template files
 - <a href="https://github.com/thedaviddias/Front-End-Checklist">Front-end checklist</a> ready
 - <a href="https://sass-lang.com/">SASS</a> ready
 - <a href="https://sass-guidelin.es/#architecture">SASS Architecture</a> ready
+- <a href="https://handlebarsjs.com/">Handlebars</a> templates
+- Minified HTML (optional)
+- Minifiend JS
+- Optmized Images
 
-### Back-end Development
+
+### Live Demo: 
+https://marceloglacial.github.io/2019-ecomar/front-end/dist/
+
+## Back-end Development
 - <a href="https://docs.docker.com/compose/wordpress/">WordPress Docker Compose</a> ready
 
-### Optmization
-- HTML minify on build
-- JS minify on build
-- Optmized Images on build
-
-### CI/CD
+## CI/CD
 - <a href="#deploy">FTP Deploy</a> integrated
 - <a href="#deploy">Travis CI</a> ready
 
@@ -40,4 +43,4 @@
 <img src="design/dist/01-home.png" style="width: 100%; box-shadow: 0px 10px 50px -5px #999;">
 
 # References
-- Created with <a href="https://github.com/marceloglacial/snowfall-boilerplate">Snowfall Boilerplate</a> 
+- Created using <a href="https://github.com/marceloglacial/snowfall-boilerplate">Snowfall Boilerplate</a> 
