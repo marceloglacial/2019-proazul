@@ -1,0 +1,87 @@
+.navbar {
+    position: relative;
+    z-index: 10;
+    background: $navbar-background;
+    padding: $navbar-padding;
+    margin: $navbar-margin;
+
+
+    .nav-item {
+        position: relative;
+        flex-grow: 1;
+        text-align: center;
+
+        &.show .nav-link {
+            color: $navbar-link-color;
+        }
+
+    }
+
+    .nav-item-divider {
+        content: '';
+        background: $navbar-link-color;
+        display: flex;
+        width: 1px;
+        margin: 10px 0;
+    }
+
+    .dropdown-toggle::after {
+        display: none;
+    }
+
+    & &-nav {
+        @include mq('large', max) {
+            padding: 1rem 0;
+            background: $navbar-background-mobile;
+            max-width: 100%;
+        }
+
+        .nav-link {
+            color: $navbar-link-color;
+
+            &:hover {
+                color: $navbar-link-color;
+                background: $navbar-background-hover;
+            }
+
+            &:focus {
+                color: $navbar-link-color;
+                outline: none;
+            }
+        }
+    }
+
+    .dropdown-menu {
+        padding: $dropdown-menu-background-padding;
+        margin: $dropdown-menu-background-margin;
+        background: $dropdown-menu-background;
+        border: $dropdown-menu-background-border;
+        border-radius: $dropdown-menu-background-border-radius;
+        width: 100%;
+
+        @include mq('large', max) {
+            padding: 1rem 0;
+            text-align: center;
+            background: $navbar-background-mobile;
+        }
+
+        .dropdown-item {
+            margin: $dropdown-menu-item-margin;
+            padding: $dropdown-menu-item-padding;
+            color: $dropdown-menu-item-text-color;
+
+            &:hover {
+                background: $dropdown-menu-item-background;
+                color: $dropdown-menu-item-link-color;
+            }
+        }
+    }
+
+    & &-toggler {
+        position: absolute;
+        top: -65px;
+        right: 10px;
+        border: 0;
+        outline: none;
+    }
+}

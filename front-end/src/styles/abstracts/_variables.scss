@@ -1,0 +1,218 @@
+// ============================================================================-
+// Basic Varibles
+// ============================================================================-
+
+// Colors
+// ------------------------------------------------
+$blue-light: #23AAE2;
+$blue-soft: #0D79BF;
+$blue: #20409A;
+$blue-dark: #1E469E;
+$blue-navy: #3B5998; // facebook
+$black: #000;
+$black-soft: rgba(0, 0, 0, 0.7);
+$grey: #F9FAFB;
+$grey-dark: #717171;
+$white: #FFF;
+$white-soft: rgba(255, 255, 255, 0.7);
+
+// Fonts
+// ------------------------------------------------
+$open-sans: 'Open Sans',
+sans-serif;
+$roboto: 'Roboto',
+sans-serif;
+
+// Sizes
+// ------------------------------------------------
+$size-1: 1.75rem !default;
+$size-2: 2.5rem !default;
+$size-3: 2rem !default;
+$size-4: 1.5rem !default;
+$size-5: 1.25rem !default;
+$size-6: 1rem !default;
+$size-10: 0.625rem !default;
+$size-11: 0.6875rem !default;
+$size-12: 0.75rem !default;
+$size-13: 0.8125rem !default;
+$size-14: 0.875rem !default;
+$size-15: 0.9375rem !default;
+$size-16: $size-6 !default;
+$size-17: 1.0625rem !default;
+$size-18: 1.125rem !default;
+$size-19: 1.1875rem !default;
+$size-20: $size-5 !default;
+$size-56: 3.5rem !default;
+
+// Weight 
+// ------------------------------------------------
+$weight-ultra-light: 100 !default;
+$weight-light: 300 !default;
+$weight-normal: 400 !default;
+$weight-medium: 500 !default;
+$weight-semibold: 600 !default;
+$weight-bold: 700 !default;
+
+
+// Icons
+// ------------------------------------------------
+$icon-size: 40px !default;
+$icon-facebook: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNjdweCIgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY3IDY3OyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjcgNjciIHdpZHRoPSI2N3B4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cGF0aCBkPSJNMjkuNzY1LDUwLjMyaDYuNzQ0VjMzLjk5OGg0LjQ5OWwwLjU5Ni01LjYyNGgtNS4wOTUgIGwwLjAwNy0yLjgxNmMwLTEuNDY2LDAuMTQtMi4yNTMsMi4yNDQtMi4yNTNoMi44MTJWMTcuNjhoLTQuNWMtNS40MDUsMC03LjMwNywyLjcyOS03LjMwNyw3LjMxN3YzLjM3N2gtMy4zNjl2NS42MjVoMy4zNjlWNTAuMzJ6ICAgTTM0LDY0QzE3LjQzMiw2NCw0LDUwLjU2OCw0LDM0QzQsMTcuNDMxLDE3LjQzMiw0LDM0LDRzMzAsMTMuNDMxLDMwLDMwQzY0LDUwLjU2OCw1MC41NjgsNjQsMzQsNjR6IiBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojM0E1ODlCOyIvPjwvc3ZnPg==';
+
+
+// Responsiveness
+// ------------------------------------------------
+$breakpoints: (
+    "small": 560px,
+    "medium": 768px,
+    "large": 991px,
+    "extra-large": 1200px
+);
+
+
+// ============================================================================-
+// Base
+// ============================================================================-
+
+// Body
+// ------------------------------------------------
+$body-font-family: $open-sans;
+$body-font-size: 1rem;
+$body-font-color: $black;
+$body-background-color: $white;
+
+
+// ============================================================================-
+// Components
+// ============================================================================-
+
+// Page Header 
+// ------------------------------------------------
+$page-header-logo-width: 80px;
+$page-header-logo-margin: 30px 0 15px 0; // increase header height
+$page-header-title-display: none;
+$page-header-description-text-margin: 0;
+$page-header-description-text-size: $size-12;
+$page-header-description-text-color: $blue;
+$page-header-description-text-transform: uppercase;
+$page-header-background-color: $white;
+
+// Search Form
+// ------------------------------------------------
+$search-form-background: $grey;
+$search-form-padding: 0 25px 0 0;
+$search-form-border: none;
+$search-form-radius: 0;
+$search-form-shadow: 1px 1px 0px 1px $grey-dark;
+$search-form-icon: none;
+$search-form-text-style: italic;
+$search-form-text-size: $size-13;
+$search-form-text-align: right;
+$search-form-btn: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIzMnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZXNjLz48ZGVmcy8+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSI+PGcgZmlsbD0iIzkyOTI5MiIgaWQ9Imljb24tMTExLXNlYXJjaCI+PHBhdGggZD0iTTE5LjQyNzExNjQsMjEuNDI3MTE2NCBDMTguMDM3MjQ5NSwyMi40MTc0ODAzIDE2LjMzNjY1MjIsMjMgMTQuNSwyMyBDOS44MDU1NzkzOSwyMyA2LDE5LjE5NDQyMDYgNiwxNC41IEM2LDkuODA1NTc5MzkgOS44MDU1NzkzOSw2IDE0LjUsNiBDMTkuMTk0NDIwNiw2IDIzLDkuODA1NTc5MzkgMjMsMTQuNSBDMjMsMTYuMzM2NjUyMiAyMi40MTc0ODAzLDE4LjAzNzI0OTUgMjEuNDI3MTE2NCwxOS40MjcxMTY0IEwyNy4wMTE5MTc2LDI1LjAxMTkxNzYgQzI3LjU2MjExODYsMjUuNTYyMTE4NiAyNy41NTc1MzEzLDI2LjQ0MjQ2ODcgMjcuMDExNzE4NSwyNi45ODgyODE1IEwyNi45ODgyODE1LDI3LjAxMTcxODUgQzI2LjQ0Mzg2NDgsMjcuNTU2MTM1MiAyNS41NTc2MjA0LDI3LjU1NzYyMDQgMjUuMDExOTE3NiwyNy4wMTE5MTc2IEwxOS40MjcxMTY0LDIxLjQyNzExNjQgTDE5LjQyNzExNjQsMjEuNDI3MTE2NCBaIE0xNC41LDIxIEMxOC4wODk4NTExLDIxIDIxLDE4LjA4OTg1MTEgMjEsMTQuNSBDMjEsMTAuOTEwMTQ4OSAxOC4wODk4NTExLDggMTQuNSw4IEMxMC45MTAxNDg5LDggOCwxMC45MTAxNDg5IDgsMTQuNSBDOCwxOC4wODk4NTExIDEwLjkxMDE0ODksMjEgMTQuNSwyMSBMMTQuNSwyMSBaIiBpZD0ic2VhcmNoIi8+PC9nPjwvZz48L3N2Zz4=';
+
+// Navbar
+// ------------------------------------------------
+$navbar-background: $black-soft;
+$navbar-background-hover: $black-soft;
+$navbar-background-mobile: $black;
+$navbar-padding: 0;
+$navbar-margin: 0;
+$navbar-link-color: $white;
+
+$dropdown-menu-background: $navbar-background;
+$dropdown-menu-background-border: none;
+$dropdown-menu-background-border-radius: 0;
+$dropdown-menu-background-margin: 0;
+$dropdown-menu-background-padding: 0;
+
+$dropdown-menu-item-text-color: $navbar-link-color;
+$dropdown-menu-item-link-color: $dropdown-menu-item-text-color;
+$dropdown-menu-item-background: $dropdown-menu-background;
+$dropdown-menu-item-padding: 0.5rem 1rem;
+$dropdown-menu-item-margin: unset;
+
+
+// Hero / Jumbotron
+// ------------------------------------------------
+$hero-height: 550px;
+$hero-background-image: '../img/hero.jpg'; // Photo by Sebastian Pena Lambarri on Unsplash
+$hero-text-color: $white;
+$hero-text-color-hover: $white-soft;
+$hero-text-decoration-hover: none;
+
+$hero-title-size: $size-56;
+$hero-title-transform: uppercase;
+$hero-title-weight: $weight-bold;
+
+$hero-lead-size: $size-20;
+$hero-lead-transform: unset;
+$hero-lead-weight: $weight-bold;
+
+// Cards
+// ------------------------------------------------
+$card-link-color: $black;
+
+$card-title-size: $size-16;
+$card-title-weight: $weight-bold;
+
+$card-text-size: $size-16;
+$card-text-weight: $weight-normal;
+
+$card-big-title-size: $size-18;
+$card-big-title-weight: $weight-bold;
+
+// News List (home)
+// ------------------------------------------------
+$news-list-title-size: $size-20;
+$news-list-title-weight: $weight-bold;
+$news-list-title-color: $black;
+$news-list-title-transform: uppercase;
+
+$news-list-item-size: $size-14;
+$news-list-item-weight: $weight-normal;
+$news-list-item-color: $black;
+
+$news-list-item-size: $size-14;
+$news-list-item-weight: $weight-normal;
+$news-list-item-color: $black;
+
+$news-list-more-size: $size-14;
+$news-list-more-weight: $weight-normal;
+$news-list-more-color: $black;
+
+// Photo Gallery 
+// ------------------------------------------------
+$photo-gallery-title-size: $size-20;
+$photo-gallery-title-weight: $weight-bold;
+$photo-gallery-title-color: $black;
+$photo-gallery-title-transform: uppercase;
+
+$photo-gallery-arrow-icon: '../img/photo-gallery-arrow.svg';
+$photo-gallery-arrow-size: 40px;
+
+
+// Footer 
+// ------------------------------------------------
+$page-footer-background: $blue-dark;
+$page-footer-margin: 0;
+$page-footer-padding: $size-16*2 0 0 0;
+
+$page-footer-list-title-text-size: $size-12;
+$page-footer-list-title-text-color: $white;
+$page-footer-list-title-text-weight: $weight-bold;
+$page-footer-list-title-text-transform: uppercase;
+
+$page-footer-list-padding: 0 0 $size-16*2 0;
+$page-footer-list-margin: 0;
+$page-footer-list-style: none;
+
+$page-footer-list-link-size: $page-footer-list-title-text-size;
+$page-footer-list-link-color: $page-footer-list-title-text-color;
+
+$page-footer-social-icon-size: 30px;
+$page-footer-social-icon-facebook: '../img/social-facebook.svg';
+$page-footer-social-icon-twitter: '../img/social-twitter.svg';
+
+$page-footer-newsletter-title-text-size: $size-10; 
+$page-footer-newsletter-title-text-color: $white;
+$page-footer-newsletter-form-text-size: $size-12;

@@ -1,0 +1,45 @@
+{
+  "name": "2019-ecomar",
+  "version": "0.0.1",
+  "description": "EcoMar's Website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marceloglacial/2019-ecomar.git"
+  },
+  "author": "Marcelo Glacial Freitas",
+  "license": "OSL",
+  "bugs": {
+    "url": "https://github.com/marceloglacial/2019-ecomar/issues"
+  },
+  "scripts": {
+    "frontend": "gulp frontend:start",
+    "backend": "gulp backend:install && docker-compose up -d && sleep 10 && gulp backend:start",
+    "stop": "docker-compose stop",
+    "destroy": "docker-compose down --volumes"
+  },
+  "homepage": "https://github.com/marceloglacial/2019-ecomar#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "autoprefixer": "^9.5.0",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "bootstrap": "^4.3.1",
+    "browser-sync": "^2.26.3",
+    "del": "^4.1.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-compile-handlebars": "^0.6.1",
+    "gulp-decompress": "^2.0.2",
+    "gulp-download": "0.0.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.8",
+    "tar": "^4.4.8",
+    "vinyl-ftp": "^0.6.1"
+  }
+}

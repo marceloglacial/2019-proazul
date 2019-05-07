@@ -1,0 +1,119 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+.page-footer {
+    background: $page-footer-background;
+    margin: $page-footer-margin;
+    padding: $page-footer-padding;
+
+    &-list {
+        margin: $page-footer-list-margin;
+        padding: $page-footer-list-padding;
+        list-style: $page-footer-list-style;
+
+        &-title {
+            font-size: $page-footer-list-title-text-size;
+            font-weight: $page-footer-list-title-text-weight;
+            color: $page-footer-list-title-text-color;
+            text-transform: $page-footer-list-title-text-transform;
+
+            @include mq('large', max) {
+                font-size: $size-16;
+                text-align: center;
+            }
+
+            &-link {
+                color: $page-footer-list-title-text-color;
+
+                &:hover {
+                    color: $page-footer-list-title-text-color;
+                }
+            }
+        }
+
+        &-link {
+            font-size: $page-footer-list-link-size;
+            color: $page-footer-list-link-color;
+
+            @include mq('large', max) {
+                font-size: $size-16;
+                width: 100%;
+                display: inline-block;
+                padding-bottom: $size-16;
+                text-align: center;
+            }
+
+            &:hover {
+                color: $page-footer-list-link-color;
+            }
+        }
+    }
+
+    &-social {
+        @include mq('large', max) {
+            justify-content: center;
+        }
+    }
+
+    &-social-item {
+        position: relative;
+        background: no-repeat center;
+        background-size: contain;
+        margin: 0 0 $size-16*2 $size-16;
+        transition: all 0.2s ease-in-out;
+
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:hover {
+            opacity: 0.6;
+        }
+
+        a {
+            display: inline-block;
+            width: $page-footer-social-icon-size;
+            height: $page-footer-social-icon-size;
+            overflow: hidden;
+            text-indent: -99999px;
+        }
+
+        &-facebook {
+            background-image: url($page-footer-social-icon-facebook);
+        }
+
+        &-twitter {
+            background-image: url($page-footer-social-icon-twitter);
+        }
+    }
+
+    &-newsletter {
+        padding-bottom: $size-16*2;
+
+        &-title {
+            font-size: $page-footer-newsletter-title-text-size;
+            color: $page-footer-newsletter-title-text-color;
+
+            @include mq('large', max) {
+                font-size: $size-16;
+                text-align: center;
+                margin-bottom: $size-16;
+            }
+
+        }
+
+        input {
+            border: 0;
+            border-radius: 0;
+            font-size: $page-footer-newsletter-form-text-size;
+
+            @include mq('large', max) {
+                font-size: $size-16;
+                text-align: center;
+            }
+        }
+
+    }
+}

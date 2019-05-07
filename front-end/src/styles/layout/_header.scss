@@ -1,0 +1,32 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+.page-header {
+    background-color: $page-header-background-color;
+
+    &-logo img {
+        max-width: $page-header-logo-width;
+        margin: $page-header-logo-margin;
+
+        @include mq('large', max) {
+            max-width: 60px;
+            margin: 10px 0;
+        }
+    }
+
+    &-title {
+        display: $page-header-title-display;
+    }
+
+    &-description {
+        font-size: $page-header-description-text-size;
+        margin: $page-header-description-text-margin;
+        color: $page-header-description-text-color;
+        text-transform: $page-header-description-text-transform;
+    }
+
+    .page-header-share {
+        padding-left: 0;
+    }
+}
