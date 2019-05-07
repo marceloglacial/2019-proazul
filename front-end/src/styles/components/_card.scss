@@ -4,6 +4,17 @@
     border-radius: 0;
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.21);
 
+    &-link {
+        color: $card-link-color;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            opacity: 0.8;
+            color: $card-link-color;
+        }
+    }
+
     &-img {
         position: relative;
         width: 100%;
