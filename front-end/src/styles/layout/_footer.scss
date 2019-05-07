@@ -28,10 +28,44 @@
         }
 
         &-link {
+            font-size: $page-footer-list-link-size;
             color: $page-footer-list-link-color;
+
             &:hover {
                 color: $page-footer-list-link-color;
             }
+        }
+    }
+
+    &-social-item {
+        position: relative;
+        background: no-repeat center;
+        background-size: contain;
+        margin-left: $size-16;
+        transition: all 0.2s ease-in-out;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:hover {
+            opacity: 0.6;
+        }
+
+        a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            overflow: hidden;
+            text-indent: -99999px;
+        }
+
+        &-facebook {
+            background-image: url('../img/social-facebook.svg');
+        }
+
+        &-twitter {
+            background-image: url('../img/social-twitter.svg');
         }
     }
 }

@@ -1,4 +1,5 @@
 .photo-gallery {
+    position: relative;
     margin-bottom: $size-16*2;
 
     &-title {
@@ -18,6 +19,7 @@
             transform: translateY(-50%);
             z-index: 10;
             text-indent: -99999px;
+            overflow: hidden;
             height: $photo-gallery-arrow-size;
             width: $photo-gallery-arrow-size;
             background: url($photo-gallery-arrow-icon) no-repeat center rgba(0, 0, 0, 0.1);
