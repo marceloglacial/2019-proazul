@@ -1,0 +1,17 @@
+.breadcrumb {
+    background: none;
+    padding-left: 0;
+    padding-right: 0;
+
+    &-item {
+        a,
+        &.active {
+            color: $breadcrumb-text-color;
+        }
+    }
+
+    &-item+&-item::before {
+        content: $breadcrumb-divider;
+        color: $breadcrumb-text-color;
+    }
+}
