@@ -1,12 +1,18 @@
 .breadcrumb {
     background: none;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 2rem 0 1rem 0;
+    max-width: $page-single-header-max-width;
+    margin: 0 auto;
 
+    
     &-item {
         a,
         &.active {
             color: $breadcrumb-text-color;
+        }
+
+        &:first-child {
+            text-transform: uppercase;
         }
     }
 

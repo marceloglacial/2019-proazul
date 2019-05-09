@@ -29,7 +29,8 @@
 'components/hero';
 
 // 6. Page-specific styles
-@import 'pages/home';
+@import 'pages/home',
+'pages/single';
 
 // 7. Themes
 @import 'themes/default';
