@@ -51,4 +51,23 @@
             color: $grey-light;
         }
     }
+
+    blockquote {
+        padding: 2rem 3rem;
+        position: relative;
+        font-size: $page-single-blockquote-text-size;
+        font-style: $page-single-blockquote-text-style;
+        color: $page-single-blockquote-text-color;
+
+        &:before {
+            display: block;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            content: open-quote;
+            font-size: 100px;
+            z-index: -1;
+            color: #EEE;
+        }
+    }
 }
