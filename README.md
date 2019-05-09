@@ -40,7 +40,15 @@ https://marceloglacial.github.io/2019-ecomar/front-end/dist/
 
 # Design 
 
-<img src="design/dist/01-home.png" style="width: 100%; box-shadow: 0px 10px 50px -5px #999;">
+<img src="design/dist/01-home.png">
+
+---
+
+<img src="design/dist/02-single.png">
+
+---
+
+<img src="design/dist/03-contact.png">
 
 # References
 - Created using <a href="https://github.com/marceloglacial/snowfall-boilerplate">Snowfall Boilerplate</a> 
