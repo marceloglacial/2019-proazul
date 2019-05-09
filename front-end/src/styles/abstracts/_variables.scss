@@ -10,11 +10,16 @@ $blue: #20409A;
 $blue-dark: #1E469E;
 $blue-navy: #3B5998; // facebook
 $black: #000;
+$black-light: #252525;
 $black-soft: rgba(0, 0, 0, 0.7);
 $grey: #F9FAFB;
 $grey-dark: #717171;
+$grey-light: #ACACAC;
 $white: #FFF;
 $white-soft: rgba(255, 255, 255, 0.7);
+
+$brand-color-primary: $blue;
+$brand-color-secondary: $blue-light;
 
 // Fonts
 // ------------------------------------------------
@@ -22,6 +27,7 @@ $open-sans: 'Open Sans',
 sans-serif;
 $roboto: 'Roboto',
 sans-serif;
+$lato: 'Lato', sans-serif;
 
 // Sizes
 // ------------------------------------------------
@@ -189,6 +195,36 @@ $photo-gallery-title-transform: uppercase;
 
 $photo-gallery-arrow-icon: '../img/photo-gallery-arrow.svg';
 $photo-gallery-arrow-size: 40px;
+
+// Breadcrumb 
+// ------------------------------------------------
+$breadcrumb-divider: '>';
+$breadcrumb-text-color: $grey-light;
+
+
+// ============================================================================-
+// Pages
+// ============================================================================-
+
+// Article / Single / Stories
+// ------------------------------------------------
+$page-single-header-max-width: 1000px;
+$page-single-content-max-width: 800px;
+
+$page-single-text-family: $lato;
+$page-single-text-size: $size-16;
+$page-single-text-line-height: $size-1;
+$page-single-text-color: $black-light;
+
+$page-single-link-color: $brand-color-primary;
+$page-single-link-weight: $weight-bold;
+$page-single-link-decoration: none;
+$page-single-link-color-hover: $black;
+$page-single-link-decoration-hover: underline;
+
+$page-single-blockquote-text-size: $size-20;
+$page-single-blockquote-text-color: $grey-dark;
+$page-single-blockquote-text-style: italic;
 
 
 // Footer 

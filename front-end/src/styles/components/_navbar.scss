@@ -5,7 +5,6 @@
     padding: $navbar-padding;
     margin: $navbar-margin;
 
-
     .nav-item {
         position: relative;
         flex-grow: 1;
@@ -23,6 +22,14 @@
         display: flex;
         width: 1px;
         margin: 10px 0;
+    }
+
+    .dropdown:hover>.dropdown-menu {
+        display: block;
+    }
+
+    .dropdown>.dropdown-toggle:active {
+        pointer-events: none;
     }
 
     .dropdown-toggle::after {
