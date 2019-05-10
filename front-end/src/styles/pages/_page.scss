@@ -1,29 +1,29 @@
-.page-single {
-    font-family: $page-single-text-family;
+.page {
+    font-family: $page-text-family;
 
     &-header {
-        max-width: $page-single-header-max-width;
+        max-width: $page-header-max-width;
         margin: 0 auto;
     }
 
     &-content {
-        max-width: $page-single-content-max-width;
+        max-width: $page-content-max-width;
         margin: 0 auto;
     }
 
     &-article {
         padding: 0 0 2rem 0;
-        color: $page-single-text-color;
-        line-height: $page-single-text-line-height;
+        color: $page-text-color;
+        line-height: $page-text-line-height;
 
         a {
-            font-weight: $page-single-link-weight;
-            text-decoration: $page-single-link-decoration;
-            color: $page-single-link-color;
+            font-weight: $page-link-weight;
+            text-decoration: $page-link-decoration;
+            color: $page-link-color;
 
             &:hover {
-                color: $page-single-link-color-hover;
-                text-decoration: $page-single-link-decoration-hover;
+                color: $page-link-color-hover;
+                text-decoration: $page-link-decoration-hover;
             }
         }
     }
@@ -36,7 +36,7 @@
     &-timestamp {
         font-size: 12px;
         color: $grey-light;
-        max-width: $page-single-content-max-width;
+        max-width: $page-content-max-width;
         margin: 0 auto;
     }
 
@@ -55,9 +55,9 @@
     blockquote {
         padding: 2rem 3rem;
         position: relative;
-        font-size: $page-single-blockquote-text-size;
-        font-style: $page-single-blockquote-text-style;
-        color: $page-single-blockquote-text-color;
+        font-size: $page-blockquote-text-size;
+        font-style: $page-blockquote-text-style;
+        color: $page-blockquote-text-color;
 
         &:before {
             display: block;
