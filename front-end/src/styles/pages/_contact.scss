@@ -1,0 +1,30 @@
+.page-contact {
+
+    .page-header,
+    .breadcrumb {
+        max-width: $page-content-max-width;
+    }
+    form {
+        padding-top: 2rem;
+    }
+    .form-group {
+        margin-bottom: 2rem;
+        input,
+        textarea {
+            border-radius: 0;
+            border-color: $black;
+
+            &::placeholder {
+                color: $black;
+                opacity: .3;
+            }
+        }
+        button {
+            background: $grey-light;
+            border: none;
+            color: $black;
+            border-radius: 0;
+            min-width: 100px;
+        }
+    }
+}

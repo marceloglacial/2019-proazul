@@ -208,23 +208,23 @@ $breadcrumb-text-color: $grey-light;
 
 // Article / Single / Stories
 // ------------------------------------------------
-$page-single-header-max-width: 1000px;
-$page-single-content-max-width: 800px;
+$page-header-max-width: 1000px;
+$page-content-max-width: 800px;
 
-$page-single-text-family: $lato;
-$page-single-text-size: $size-16;
-$page-single-text-line-height: $size-1;
-$page-single-text-color: $black-light;
+$page-text-family: $lato;
+$page-text-size: $size-16;
+$page-text-line-height: $size-1;
+$page-text-color: $black-light;
 
-$page-single-link-color: $brand-color-primary;
-$page-single-link-weight: $weight-bold;
-$page-single-link-decoration: none;
-$page-single-link-color-hover: $black;
-$page-single-link-decoration-hover: underline;
+$page-link-color: $brand-color-primary;
+$page-link-weight: $weight-bold;
+$page-link-decoration: none;
+$page-link-color-hover: $black;
+$page-link-decoration-hover: underline;
 
-$page-single-blockquote-text-size: $size-20;
-$page-single-blockquote-text-color: $grey-dark;
-$page-single-blockquote-text-style: italic;
+$page-blockquote-text-size: $size-20;
+$page-blockquote-text-color: $grey-dark;
+$page-blockquote-text-style: italic;
 
 
 // Footer 
