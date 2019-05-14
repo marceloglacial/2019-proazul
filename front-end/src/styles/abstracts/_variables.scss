@@ -216,6 +216,8 @@ $page-text-size: $size-16;
 $page-text-line-height: $size-1;
 $page-text-color: $black-light;
 
+$page-title-size: 36px;
+
 $page-link-color: $brand-color-primary;
 $page-link-weight: $weight-bold;
 $page-link-decoration: none;
@@ -226,6 +228,14 @@ $page-blockquote-text-size: $size-20;
 $page-blockquote-text-color: $grey-dark;
 $page-blockquote-text-style: italic;
 
+// Category Page
+// ------------------------------------------------
+$category-list-item-title-size: 26px;
+$category-list-item-description-size: $size-16;
+$category-list-item-link: $brand-color-primary;
+$category-list-tag-item-text-size: $size-12;
+$category-list-tag-item-text-color: $grey-dark;
+$category-list-tag-item-text-transform: uppercase;
 
 // Footer 
 // ------------------------------------------------
