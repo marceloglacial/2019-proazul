@@ -1,0 +1,14 @@
+.footer-address {
+    margin: 0;
+    padding: 0;
+
+    p {
+        font-size: $page-footer-address-text-size;
+        font-weight: $page-footer-address-text-weight;
+        color: $page-footer-address-text-color;
+
+        margin: 0;
+        padding: 0.5rem 0;
+        background: $page-footer-address-background-color;
+    }
+}
