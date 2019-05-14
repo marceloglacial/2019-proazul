@@ -29,7 +29,13 @@
     }
 
     &-title {
-        font-size: 36px;
+        font-size: $page-title-size;
+
+        @include mq('extra-large', max) {
+            font-size: $page-title-size*0.70;
+            padding-bottom: 0.5rem;
+        }
+
     }
 
 
