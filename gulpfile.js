@@ -236,26 +236,11 @@ const backend = new function () {
     this.proxy = 'http://localhost:8000';
 };
 
-// 4.2 - Rename index files to php
-// ------------------------------
-function backendRename() {
-    let path = backend.src
-
-    gulp.src(path + '/**/*.html')
-        .pipe(rename(function (file) {
-            file.extname = ".php";
-        }))
-        .pipe(gulp.dest(path))
-
-    return del(path + '**/*.html')
-};
-
 // 4.3 - Backed Install 
 // ------------------------------
 gulp.task('backend:install', gulp.series(
     'frontend:develop',
     () => copy(frontend.dist + '/**/*.*', backend.src),
-    backendRename,
     () => copy(backend.src + '/**/*.*', backend.dist),
 ));
 
@@ -268,6 +253,7 @@ gulp.task('backend:start', gulp.series(
 // 4.6 - Start Develop
 // ------------------------------
 gulp.task('backend:develop', gulp.series(
+    () => clean(backend.dist),
     () => copy(backend.src + '/**/*.*', backend.dist),
 ));
 

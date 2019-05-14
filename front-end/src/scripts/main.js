@@ -1,9 +1,19 @@
+// Calculate Image Height for card
 function imageHeight() {
-    $('.card-img').each(function() {
-        let imageHeight = $(this).find('.card-img-top').height();
-        return $(this).height(imageHeight) ;
-    });
+    $(".card-img").each(function () {
+        var i = $(this).find(".card-img-top").height();
+        return $(this).height(i)
+    })
 }
 
-$(document).ready(imageHeight); 
-$(window).resize(imageHeight); 
+// Fix admin bar margin 
+function loggedBar() {
+    let adminBarHeight = $('#wpadminbar').height();
+    $('body').css('padding-top', adminBarHeight);
+}
+
+$(document).ready(function() {
+    imageHeight();
+    loggedBar();
+});
+$(window).resize(imageHeight);

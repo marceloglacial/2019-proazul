@@ -1,0 +1,11 @@
+<div class="card">
+  <a href="single.html" class="card-link">
+      <div class="card-img">
+          <img class="card-img-top" src="<?php echo get_template_directory_uri(); ?>/assets/img/card-image-02.jpg" alt="Photo by Hunter Brumels on Unsplash">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Phasellus placerat a sapien eget ornare</h5>
+        <p class="card-text">Some quick example text to build on the card title and make</p>
+      </div>    
+  </a>
+</div>
