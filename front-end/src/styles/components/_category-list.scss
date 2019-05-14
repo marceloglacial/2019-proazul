@@ -1,0 +1,17 @@
+.category-list {
+    padding: 2rem 0;
+    max-width: $page-header-max-width;
+    margin: 0 auto;
+}
+.category-list-item {
+    &-link {
+        color: $brand-color-primary;
+        display: inline;
+    }
+    &-title {
+        font-size: 26px;
+    }
+    &-description {
+        font-size: $size-16;
+    }
+}
