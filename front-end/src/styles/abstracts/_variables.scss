@@ -228,7 +228,12 @@ $page-blockquote-text-style: italic;
 
 // Category Page
 // ------------------------------------------------
-
+$category-list-item-title-size: 26px;
+$category-list-item-description-size: $size-16;
+$category-list-item-link: $brand-color-primary;
+$category-list-tag-item-text-size: $size-12;
+$category-list-tag-item-text-color: $grey-dark;
+$category-list-tag-item-text-transform: uppercase;
 
 // Footer 
 // ------------------------------------------------

@@ -3,15 +3,34 @@
     max-width: $page-header-max-width;
     margin: 0 auto;
 }
+
 .category-list-item {
+    &:not(:last-of-type) {
+        margin-bottom: 2rem;
+    }
+    &-tags-list {
+        width: fit-content;
+        list-style: none;
+        padding: 0;
+
+        &-item {
+            padding: 0 0.5rem 0 0;
+            font-size: $category-list-tag-item-text-size;
+            color: $category-list-tag-item-text-color;
+            text-transform: $category-list-tag-item-text-transform;
+        }
+    }
+
     &-link {
-        color: $brand-color-primary;
+        color: $category-list-item-link;
         display: inline;
     }
+
     &-title {
-        font-size: 26px;
+        font-size: $category-list-item-title-size;
     }
+
     &-description {
-        font-size: $size-16;
+        font-size: $category-list-item-description-size;
     }
 }
