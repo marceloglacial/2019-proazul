@@ -10,9 +10,11 @@
         flex-grow: 1;
         text-align: center;
 
+        &.active>.nav-link,
         &.show .nav-link {
             color: $navbar-link-color;
         }
+
         &:not(:last-child):after {
             position: absolute;
             top: 0;
@@ -23,7 +25,18 @@
             height: 50%;
             width: 1px;
             margin: 10px 0;
-        }    
+
+            @include mq('large', max) {
+                top: unset;
+                right: 50%;
+                transform: translateX(50%);
+                bottom: -10px;
+                width: 30px;
+                height: 1px;
+                opacity: .3;
+            }
+
+        }
     }
 
 
@@ -78,12 +91,13 @@
             text-align: center;
             background: $navbar-background-mobile;
         }
-
         .dropdown-item {
             margin: $dropdown-menu-item-margin;
             padding: $dropdown-menu-item-padding;
             color: $dropdown-menu-item-text-color;
 
+            &.active, 
+            &:active,
             &:hover {
                 background: $dropdown-menu-item-background;
                 color: $dropdown-menu-item-link-color;
