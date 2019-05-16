@@ -18,7 +18,8 @@ const gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     util = require('gulp-util'),
     vinyl_ftp = require('vinyl-ftp'),
-    fs = require('fs');
+    fs = require('fs'),
+    gClean = require('gulp-clean');
 
 
 // 1.2 - Global Paths
@@ -246,9 +247,28 @@ const backend = new function () {
 
 // 4.3 - Backed Install 
 // ------------------------------
+function backendRename() {
+    return gulp.src(backend.src + '*.html')
+        .pipe(rename(function (path) {
+            path.extname = ".php";
+        }))
+        .pipe(gulp.dest(backend.src))
+};
+
+function backendCleanHtml() {
+    return gulp.src(backend.src + '*.html')
+        .pipe(gClean({
+            read: false
+        }))
+};
+
+
 gulp.task('backend:install', gulp.series(
     'frontend:build',
+    () => clean(backend.root),
     () => copy(frontend.dist + '/**/*.*', backend.src),
+    () => backendRename(),
+    () => backendCleanHtml(),
     () => copy(backend.src + '/**/*.*', backend.dist),
 ));
 
@@ -256,7 +276,7 @@ gulp.task('backend:install', gulp.series(
 // ------------------------------
 gulp.task('backend:start', (done) => {
     if (!fs.existsSync(backend.dist)) {
-        return gulp.series('backend:install',() => liveServer('backend'))(done);
+        return gulp.series('backend:install', () => liveServer('backend'))(done);
     } else {
         return gulp.series(() => liveServer('backend'))(done);
     }
