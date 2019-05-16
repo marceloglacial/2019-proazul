@@ -17,7 +17,8 @@ const gulp = require('gulp'),
     babel = require('gulp-babel'),
     uglify = require('gulp-uglify'),
     util = require('gulp-util'),
-    vinyl_ftp = require('vinyl-ftp');
+    vinyl_ftp = require('vinyl-ftp'),
+    fs = require('fs');
 
 
 // 1.2 - Global Paths
@@ -116,17 +117,24 @@ function copy(src, dest) {
 
 // 2.7 - Start server
 // ------------------------------
-function liveServer(path, proxy) {
-    let options = proxy ? {
-        proxy: backend.proxy
-    } : {
-        server: {
-            baseDir: path
+function liveServer(path) {
+    let options;
+
+    if (path == 'frontend') {
+        options = {
+            server: {
+                baseDir: frontend.dist
+            }
         }
-    };
+        gulp.watch(frontend.src).on('change', gulp.series('frontend:develop', liveReload));
+
+    } else {
+        options = {
+            proxy: backend.proxy
+        }
+        gulp.watch(backend.src).on('change', gulp.series('backend:develop', liveReload));
+    }
     browserSync.init(options);
-    gulp.watch(frontend.src).on('change', gulp.series('frontend:develop', liveReload));
-    gulp.watch(backend.src).on('change', gulp.series('backend:develop', liveReload));
 };
 
 
@@ -219,7 +227,7 @@ gulp.task('frontend:develop',
 
 // 3.12 - Start Server
 // ------------------------------
-gulp.task('frontend:server', gulp.series('frontend:develop', () => liveServer(frontend.dist)));
+gulp.task('frontend:server', gulp.series('frontend:develop', () => liveServer('frontend')));
 gulp.task('frontend:start', gulp.series('frontend:server'));
 
 
@@ -239,16 +247,21 @@ const backend = new function () {
 // 4.3 - Backed Install 
 // ------------------------------
 gulp.task('backend:install', gulp.series(
-    'frontend:develop',
+    'frontend:build',
     () => copy(frontend.dist + '/**/*.*', backend.src),
     () => copy(backend.src + '/**/*.*', backend.dist),
 ));
 
 // 4.5 - Start Backend
 // ------------------------------
-gulp.task('backend:start', gulp.series(
-    () => liveServer(backend.dist, backend.proxy),
-));
+gulp.task('backend:start', (done) => {
+    if (!fs.existsSync(backend.dist)) {
+        return gulp.series('backend:install',() => liveServer('backend'))(done);
+    } else {
+        return gulp.series(() => liveServer('backend'))(done);
+    }
+});
+
 
 // 4.6 - Start Develop
 // ------------------------------

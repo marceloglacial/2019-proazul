@@ -47,6 +47,7 @@
 
     <!-- STYLES -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/main.min.css?version=2.2">
+    <?php wp_head() ?>
 </head>
 
 <body>

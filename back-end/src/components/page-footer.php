@@ -97,5 +97,5 @@
         <!-- /row -->
     </div>
     <!-- /container -->
-    {{> components/footer-address}}
+    <?php get_template_part('components/footer-address') ?>
 </footer>
