@@ -23,8 +23,7 @@
             height: 50%;
             width: 1px;
             margin: 10px 0;
-        }
-    
+        }    
     }
 
 
@@ -58,6 +57,10 @@
             &:focus {
                 color: $navbar-link-color;
                 outline: none;
+            }
+            &.active {
+                color: $navbar-link-color;
+                background: $navbar-background-hover;
             }
         }
     }

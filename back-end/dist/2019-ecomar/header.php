@@ -15,15 +15,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
     <!-- INFO -->
-    <title>EcoMar - Fundo de Desenvolvimento das Actividades Económicas do Mar e Águas Interiores</title>
-    <meta name="description" content="Fundo de Desenvolvimento das Actividades Económicas do Mar e Águas Interiores" />
-    <meta name="keywords" content="ecomar" />
+    <title><?php echo get_bloginfo( 'name' ); ?> - <?php echo get_bloginfo( 'description' ); ?></title>
+    <meta name="description" content="<?php echo get_bloginfo( 'description' ); ?>" />
+    <meta name="keywords" content="<?php echo get_bloginfo( 'name' ); ?>" />
 
     <!-- Recommended favicon format -->
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
 
     <!-- Apple Touch Icon (at least 200x200px) -->
-    <link rel="apple-touch-icon" href="tile.png">
+    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/tile.png">
 
     <!-- To run web application in full-screen -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,17 +32,17 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <!-- Microsoft Tiles -->
-    <meta name="msapplication-config" content="browserconfig.xml" />
+    <meta name="msapplication-config" content="<?php echo get_template_directory_uri(); ?>/browserconfig.xml" />
 
     <!-- SOCIAL -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="htt://ecomar.pt">
-    <meta property="og:title" content="EcoMar">
-    <meta property="og:image" content="tile-wide.png">
+    <meta property="og:title" content="<?php echo get_bloginfo( 'name' ); ?>">
+    <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/tile-wide.png">
     <meta property="og:description"
-        content="Fundo de Desenvolvimento das Actividades Económicas do Mar e Águas Interiores">
+        content="<?php echo get_bloginfo( 'description' ); ?>">
     <meta property="og:site_name"
-        content="EcoMar - Fundo de Desenvolvimento das Actividades Económicas do Mar e Águas Interiores">
+        content="<?php echo get_bloginfo( 'name' ); ?> - <?php echo get_bloginfo( 'description' ); ?>">
     <meta property="og:locale" content="en_US">
 
     <!-- STYLES -->
