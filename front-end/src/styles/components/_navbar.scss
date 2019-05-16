@@ -13,16 +13,20 @@
         &.show .nav-link {
             color: $navbar-link-color;
         }
-
+        &:not(:last-child):after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            content: '';
+            background: $navbar-link-color;
+            display: block;
+            height: 50%;
+            width: 1px;
+            margin: 10px 0;
+        }
+    
     }
 
-    .nav-item-divider {
-        content: '';
-        background: $navbar-link-color;
-        display: flex;
-        width: 1px;
-        margin: 10px 0;
-    }
 
     .dropdown:hover>.dropdown-menu {
         display: block;
