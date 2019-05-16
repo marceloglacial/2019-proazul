@@ -10,7 +10,7 @@
         flex-grow: 1;
         text-align: center;
 
-        &.active>.nav-link,
+        &.active .nav-link,
         &.show .nav-link {
             color: $navbar-link-color;
         }
