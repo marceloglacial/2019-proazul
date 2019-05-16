@@ -6,14 +6,7 @@ function imageHeight() {
     })
 }
 
-// Fix admin bar margin 
-function loggedBar() {
-    let adminBarHeight = $('#wpadminbar').height();
-    $('body').css('padding-top', adminBarHeight);
-}
-
 $(document).ready(function() {
     imageHeight();
-    loggedBar();
 });
 $(window).resize(imageHeight);

@@ -265,7 +265,7 @@ function backendCleanHtml() {
 
 gulp.task('backend:install', gulp.series(
     'frontend:build',
-    () => clean(backend.root),
+    () => clean(backend.dist),
     () => copy(frontend.dist + '/**/*.*', backend.src),
     () => backendRename(),
     () => backendCleanHtml(),
