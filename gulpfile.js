@@ -260,7 +260,7 @@ gulp.task('frontend:start', gulp.series('frontend:server'));
 const backend = new function () {
     this.root = 'back-end/';
     this.src = this.root + 'src/';
-    this.dist = this.root + 'dist/' + projectConfig.name;
+    this.dist = this.root + 'dist/themes/' + projectConfig.name;
     this.proxy = 'http://localhost:8000';
 };
 
