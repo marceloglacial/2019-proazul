@@ -19,6 +19,7 @@ const gulp = require('gulp'),
     util = require('gulp-util'),
     vinyl_ftp = require('vinyl-ftp'),
     fs = require('fs'),
+    purgecss = require('gulp-purgecss')
     gClean = require('gulp-clean');
 
 
@@ -58,6 +59,13 @@ function styles(src, dest) {
         }))
         .pipe(gulp.dest(dest))
 };
+gulp.task('frontend:purgecss', () => {
+    return gulp.src(frontend.dist + '**/*.css')
+        .pipe(purgecss({
+            content: [frontend.dist + '**/*.html']
+        }))
+        .pipe(gulp.dest(frontend.dist))
+})
 
 
 // 2.3 - Minimize Scripts
@@ -86,7 +94,16 @@ function images(src, dest) {
     return (
         gulp
         .src(src)
-        .pipe(imagemin())
+        .pipe(imagemin({
+            interlaced: true,
+            progressive: true,
+            optimizationLevel: 5,
+            svgoPlugins: [
+                {
+                    removeViewBox: true
+                }
+            ]
+        }))
         .pipe(gulp.dest(dest))
     )
 };
@@ -208,7 +225,8 @@ gulp.task('frontend:build',
         'frontend:styles',
         'frontend:scripts',
         'frontend:images',
-        'frontend:templates'
+        'frontend:templates',
+        'frontend:purgecss'
     )
 );
 
@@ -222,7 +240,8 @@ gulp.task('frontend:develop',
         'frontend:vendors',
         'frontend:scripts',
         () => copy(frontend.images, frontend.dist + 'assets/img/'),
-        'frontend:templates'
+        'frontend:templates',
+        'frontend:purgecss'
     )
 );
 
