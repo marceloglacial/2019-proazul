@@ -13,15 +13,20 @@
 
         <div class="col">
             <div class="row">
-                <div class="col-12 col-lg">
-                    <?php get_template_part('components/card'); ?>
-                </div>
-                <div class="col-12 col-lg">
-                    <?php get_template_part('components/card'); ?>
-                </div>
-                <div class="col-12 col-lg">
-                    <?php get_template_part('components/card'); ?>
-                </div>
+                <?php 
+                    $post_objects = get_field('conteudo-horizontal');
+
+                    if( $post_objects ):
+                        foreach( $post_objects as $post_object): 
+                        set_query_var('post_id', $post_object->ID); 
+                ?>
+                            <div class="col-12 col-lg-4">
+                                <?php get_template_part('components/card'); ?>
+                            </div>
+                <?php 
+                        endforeach;
+                    endif; 
+                ?>
             </div>
             <div class="row">
                 <div class="col-12 col-lg-6">

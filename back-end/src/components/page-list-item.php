@@ -5,13 +5,6 @@
         </div>
     <?php } ?>        
     <div class="category-list-item-lead col-12 col-lg">
-        <!-- <div class="category-list-item-tags container-fluid">
-            <ul class="category-list-item-tags-list row">
-                <li class="category-list-item-tags-list-item col">Tag</li>
-                <li class="category-list-item-tags-list-item col">Tag</li>
-                <li class="category-list-item-tags-list-item col">Tag</li>
-            </ul>
-        </div> -->
         <h3 class="category-list-item-title"><?php the_title() ?></h3>
         <p class="category-list-item-description"><?php the_excerpt('...') ?></p>
         <p>
