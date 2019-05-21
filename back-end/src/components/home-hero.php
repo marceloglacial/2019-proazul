@@ -1,8 +1,11 @@
-<div class="jumbotron jumbotron-fluid">
+<?php 
+    $image = get_field('imagem');
+?>
+<div class="jumbotron jumbotron-fluid" style="background-image: url('<?php echo $image['url']; ?>')">
     <div class="hero-text container d-flex flex-column justify-content-center justify-content-lg-end align-items-end">
         <a href="single.html" class="hero-link">
-            <h1 class="hero-title">Hello, world!</h1>
-            <p class="hero-lead lead">This is a simple hero unit, a simple jumbotron-style component.</p>
+            <h1 class="hero-title"><?php the_field('titulo'); ?></h1>
+            <p class="hero-lead lead"><?php the_field('subtitulo'); ?></p>
         </a>
     </div>
 </div>
