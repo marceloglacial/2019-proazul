@@ -26,4 +26,5 @@ function hide_editor() {
     remove_post_type_support('page', 'editor');
   }
 }
+
 ?>

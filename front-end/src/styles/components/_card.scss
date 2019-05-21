@@ -14,6 +14,7 @@
             color: $card-link-color;
         }
     }
+
     &-body {
         min-height: 10.13rem;
     }
@@ -46,7 +47,7 @@
         font-size: $card-title-size;
         font-weight: $card-title-weight;
         line-height: $card-title-size * 1.5;
-        margin-bottom: 0;        
+        margin-bottom: 0;
     }
 
     &-text {
@@ -70,10 +71,12 @@
         .card-title {
             font-size: $card-big-title-size;
             font-weight: $card-big-title-weight;
-            }
+            min-height: $card-big-title-size*3;
+        }
 
         .card-body {
             padding: $size-16/2 0 0 0;
+            min-height: unset;
         }
     }
 }
