@@ -15,7 +15,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
     <!-- INFO -->
-    <title><?php echo get_bloginfo( 'name' ); ?> - <?php echo get_bloginfo( 'description' ); ?></title>
+    <title>
+        <?php if(is_front_page() or is_category()) { ?>
+            <?php echo get_bloginfo( 'name' ); ?> - <?php echo get_bloginfo( 'description' ); ?>
+        <?php } else { ?>
+            <?php the_title(); ?> - <?php echo get_bloginfo( 'name' ); ?>
+        <?php } ?>
+    </title>
     <meta name="description" content="<?php echo get_bloginfo( 'description' ); ?>" />
     <meta name="keywords" content="<?php echo get_bloginfo( 'name' ); ?>" />
 
@@ -35,15 +41,23 @@
     <meta name="msapplication-config" content="<?php echo get_template_directory_uri(); ?>/browserconfig.xml" />
 
     <!-- SOCIAL -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="htt://ecomar.pt">
-    <meta property="og:title" content="<?php echo get_bloginfo( 'name' ); ?>">
-    <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/tile-wide.png">
-    <meta property="og:description"
-        content="<?php echo get_bloginfo( 'description' ); ?>">
-    <meta property="og:site_name"
-        content="<?php echo get_bloginfo( 'name' ); ?> - <?php echo get_bloginfo( 'description' ); ?>">
-    <meta property="og:locale" content="en_US">
+    <?php if(is_front_page() or is_category()) { ?>
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="<?php the_permalink(); ?>">
+        <meta property="og:title" content="<?php echo get_bloginfo( 'name' ); ?>">
+        <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/tile-wide.png">
+        <meta property="og:description" content="<?php echo get_bloginfo( 'description' ); ?>">
+        <meta property="og:site_name" content="<?php echo get_bloginfo( 'name' ); ?> - <?php echo get_bloginfo( 'description' ); ?>">
+        <meta property="og:locale" content="en_US">
+    <?php } else { ?>
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="<?php the_permalink(); ?>">
+        <meta property="og:title" content="<?php the_title() ?>">
+        <meta property="og:image" content="<?php echo catch_that_image($post->ID); ?>">
+        <meta property="og:description" content="<?php the_excerpt(); ?>">
+        <meta property="og:site_name" content="<?php echo get_bloginfo( 'name' ); ?> - <?php echo get_bloginfo( 'description' ); ?>">
+        <meta property="og:locale" content="en_US">
+    <?php } ?>
 
     <!-- STYLES -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/main.min.css?version=2.2">
