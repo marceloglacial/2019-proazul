@@ -9,8 +9,10 @@
                 <?php get_template_part('components/page-list-item'); ?>
         <?php endwhile; ?>
 
-        <div class="nav-next alignright"><?php next_posts_link( '&#8592; Mais antigos' ); ?></div>
-        <div class="nav-previous alignleft"><?php previous_posts_link( 'Mais recentes &#8594; ' ); ?></div>
+        <div class="category-list-nav">
+            <div class="category-list-nav-item nav-next"><?php next_posts_link( '&#8592; Mais antigos' ); ?></div>
+            <div class="category-list-nav-item nav-previous"><?php previous_posts_link( 'Mais recentes &#8594; ' ); ?></div>
+        </div>
 
         <?php else : ?>
             <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>

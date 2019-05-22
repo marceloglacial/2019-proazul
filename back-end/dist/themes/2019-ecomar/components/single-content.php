@@ -7,11 +7,6 @@
             <p class="page-timestamp"><time><?php the_date(); ?></time></p>
         </header>
         <section class="page-content">
-            <?php if ( has_post_thumbnail() ) { ?>
-                <figure>
-                    <?php the_post_thumbnail(); ?>
-                </figure>
-            <?php } ?>
             <?php the_content() ?>
             </section>
         </article>

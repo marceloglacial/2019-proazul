@@ -10,11 +10,6 @@ register_nav_menus( array(
 ) );
 
 //
-// Add featured image
-//
-add_theme_support( 'post-thumbnails' );
-
-//
 // https://www.daddydesign.com/wordpress/how-to-hide-the-wordpress-content-editor-on-specific-pages/
 //
 add_action( 'admin_init', 'hide_editor' );
@@ -25,6 +20,22 @@ function hide_editor() {
   if(($pagetitle == 'Página Inicial') or ($pagetitle == 'Home')) {
     remove_post_type_support('page', 'editor');
   }
+}
+
+// Use fisrt image as thumbnail
+// https://wordpress.stackexchange.com/questions/60245/get-first-image-in-a-post
+function catch_that_image($post_id) {
+  $post_content = get_post_field('post_content', $post_id);
+  $first_img = '';
+  ob_start();
+  ob_end_clean();
+  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post_content, $matches);
+  $first_img = $matches [1] [0];
+
+  if(empty($first_img)){ //Defines a default image
+    $first_img = get_template_directory_uri(). "/assets/img/placeholder.png";
+  }
+  return $first_img;
 }
 
 ?>

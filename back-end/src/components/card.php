@@ -4,7 +4,7 @@
       <?php if (get_the_post_thumbnail($post_id)) { ?>
         <img src="<?php echo  get_the_post_thumbnail_url($post_id); ?>" alt="" class="card-img-top">
       <?php } else { ?>
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/placeholder.png" alt="" class="card-img-top">
+        <img src="<?php echo catch_that_image($post_id); ?>" alt="" class="card-img-top">
       <?php } ?>
       </div>
       <div class="card-body">
