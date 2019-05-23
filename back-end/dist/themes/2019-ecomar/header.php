@@ -16,7 +16,7 @@
 
     <!-- INFO -->
     <title>
-        <?php if(is_front_page() or is_category()) { ?>
+        <?php if(is_front_page() or is_category() or is_404()) { ?>
             <?php echo get_bloginfo( 'name' ); ?> - <?php echo get_bloginfo( 'description' ); ?>
         <?php } else { ?>
             <?php the_title(); ?> - <?php echo get_bloginfo( 'name' ); ?>
