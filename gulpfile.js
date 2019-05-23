@@ -17,7 +17,10 @@ const gulp = require('gulp'),
     babel = require('gulp-babel'),
     uglify = require('gulp-uglify'),
     util = require('gulp-util'),
-    vinyl_ftp = require('vinyl-ftp');
+    vinyl_ftp = require('vinyl-ftp'),
+    fs = require('fs'),
+    purgecss = require('gulp-purgecss')
+    gClean = require('gulp-clean');
 
 
 // 1.2 - Global Paths
@@ -56,6 +59,13 @@ function styles(src, dest) {
         }))
         .pipe(gulp.dest(dest))
 };
+gulp.task('frontend:purgecss', () => {
+    return gulp.src(frontend.dist + '**/*.css')
+        .pipe(purgecss({
+            content: [frontend.dist + '**/*.html']
+        }))
+        .pipe(gulp.dest(frontend.dist))
+})
 
 
 // 2.3 - Minimize Scripts
@@ -84,7 +94,16 @@ function images(src, dest) {
     return (
         gulp
         .src(src)
-        .pipe(imagemin())
+        .pipe(imagemin({
+            interlaced: true,
+            progressive: true,
+            optimizationLevel: 5,
+            svgoPlugins: [
+                {
+                    removeViewBox: true
+                }
+            ]
+        }))
         .pipe(gulp.dest(dest))
     )
 };
@@ -116,17 +135,24 @@ function copy(src, dest) {
 
 // 2.7 - Start server
 // ------------------------------
-function liveServer(path, proxy) {
-    let options = proxy ? {
-        proxy: backend.proxy
-    } : {
-        server: {
-            baseDir: path
+function liveServer(path) {
+    let options;
+
+    if (path == 'frontend') {
+        options = {
+            server: {
+                baseDir: frontend.dist
+            }
         }
-    };
+        gulp.watch(frontend.src).on('change', gulp.series('frontend:develop', liveReload));
+
+    } else {
+        options = {
+            proxy: backend.proxy
+        }
+        gulp.watch(backend.src).on('change', gulp.series('backend:develop', liveReload));
+    }
     browserSync.init(options);
-    gulp.watch(frontend.src).on('change', gulp.series('frontend:develop', liveReload));
-    gulp.watch(backend.src).on('change', gulp.series('backend:develop', liveReload));
 };
 
 
@@ -199,7 +225,8 @@ gulp.task('frontend:build',
         'frontend:styles',
         'frontend:scripts',
         'frontend:images',
-        'frontend:templates'
+        'frontend:templates',
+        'frontend:purgecss'
     )
 );
 
@@ -213,13 +240,14 @@ gulp.task('frontend:develop',
         'frontend:vendors',
         'frontend:scripts',
         () => copy(frontend.images, frontend.dist + 'assets/img/'),
-        'frontend:templates'
+        'frontend:templates',
+        'frontend:purgecss'
     )
 );
 
 // 3.12 - Start Server
 // ------------------------------
-gulp.task('frontend:server', gulp.series('frontend:develop', () => liveServer(frontend.dist)));
+gulp.task('frontend:server', gulp.series('frontend:develop', () => liveServer('frontend')));
 gulp.task('frontend:start', gulp.series('frontend:server'));
 
 
@@ -232,42 +260,51 @@ gulp.task('frontend:start', gulp.series('frontend:server'));
 const backend = new function () {
     this.root = 'back-end/';
     this.src = this.root + 'src/';
-    this.dist = this.root + 'dist/' + projectConfig.name;
+    this.dist = this.root + 'dist/themes/' + projectConfig.name;
     this.proxy = 'http://localhost:8000';
-};
-
-// 4.2 - Rename index files to php
-// ------------------------------
-function backendRename() {
-    let path = backend.src
-
-    gulp.src(path + '/**/*.html')
-        .pipe(rename(function (file) {
-            file.extname = ".php";
-        }))
-        .pipe(gulp.dest(path))
-
-    return del(path + '**/*.html')
 };
 
 // 4.3 - Backed Install 
 // ------------------------------
+function backendRename() {
+    return gulp.src(backend.src + '*.html')
+        .pipe(rename(function (path) {
+            path.extname = ".php";
+        }))
+        .pipe(gulp.dest(backend.src))
+};
+
+function backendCleanHtml() {
+    return gulp.src(backend.src + '*.html')
+        .pipe(gClean({
+            read: false
+        }))
+};
+
+
 gulp.task('backend:install', gulp.series(
-    'frontend:develop',
+    'frontend:build',
+    () => clean(backend.dist),
     () => copy(frontend.dist + '/**/*.*', backend.src),
-    backendRename,
+    () => backendRename(),
+    () => backendCleanHtml(),
     () => copy(backend.src + '/**/*.*', backend.dist),
 ));
 
 // 4.5 - Start Backend
 // ------------------------------
-gulp.task('backend:start', gulp.series(
-    () => liveServer(backend.dist, backend.proxy),
-));
+gulp.task('backend:start', (done) => {
+    if (!fs.existsSync(backend.dist)) {
+        return gulp.series('backend:install', () => liveServer('backend'))(done);
+    } else {
+        return gulp.series(() => liveServer('backend'))(done);
+    }
+});
 
 // 4.6 - Start Develop
 // ------------------------------
 gulp.task('backend:develop', gulp.series(
+    () => clean(backend.dist),
     () => copy(backend.src + '/**/*.*', backend.dist),
 ));
 
