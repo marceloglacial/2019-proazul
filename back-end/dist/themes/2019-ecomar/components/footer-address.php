@@ -1,3 +1,3 @@
 <section class="footer-address container-fluid text-center">
-    <p><?php the_field('address_info'); ?></p>
+    <p><?php echo $GLOBALS['cgv']['rodape'] ?></p>
 </section>

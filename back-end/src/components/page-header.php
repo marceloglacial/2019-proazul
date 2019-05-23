@@ -11,9 +11,9 @@
             <div class="page-header-search col-2 d-none d-md-none d-lg-block">
             <?php get_template_part('components/search-form'); ?>
             </div>
-            <?php if (get_field('facebook')) { ?>
+            <?php if ($GLOBALS['cgv']['facebook']) { ?>
             <div class="page-header-share col-auto d-none d-md-none d-lg-block">
-                <a href="<?php echo get_field('facebook') ?>" target="_blank"><i class="icon icon-facebook"></i></a>
+                <a href="<?php echo $GLOBALS['cgv']['facebook'] ?>" target="_blank"><i class="icon icon-facebook"></i></a>
             </div>
             <? } ?>
         </div>

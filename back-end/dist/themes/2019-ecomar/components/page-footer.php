@@ -81,11 +81,11 @@
 
             <div class="col-12 col-lg">
                 <div class="page-footer-list-container page-footer-social d-flex">
-                <?php if (get_field('facebook')) { ?>
-                    <div class="page-footer-social-item page-footer-social-item-facebook"><a href="<?php echo get_field('facebook') ?>" target="_blank">Facebook</a></div>
+                <?php if ($GLOBALS['cgv']['facebook']) { ?>
+                    <div class="page-footer-social-item page-footer-social-item-facebook"><a href="<?php echo $GLOBALS['cgv']['facebook'] ?>" target="_blank">Facebook</a></div>
                 <? } ?>
-                <?php if (get_field('twitter')) { ?>
-                    <div class="page-footer-social-item page-footer-social-item-twitter"><a href="<?php echo get_field('twitter') ?>" target="_blank">Twitter</a></div>
+                <?php if ($GLOBALS['cgv']['twitter']) { ?>
+                    <div class="page-footer-social-item page-footer-social-item-twitter"><a href="<?php echo $GLOBALS['cgv']['twitter'] ?>" target="_blank">Twitter</a></div>
                 <? } ?>
                 </div>
 
