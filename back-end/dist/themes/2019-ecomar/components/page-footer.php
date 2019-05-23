@@ -81,8 +81,12 @@
 
             <div class="col-12 col-lg">
                 <div class="page-footer-list-container page-footer-social d-flex">
-                    <div class="page-footer-social-item page-footer-social-item-facebook"><a href="single.html">Facebook</a></div>
-                    <div class="page-footer-social-item page-footer-social-item-twitter"><a href="single.html">Twitter</a></div>
+                <?php if (get_field('facebook')) { ?>
+                    <div class="page-footer-social-item page-footer-social-item-facebook"><a href="<?php echo get_field('facebook') ?>" target="_blank">Facebook</a></div>
+                <? } ?>
+                <?php if (get_field('twitter')) { ?>
+                    <div class="page-footer-social-item page-footer-social-item-twitter"><a href="<?php echo get_field('twitter') ?>" target="_blank">Twitter</a></div>
+                <? } ?>
                 </div>
 
                 <div class="page-footer-list-container page-footer-newsletter">
