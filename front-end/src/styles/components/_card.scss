@@ -15,6 +15,10 @@
         }
     }
 
+    &-body {
+        min-height: 10.13rem;
+    }
+
     &-img {
         position: relative;
         width: 100%;
@@ -22,6 +26,7 @@
         background: #000;
         border-radius: 0;
         max-height: 130px;
+        overflow: hidden;
 
         @include mq('extra-large', max) {
             max-height: unset;
@@ -34,13 +39,14 @@
             left: 50%;
             transform: translate3d(-50%, -50%, 0);
             border-radius: 0;
+            width: calc(100% + 4px);
         }
     }
 
     &-title {
         font-size: $card-title-size;
         font-weight: $card-title-weight;
-        line-height: normal;
+        line-height: $card-title-size * 1.5;
         margin-bottom: 0;
     }
 
@@ -65,10 +71,12 @@
         .card-title {
             font-size: $card-big-title-size;
             font-weight: $card-big-title-weight;
-            }
+            min-height: $card-big-title-size*3;
+        }
 
         .card-body {
             padding: $size-16/2 0 0 0;
+            min-height: unset;
         }
     }
 }

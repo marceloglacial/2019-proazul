@@ -1,0 +1,78 @@
+/*
+====================================
+    DEFINITIONS TABLE
+====================================
+*/
+
+#custom-global-variables-table-definitions {
+
+    width: 100%;
+
+    > tbody {
+
+        > tr {
+
+            > td {
+
+                text-align: center;
+                vertical-align: top;
+
+                &:first-child {
+
+                    width: 30%;
+
+                    input {
+                        border-top: 0;
+                        border-left: 0;
+                        border-right: 0;
+                    }
+                }
+
+                &.value-input {
+                    width: 55%;
+                }
+
+                &.options {
+
+                    width: 5%;
+
+                    .delete {
+                        cursor: pointer;
+                        height: auto;
+                        margin: 0.65em 0 0.65em 0.65em;
+                        opacity: 0;
+                        transition: all .2s ease-in-out;
+                        width: 100%;
+                    }
+                }
+
+                input, textarea {
+                    border: 1px solid #ddd;
+                    box-shadow: none;
+                    padding: 0.75em;
+                    width: 100%;
+                }
+
+                textarea {
+                    height: 5em;
+                }
+
+                .equals {
+                    color: #999;
+                    display: block;
+                    padding: 0.75em;
+                }
+            }
+
+            &:hover {
+
+                > td.options {
+
+                    .delete {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
