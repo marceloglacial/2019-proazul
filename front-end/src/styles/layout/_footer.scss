@@ -7,49 +7,6 @@
     margin: $page-footer-margin;
     padding: $page-footer-padding;
 
-    &-list {
-        margin: $page-footer-list-margin;
-        padding: $page-footer-list-padding;
-        list-style: $page-footer-list-style;
-
-        &-title {
-            font-size: $page-footer-list-title-text-size;
-            font-weight: $page-footer-list-title-text-weight;
-            color: $page-footer-list-title-text-color;
-            text-transform: $page-footer-list-title-text-transform;
-
-            @include mq('large', max) {
-                font-size: $size-16;
-                text-align: center;
-            }
-
-            &-link {
-                color: $page-footer-list-title-text-color;
-
-                &:hover {
-                    color: $page-footer-list-title-text-color;
-                }
-            }
-        }
-
-        &-link {
-            font-size: $page-footer-list-link-size;
-            color: $page-footer-list-link-color;
-
-            @include mq('large', max) {
-                font-size: $size-16;
-                width: 100%;
-                display: inline-block;
-                padding-bottom: $size-16;
-                text-align: center;
-            }
-
-            &:hover {
-                color: $page-footer-list-link-color;
-            }
-        }
-    }
-
     &-social {
         @include mq('large', max) {
             justify-content: center;
@@ -115,5 +72,28 @@
             }
         }
 
+    }
+
+    .menu {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        a {
+            color: $page-footer-menu-text-color;
+            font-size: $page-footer-menu-text-size;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .sub-menu {
+            margin: 0;
+            padding: 0 0 2rem 0;
+            list-style: none;
+            a {
+                text-transform: none;
+                font-weight: normal;    
+            }
+        }
     }
 }
