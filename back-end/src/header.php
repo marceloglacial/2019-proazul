@@ -18,6 +18,8 @@
     <title>
         <?php if(is_front_page() or is_category() or is_404()) { ?>
             <?php echo get_bloginfo( 'name' ); ?> - <?php echo get_bloginfo( 'description' ); ?>
+        <?php } elseif (is_search()) { ?>
+            Resultados da busca - <?php echo get_bloginfo( 'name' ); ?>
         <?php } else { ?>
             <?php the_title(); ?> - <?php echo get_bloginfo( 'name' ); ?>
         <?php } ?>
