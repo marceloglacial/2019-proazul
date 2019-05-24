@@ -13,7 +13,7 @@
     <?php endwhile; else: ?>
         <article class="page-article">
             <header class="page-header">
-                <h1 class="page-title">Sorry, no posts matched your criteria.</h1>
+                <h1 class="page-title">Desculpe, não encontramos a sua página..</h1>
             </header>
         </article>
     <?php endif; ?>
