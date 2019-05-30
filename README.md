@@ -1,5 +1,5 @@
-# EcoMac (2019)
-Front-end and Back-end Development of EcoMar - Fundo de Desenvolvimento das Actividades Económicas do Mar e Águas Interiores.
+# ProAzul (2019)
+Front-end and Back-end Development of ProAzul - Fundo de Desenvolvimento das Actividades Económicas do Mar e Águas Interiores.
 
 ## Front-end Development
 - HTML5 starter template files
@@ -13,7 +13,7 @@ Front-end and Back-end Development of EcoMar - Fundo de Desenvolvimento das Acti
 
 
 ### Live Demo: 
-https://marceloglacial.github.io/2019-ecomar/front-end/dist/
+https://marceloglacial.github.io/2019-proazul/front-end/dist/
 
 ## Back-end Development
 - <a href="https://docs.docker.com/compose/wordpress/">WordPress Docker Compose</a> ready
