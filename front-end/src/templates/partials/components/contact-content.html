@@ -10,37 +10,37 @@
         </header>
         <section class="page-content">
             <form>
-                <div class="form-group row">
-                    <label for="inputName" class="col-sm-2 col-form-label">Nome</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputName" placeholder="Seu nome completo">
+                <div class="row  first_row">
+                    <div class="col-sm-12  single">
+                        <div class="form-group">
+                            <label class="control-label">Nome <span aria-hidden="true" role="presentation" class="field_required" style="color:#ee0000;">*</span></label>
+                            <div class="">
+                                <input required="" type="text" class="form-control" value=""> </div>
+                            </div>
+                        <div class="form-group">
+                            <label class="control-label">Email <span aria-hidden="true" role="presentation" class="field_required" style="color:#ee0000;">*</span></label>
+                            <div class="">
+                                <input required="" type="email" class=" form-control" value="" data-type="email" aria-required="true"> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Mensagem <span aria-hidden="true" role="presentation" class="field_required" style="color:#ee0000;">*</span></label>
+                            <div class="">
+                                <textarea value="" class="form-control" rows="7" required="required"></textarea>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Seu email">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputTel" class="col-sm-2 col-form-label">Telefone</label>
-                    <div class="col-sm-10">
-                        <input type="tel" class="form-control" id="inputTel" placeholder="Seu número de telefone">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="exampleFormControlTextarea" class="col-sm-2 col-form-label">Mensagem</label>
-                    <div class="col-sm-10">
-                        <textarea class="form-control" id="exampleFormControlTextarea" rows="10"></textarea>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col text-sm-right">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                <div class="row  last_row">
+                    <div class="col-sm-12  single">
+                        <div class="form-group">
+                            <div class="">
+                                <input class="btn btn-primary" type="submit" value="Enviar">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
-
         </section>
     </article>
 </main>
