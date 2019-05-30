@@ -1,15 +1,15 @@
 {
-  "name": "2019-ecomar",
+  "name": "2019-proazul",
   "version": "0.0.1",
-  "description": "EcoMar's Website",
+  "description": "ProAzul's Website",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marceloglacial/2019-ecomar.git"
+    "url": "git+https://github.com/marceloglacial/2019-proazul.git"
   },
   "author": "Marcelo Glacial Freitas",
   "license": "OSL",
   "bugs": {
-    "url": "https://github.com/marceloglacial/2019-ecomar/issues"
+    "url": "https://github.com/marceloglacial/2019-proazul/issues"
   },
   "scripts": {
     "frontend": "gulp frontend:start",
@@ -17,7 +17,7 @@
     "stop": "docker-compose stop",
     "destroy": "docker-compose down --volumes"
   },
-  "homepage": "https://github.com/marceloglacial/2019-ecomar#readme",
+  "homepage": "https://github.com/marceloglacial/2019-proazul#readme",
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
