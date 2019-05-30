@@ -1,5 +1,7 @@
 <?php 
     $image = get_field('imagem');
+
+    if ($image) {
 ?>
 <div class="jumbotron jumbotron-fluid" style="background-image: url('<?php echo $image['url']; ?>')">
     <div class="hero-text container d-flex flex-column justify-content-center justify-content-lg-end align-items-end">
@@ -9,3 +11,6 @@
         </a>
     </div>
 </div>
+<?php 
+    }
+?>
