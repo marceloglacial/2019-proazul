@@ -38,10 +38,10 @@
             </div>
             <div class="row">
                 <div class="col-12 col-lg-6">
-                    <?php // get_template_part('components/news-list'); ?>
+                    <?php get_template_part('components/news-list'); ?>
                 </div>
                 <div class="col-12 col-lg-6">
-                    <?php // get_template_part('components/photo-gallery'); ?>
+                    <?php get_template_part('components/photo-gallery'); ?>
                 </div>
             </div>
         </div>
