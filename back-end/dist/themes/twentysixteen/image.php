@@ -93,7 +93,7 @@ get_header(); ?>
 						);
 						?>
 					</footer><!-- .entry-footer -->
-				</article><!-- #post-<?php the_ID(); ?> -->
+				</article><!-- #post-## -->
 
 				<?php
 				// If comments are open or we have at least one comment, load up the comment template.
