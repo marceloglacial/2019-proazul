@@ -1,6 +1,6 @@
 <section class="section container home-content">
     <div class="row">
-        <div class="col-12 col-xl-4 no-text">
+        <div class="home-content-vertical col-12 col-xl-4 no-text">
             <div class="row">
             <?php 
                 $post_objects = get_field('conteudo-vertical');
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="col">
+        <div class="home-content-horizontal col">
             <div class="row">
                 <?php 
                     $post_objects = get_field('conteudo-horizontal');
