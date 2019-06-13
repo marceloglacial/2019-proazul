@@ -1,14 +1,14 @@
 .photo-gallery {
     position: relative;
 
-    &-title {
+    & &-title {
         font-size: $photo-gallery-title-size;
         font-weight: $photo-gallery-title-weight;
         text-transform: $photo-gallery-title-transform;
         margin-bottom: $size-16;
     }
 
-    &-container {
+    & &-container {
         position: relative;
         z-index: 0;
 
@@ -33,6 +33,11 @@
                 right: 0;
                 transform: scaleX(-1) translateY(-50%);
             }
+        }
+
+        & .metaslider.ms-theme-cubic,
+        & .metaslider.ms-theme-cubic.ms-is-small {
+            padding-bottom: 0;
         }
     }
 }

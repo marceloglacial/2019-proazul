@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Akismet Anti-Spam - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-12-08 12:30:17+0000\n"
+"PO-Revision-Date: 2019-06-12 22:48:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -293,7 +293,7 @@ msgstr "Você não tem um plano do Akismet."
 
 #: views/notice.php:64
 msgid "Your Akismet subscription is suspended."
-msgstr "Sua assinatura do Akismet está supensa."
+msgstr "Sua assinatura do Akismet está suspensa."
 
 #: views/notice.php:59
 msgid "Your Akismet plan has been cancelled."
