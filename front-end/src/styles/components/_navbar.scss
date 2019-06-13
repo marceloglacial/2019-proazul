@@ -71,9 +71,9 @@
                 color: $navbar-link-color;
                 outline: none;
             }
+
             &.active {
                 color: $navbar-link-color;
-                background: $navbar-background-hover;
             }
         }
     }
@@ -91,14 +91,18 @@
             text-align: center;
             background: $navbar-background-mobile;
         }
+
         .dropdown-item {
             margin: $dropdown-menu-item-margin;
             padding: $dropdown-menu-item-padding;
             color: $dropdown-menu-item-text-color;
 
-            &.active, 
-            &:active,
-            &:hover {
+            &.active {
+                background: unset;
+            }
+
+            &:hover,
+            &.active:hover {
                 background: $dropdown-menu-item-background;
                 color: $dropdown-menu-item-link-color;
             }
