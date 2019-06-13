@@ -295,7 +295,8 @@ gulp.task('backend:install', gulp.series(
 // ------------------------------
 gulp.task('backend:start', (done) => {
     if (!fs.existsSync(backend.dist)) {
-        return gulp.series('backend:install', () => liveServer('backend'))(done);
+        // return gulp.series('backend:install', () => liveServer('backend'))(done);
+        return gulp.series(() => liveServer('backend'))(done);
     } else {
         return gulp.series(() => liveServer('backend'))(done);
     }
