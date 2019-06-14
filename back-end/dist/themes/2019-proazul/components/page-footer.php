@@ -14,8 +14,8 @@
 
                 <div class="page-footer-list-container page-footer-newsletter">
                     <h5 class="page-footer-newsletter-title">Receba nosso boletim informativo</h5>
-                    <form class="form-inline">
-                        <input class="form-control w-100" type="search" placeholder="Digite seu e-mail" aria-label="Digite seu e-mail">
+                    <form class="form-inline" action="https://mailchi.mp/e768b97f5032/proazul">
+                        <input class="form-control w-100" type="email" placeholder="Digite seu e-mail" aria-label="Digite seu e-mail" required>
                     </form>
                 </div>
             </div>
