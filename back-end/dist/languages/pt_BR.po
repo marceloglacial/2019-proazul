@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.2.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-06-11 13:56:15+0000\n"
+"PO-Revision-Date: 2019-06-18 18:21:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -86,6 +86,10 @@ msgstr "."
 #: wp-includes/class-wp-locale.php:213
 msgid "number_format_decimal_point"
 msgstr ","
+
+#: wp-includes/customize/class-wp-customize-theme-control.php:97
+msgid "New version available."
+msgstr "Nova versão disponível."
 
 #: wp-includes/load.php:152
 msgid "Insufficient Requirements"
@@ -4210,8 +4214,8 @@ msgctxt "customizer changeset status"
 msgid "Scheduled"
 msgstr "Agendado"
 
-#: wp-includes/customize/class-wp-customize-theme-control.php:115
-#: wp-includes/customize/class-wp-customize-theme-control.php:123
+#: wp-includes/customize/class-wp-customize-theme-control.php:122
+#: wp-includes/customize/class-wp-customize-theme-control.php:130
 msgctxt "theme"
 msgid "Installed"
 msgstr "Instalado"
@@ -4996,7 +5000,7 @@ msgstr "Voltar para fontes de temas"
 msgid "Search WordPress.org themes"
 msgstr "Pesquisar temas do WordPress.org"
 
-#: wp-includes/customize/class-wp-customize-theme-control.php:128
+#: wp-includes/customize/class-wp-customize-theme-control.php:135
 msgid "Install &amp; Preview"
 msgstr "Instalar e visualizar"
 
@@ -7488,13 +7492,12 @@ msgstr "Filtrar temas"
 msgid "Change theme"
 msgstr "Mudar tema"
 
-#. translators: %s: "Update now" button
-#: wp-includes/customize/class-wp-customize-theme-control.php:97
+#: wp-includes/customize/class-wp-customize-theme-control.php:102
 msgid "Update now"
 msgstr "Atualizar agora"
 
 #. translators: %s: "Update now" button
-#: wp-includes/customize/class-wp-customize-theme-control.php:97
+#: wp-includes/customize/class-wp-customize-theme-control.php:101
 msgid "New version available. %s"
 msgstr "Nova versão disponível. %s"
 
@@ -9787,7 +9790,7 @@ msgstr[0] "%1$s resposta para %2$s"
 msgstr[1] "%1$s respostas para %2$s"
 
 #. translators: %s: theme name
-#: wp-includes/customize/class-wp-customize-theme-control.php:108
+#: wp-includes/customize/class-wp-customize-theme-control.php:115
 msgid "<span>Previewing:</span> %s"
 msgstr "<span>Visualizando:</span> %s"
 
@@ -9998,7 +10001,7 @@ msgid "Theme Details"
 msgstr "Informações do tema"
 
 #: wp-includes/script-loader.php:1767
-#: wp-includes/customize/class-wp-customize-theme-control.php:120
+#: wp-includes/customize/class-wp-customize-theme-control.php:127
 msgid "Live Preview"
 msgstr "Ver ao vivo"
 
@@ -12232,7 +12235,7 @@ msgid "Select file"
 msgstr "Selecionar arquivo"
 
 #: wp-includes/admin-bar.php:434
-#: wp-includes/customize/class-wp-customize-theme-control.php:112
+#: wp-includes/customize/class-wp-customize-theme-control.php:119
 msgid "Customize"
 msgstr "Personalizar"
 
