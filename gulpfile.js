@@ -17,7 +17,6 @@ const gulp = require('gulp'),
     babel = require('gulp-babel'),
     uglify = require('gulp-uglify'),
     util = require('gulp-util'),
-    vinyl_ftp = require('vinyl-ftp'),
     fs = require('fs'),
     purgecss = require('gulp-purgecss')
     gClean = require('gulp-clean');
@@ -312,40 +311,3 @@ gulp.task('backend:develop', gulp.series(
 // 4.7 - Clean build files
 // ------------------------------
 gulp.task('backend:clean', () => clean(backend.dist));
-
-
-// =============================================================
-// 5. FTP Deploy
-// =============================================================
-//
-// Please fill info and rename credentials-sample.json
-// to credentials.json
-//
-// NOTE: 
-// Due sensitive information,
-// this file WILL NOT BE on version control.
-
-
-function ftpDeploy(local, remote) {
-    let credentials = require('./credentials.json');
-    var conn = vinyl_ftp.create({
-        host: credentials.host,
-        user: credentials.user,
-        password: credentials.password,
-        parallel: credentials.parallel,
-        log: credentials.log
-    });
-    console.log('Uploading ' + local + ' files ...');
-    let globs = [
-        local + '**/*.*',
-    ];
-    var options = {
-        buffer: false
-    }
-    let remoteFolder = remote ? credentials.remoteFolder + remote : credentials.remoteFolder
-    return gulp.src(globs, options)
-        // .pipe(conn.newer(remoteFolder)) // only upload newer files
-        .pipe(conn.dest(remoteFolder));
-}
-gulp.task('frontend:deploy', gulp.series('frontend:build', () => ftpDeploy(frontend.dist)));
-gulp.task('backend:deploy', gulp.series(() => ftpDeploy(backend.dist, '/wp-content/themes')));
