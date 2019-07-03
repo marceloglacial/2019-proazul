@@ -38,17 +38,21 @@ https://marceloglacial.github.io/2019-proazul/front-end/dist/
 - `npm run frontend` - Start front-end developement
 - `npm run backend` - Start back-end developement
 
+# WordpPress Tutorials
+
+<a href="https://www.youtube.com/playlist?list=PLNF2VgWqGY5HXbN11RcTt4grRoCXn79lR">Video tutorials</a>
+
 # Design 
 
-<img src="design/dist/01-home.png">
+<img src="https://github.com/marceloglacial/2019-proazul/raw/master/design/dist/01-home.png">
 
 ---
 
-<img src="design/dist/02-single.png">
+<img src="https://github.com/marceloglacial/2019-proazul/raw/master/design/dist/02-single.png">
 
 ---
 
-<img src="design/dist/03-contact.png">
+<img src="https://github.com/marceloglacial/2019-proazul/raw/master/design/dist/03-contact.png">
 
 # References
 - Created using <a href="https://github.com/marceloglacial/snowfall-boilerplate">Snowfall Boilerplate</a> 
