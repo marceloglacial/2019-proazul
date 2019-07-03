@@ -1,7 +1,7 @@
 # ProAzul (2019)
 Front-end and Back-end Development of ProAzul - Fundo de Desenvolvimento das Actividades Económicas do Mar e Águas Interiores.
 
-<a href="https://cloud.docker.com/repository/docker/marceloglacial/2019-proazul">![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/marceloglacial/2019-proazul.svg)</a> <a href="https://cloud.docker.com/repository/docker/marceloglacial/2019-proazul">![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/marceloglacial/2019-proazul.svg)</a>
+<a href="https://hub.docker.com/r/marceloglacial/2019-proazul">![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/marceloglacial/2019-proazul.svg)</a> <a href="https://hub.docker.com/r/marceloglacial/2019-proazul">![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/marceloglacial/2019-proazul.svg)</a>
 
 
 ## Front-end Development
@@ -19,7 +19,7 @@ Front-end and Back-end Development of ProAzul - Fundo de Desenvolvimento das Act
 
 ## Back-end Development
 - <a href="https://docs.docker.com/compose/wordpress/">WordPress Docker Compose</a> ready
-- <a href="https://cloud.docker.com/repository/docker/marceloglacial/2019-proazul">Docker Cloud Repository</a>
+- <a href="https://hub.docker.com/r/marceloglacial/2019-proazul">Docker Cloud Repository</a>
 
 
 
