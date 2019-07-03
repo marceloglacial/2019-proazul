@@ -1,6 +1,9 @@
 # ProAzul (2019)
 Front-end and Back-end Development of ProAzul - Fundo de Desenvolvimento das Actividades Económicas do Mar e Águas Interiores.
 
+![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/marceloglacial/2019-proazul.svg) ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/marceloglacial/2019-proazul.svg)
+
+
 ## Front-end Development
 - HTML5 starter template files
 - <a href="https://github.com/thedaviddias/Front-End-Checklist">Front-end checklist</a> ready
