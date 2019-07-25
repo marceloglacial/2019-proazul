@@ -49,9 +49,7 @@ function styles(src, dest) {
             outputStyle: 'compressed'
         }))
         .on('error', sass.logError)
-        .pipe(autoprefixer({
-            browsers: ['last 3 versions'],
-        }))
+        .pipe(autoprefixer())
         // .pipe(sourcemaps.write('./maps'))
         .pipe(rename({
             suffix: '.min'
