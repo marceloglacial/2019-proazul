@@ -1,0 +1,19 @@
+.page-institutional {
+    padding-bottom: 2rem;
+    h2 {
+        color: $blue;
+        padding: 2rem 0;
+    }
+
+    figure {
+        max-width: 150px;
+        float: left;
+        padding-right: 1rem;
+    }
+    .conselho-card {
+        clear: both;
+        max-height: 150px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+}
