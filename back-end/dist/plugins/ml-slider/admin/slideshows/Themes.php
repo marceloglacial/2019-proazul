@@ -314,7 +314,7 @@ class MetaSlider_Themes {
 			$theme_dir = METASLIDER_THEMES_PATH . $theme['folder'];
 		}
 
-		// Let theme developers or others define a folder to check for themes
+		// Let theme developers or others define a folder to check for themes (this lets them override our themes)
 		$extra_themes = apply_filters('metaslider_extra_themes', array(), $slideshow_id);
 		foreach ($extra_themes as $location) {
 			if (file_exists(trailingslashit($location) . $theme['folder'])) {

@@ -1,0 +1,200 @@
+0000.002 (0) Opened log file at time: Tue, 30 Jul 2019 04:03:15 +0000 on http://localhost:8000
+0000.004 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.16 WP: 5.2.2 PHP: 7.3.7 (apache2handler, Linux 31930e0f3ac3 4.9.125-linuxkit #1 SMP Fri Sep 7 08:20:28 UTC 2018 x86_64) MySQL: 5.7.27 WPLANG: pt_PT Server: Apache/2.4.38 (Debian) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 11.6M | 4M) multisite: N openssl: OpenSSL 1.1.1c  28 May 2019 mcrypt: N LANG: C ZipArchive::addFile: Y
+0000.005 (0) Free space on disk containing Updraft's temporary directory: 192739.6 MB
+0000.009 (0) Tasks: Backup files: 1 (schedule: unset) Backup DB: 1 (schedule: unset)
+0000.015 (0) Semaphore (fd, wp_options) being initialised
+0000.018 (0) Requesting semaphore lock (fd) (apparently not via scheduler)
+0000.023 (0) Set semaphore last lock (fd) time to 2019-07-30 04:03:15
+0000.024 (0) Semaphore lock (fd) complete
+0000.026 (0) Backup run: resumption=0, nonce=0ce13cbaaf9d, file_nonce=0ce13cbaaf9d begun at=1564459395 (0s ago), job type=backup
+0000.028 (0) Scheduling a resumption (1) after 300 seconds (1564459695) in case this run gets aborted
+0000.051 (0) Checking if we have a zip executable available
+0000.053 (0) Creation of backups of directories: beginning
+0000.059 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0006.247 (0) Total entities for the zip file: 699 directories, 3943 files (0 skipped as non-modified), 53 MB
+0006.253 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 2.0 seconds have passed since the last write (0 MB, 1 (1) files added so far); re-opening (prior size: 0 KB)
+0007.142 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 100 files added (on-disk size: 125.7 KB)
+0007.359 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 200 files added (on-disk size: 125.7 KB)
+0007.583 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 300 files added (on-disk size: 125.7 KB)
+0007.814 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 400 files added (on-disk size: 125.7 KB)
+0008.042 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 500 files added (on-disk size: 125.7 KB)
+0008.048 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (12.3 MB, 3943 files batched, 501 (502) added so far); re-opening (prior size: 125.7 KB)
+0010.906 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 600 files added (on-disk size: 3973.6 KB)
+0011.154 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 700 files added (on-disk size: 3973.6 KB)
+0011.375 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 800 files added (on-disk size: 3973.6 KB)
+0011.599 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 900 files added (on-disk size: 3973.6 KB)
+0011.822 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 1000 files added (on-disk size: 3973.6 KB)
+0011.831 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (15.6 MB, 3943 files batched, 501 (1003) added so far); re-opening (prior size: 3973.6 KB)
+0015.105 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 1100 files added (on-disk size: 11036.7 KB)
+0015.346 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 1200 files added (on-disk size: 11036.7 KB)
+0015.578 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 1300 files added (on-disk size: 11036.7 KB)
+0015.808 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 1400 files added (on-disk size: 11036.7 KB)
+0016.047 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 1500 files added (on-disk size: 11036.7 KB)
+0016.058 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (9.1 MB, 3943 files batched, 501 (1504) added so far); re-opening (prior size: 11036.7 KB)
+0019.526 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 1600 files added (on-disk size: 13578.3 KB)
+0019.766 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 1700 files added (on-disk size: 13578.3 KB)
+0020.032 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 1800 files added (on-disk size: 13578.3 KB)
+0020.287 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 1900 files added (on-disk size: 13578.3 KB)
+0020.526 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 2000 files added (on-disk size: 13578.3 KB)
+0020.540 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (1.6 MB, 3943 files batched, 501 (2005) added so far); re-opening (prior size: 13578.3 KB)
+0023.498 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 2100 files added (on-disk size: 14261.2 KB)
+0023.750 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 2200 files added (on-disk size: 14261.2 KB)
+0023.985 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 2300 files added (on-disk size: 14261.2 KB)
+0024.215 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 2400 files added (on-disk size: 14261.2 KB)
+0024.438 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 2500 files added (on-disk size: 14261.2 KB)
+0024.453 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (4.7 MB, 3943 files batched, 501 (2506) added so far); re-opening (prior size: 14261.2 KB)
+0027.512 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 2600 files added (on-disk size: 15709.9 KB)
+0027.733 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 2700 files added (on-disk size: 15709.9 KB)
+0027.959 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 2800 files added (on-disk size: 15709.9 KB)
+0028.195 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 2900 files added (on-disk size: 15709.9 KB)
+0028.431 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 3000 files added (on-disk size: 15709.9 KB)
+0028.452 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (6.5 MB, 3943 files batched, 501 (3007) added so far); re-opening (prior size: 15709.9 KB)
+0031.967 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 3100 files added (on-disk size: 17821 KB)
+0032.202 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 3200 files added (on-disk size: 17821 KB)
+0032.437 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 3300 files added (on-disk size: 17821 KB)
+0032.673 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 3400 files added (on-disk size: 17821 KB)
+0032.905 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 3500 files added (on-disk size: 17821 KB)
+0032.925 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (1.7 MB, 3943 files batched, 501 (3508) added so far); re-opening (prior size: 17821 KB)
+0036.214 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 3600 files added (on-disk size: 18379.2 KB)
+0036.448 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 3700 files added (on-disk size: 18379.2 KB)
+0036.685 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 3800 files added (on-disk size: 18379.2 KB)
+0036.914 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip.tmp: 3900 files added (on-disk size: 18379.2 KB)
+0040.067 (0) Created plugins zip (0) - 18882.7 KB in 40 s (472.1 KB/s) (sha1: aeac53971f239debb27a710accecc5176ee7c737, sha256: dcc13cdec2062df54ce07eb3406b676b51224949a65e04cba730496715658f01)
+0040.074 (0) Beginning creation of dump of themes (split every: 400 MB)
+0040.486 (0) Total entities for the zip file: 53 directories, 252 files (0 skipped as non-modified), 18.6 MB
+0040.707 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0040.944 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0043.241 (0) Created themes zip (0) - 17726.4 KB in 3.2 s (5611.9 KB/s) (sha1: f34dc26019eaa03903ee7338b5643bae6aa5ba7b, sha256: b81bccdb0cd4a7a1354b6a549e8f015ac1a22385988708659b24a0d51808a344)
+0043.250 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0043.251 (0) Looking for candidates to backup in: /var/www/html/wp-content/uploads
+0043.253 (0) finding files: 2019: adding to list (1)
+0043.254 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0043.393 (0) Total entities for the zip file: 4 directories, 104 files (0 skipped as non-modified), 9.5 MB
+0043.611 (0) Zip: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0044.515 (0) Created uploads zip (0) - 9793.2 KB in 1.3 s (7823.3 KB/s) (sha1: 2abe0c7f9f7c348ed21fec946bde5bfad27e73d0, sha256: fc3305ecfdfaf51ff05d5acd11acc42c2a3e68f87fd61b0ccd99510c6ef934e3)
+0044.523 (0) Beginning backup of other directories found in the content directory (index: 0)
+0044.524 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0044.525 (0) Looking for candidates to backup in: /var/www/html/wp-content
+0044.527 (0) finding files: upgrade: skipping: excluded by options
+0044.528 (0) finding files: index.php: adding to list (1)
+0044.529 (0) finding files: plugins: skipping: this is the plugins directory
+0044.530 (0) finding files: uploads: skipping: this is the uploads directory
+0044.531 (0) finding files: updraft: skipping: this is the updraft directory
+0044.531 (0) finding files: languages: adding to list (2)
+0044.532 (0) finding files: custom-global-variables: adding to list (3)
+0044.533 (0) finding files: themes: skipping: this is the themes directory
+0044.615 (0) Total entities for the zip file: 4 directories, 73 files (0 skipped as non-modified), 5 MB
+0045.429 (0) Created others zip (0) - 1442.8 KB in 0.9 s (1625.1 KB/s) (sha1: 459218b2a7563f5f010e9e661b28415de6834a9a, sha256: 887ca9769253c37139bb9ba043f2a7b4bb259a37d6efabcd1c9aa0264c9db6f1)
+0045.438 (0) Saving backup status to database (elements: 8)
+0045.439 (0) Beginning creation of database dump (WordPress DB)
+0045.449 (0) Table wp_options: Total expected rows (approximate): 182
+0045.467 (0) Table wp_options: Total rows added: 181 in 0.02 seconds
+0045.472 (0) Table wp_options: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_options.table.gz - 100.4 KB)
+0045.477 (0) Table wp_users: Total expected rows (approximate): 1
+0045.479 (0) Table wp_users: Total rows added: 1 in 0.00 seconds
+0045.481 (0) Table wp_users: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_users.table.gz - 0.5 KB)
+0045.485 (0) Table wp_usermeta: Total expected rows (approximate): 24
+0045.487 (0) Table wp_usermeta: Total rows added: 24 in 0.00 seconds
+0045.489 (0) Table wp_usermeta: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_usermeta.table.gz - 1.1 KB)
+0045.494 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0045.495 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0045.497 (0) Table wp_commentmeta: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0045.501 (0) Table wp_comments: Total expected rows (approximate): 2
+0045.503 (0) Table wp_comments: Total rows added: 2 in 0.00 seconds
+0045.505 (0) Table wp_comments: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_comments.table.gz - 0.8 KB)
+0045.510 (0) Table wp_links: Total expected rows (approximate): 0
+0045.511 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0045.513 (0) Table wp_links: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_links.table.gz - 0.4 KB)
+0045.517 (0) Table wp_postmeta: Total expected rows (approximate): 495
+0045.521 (0) Table wp_postmeta: Total rows added: 495 in 0.00 seconds
+0045.524 (0) Table wp_postmeta: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_postmeta.table.gz - 4.6 KB)
+0045.528 (0) Table wp_posts: Total expected rows (approximate): 89
+0045.532 (0) Table wp_posts: Total rows added: 89 in 0.00 seconds
+0045.536 (0) Table wp_posts: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_posts.table.gz - 10.7 KB)
+0045.541 (0) Table wp_term_relationships: Total expected rows (approximate): 121
+0045.543 (0) Table wp_term_relationships: Total rows added: 121 in 0.00 seconds
+0045.545 (0) Table wp_term_relationships: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_term_relationships.table.gz - 0.6 KB)
+0045.550 (0) Table wp_term_taxonomy: Total expected rows (approximate): 23
+0045.551 (0) Table wp_term_taxonomy: Total rows added: 23 in 0.00 seconds
+0045.553 (0) Table wp_term_taxonomy: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_term_taxonomy.table.gz - 0.6 KB)
+0045.557 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0045.558 (0) Table wp_termmeta: Total rows added: 0 in 0.00 seconds
+0045.561 (0) Table wp_termmeta: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_termmeta.table.gz - 0.4 KB)
+0045.565 (0) Table wp_terms: Total expected rows (approximate): 23
+0045.566 (0) Table wp_terms: Total rows added: 23 in 0.00 seconds
+0045.568 (0) Table wp_terms: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_terms.table.gz - 0.7 KB)
+0045.573 (0) Table wp_cf_form_entries: Total expected rows (approximate): 0
+0045.574 (0) Table wp_cf_form_entries: Total rows added: 0 in 0.00 seconds
+0045.576 (0) Table wp_cf_form_entries: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_cf_form_entries.table.gz - 0.4 KB)
+0045.581 (0) Table wp_cf_form_entry_meta: Total expected rows (approximate): 0
+0045.582 (0) Table wp_cf_form_entry_meta: Total rows added: 0 in 0.00 seconds
+0045.584 (0) Table wp_cf_form_entry_meta: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_cf_form_entry_meta.table.gz - 0.4 KB)
+0045.588 (0) Table wp_cf_form_entry_values: Total expected rows (approximate): 0
+0045.590 (0) Table wp_cf_form_entry_values: Total rows added: 0 in 0.00 seconds
+0045.592 (0) Table wp_cf_form_entry_values: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_cf_form_entry_values.table.gz - 0.4 KB)
+0045.596 (0) Table wp_cf_forms: Total expected rows (approximate): 0
+0045.598 (0) Table wp_cf_forms: Total rows added: 0 in 0.00 seconds
+0045.599 (0) Table wp_cf_forms: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_cf_forms.table.gz - 0.3 KB)
+0045.604 (0) Table wp_cf_pro_messages: Total expected rows (approximate): 0
+0045.606 (0) Table wp_cf_pro_messages: Total rows added: 0 in 0.00 seconds
+0045.608 (0) Table wp_cf_pro_messages: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_cf_pro_messages.table.gz - 0.3 KB)
+0045.612 (0) Table wp_cf_queue_failures: Total expected rows (approximate): 0
+0045.614 (0) Table wp_cf_queue_failures: Total rows added: 0 in 0.00 seconds
+0045.615 (0) Table wp_cf_queue_failures: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_cf_queue_failures.table.gz - 0.3 KB)
+0045.620 (0) Table wp_cf_queue_jobs: Total expected rows (approximate): 0
+0045.622 (0) Table wp_cf_queue_jobs: Total rows added: 0 in 0.00 seconds
+0045.623 (0) Table wp_cf_queue_jobs: finishing file (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_cf_queue_jobs.table.gz - 0.4 KB)
+0045.627 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_options.table.gz (1/19): adding to final database dump
+0045.647 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_users.table.gz (2/19): adding to final database dump
+0045.651 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_usermeta.table.gz (3/19): adding to final database dump
+0045.654 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_commentmeta.table.gz (4/19): adding to final database dump
+0045.657 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_comments.table.gz (5/19): adding to final database dump
+0045.660 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_links.table.gz (6/19): adding to final database dump
+0045.663 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_postmeta.table.gz (7/19): adding to final database dump
+0045.666 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_posts.table.gz (8/19): adding to final database dump
+0045.671 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_term_relationships.table.gz (9/19): adding to final database dump
+0045.675 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_term_taxonomy.table.gz (10/19): adding to final database dump
+0045.677 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_termmeta.table.gz (11/19): adding to final database dump
+0045.680 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_terms.table.gz (12/19): adding to final database dump
+0045.683 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_cf_form_entries.table.gz (13/19): adding to final database dump
+0045.686 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_cf_form_entry_meta.table.gz (14/19): adding to final database dump
+0045.688 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_cf_form_entry_values.table.gz (15/19): adding to final database dump
+0045.692 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_cf_forms.table.gz (16/19): adding to final database dump
+0045.694 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_cf_pro_messages.table.gz (17/19): adding to final database dump
+0045.697 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_cf_queue_failures.table.gz (18/19): adding to final database dump
+0045.700 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db-table-wp_cf_queue_jobs.table.gz (19/19): adding to final database dump
+0045.704 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db.gz: finished writing out complete database file (104 KB)
+0045.724 (0) Total database tables backed up: 19 (backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db.gz, size: 122124, sha1: 1b43670141854aa3e30637ca8125135ca2fa8db3, sha256: 4a9de716fa6bcff4f6064e42de58bfa1ec266823cfece9ddc790d57f5cf9cb56)
+0045.729 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0045.731 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0045.732 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0045.733 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-others.zip: others: This file has not yet been successfully uploaded: will queue
+0045.734 (0) backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db.gz: db: This file has not yet been successfully uploaded: will queue
+0045.735 (0) Saving backup history. Total backup size: 46.8 MB
+0045.737 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0045.739 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0045.740 (0) No remote despatch: user chose no remote backup service
+0045.741 (0) Recording as successfully uploaded: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-plugins.zip
+0045.743 (0) Recording as successfully uploaded: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-themes.zip
+0045.744 (0) Recording as successfully uploaded: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-uploads.zip
+0045.746 (0) Recording as successfully uploaded: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-others.zip
+0045.747 (0) Recording as successfully uploaded: backup_2019-07-30-0403_ProAzul_0ce13cbaaf9d-db.gz
+0045.750 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0045.751 (0) Number of backup sets in history: 1; groups (db): 1
+0045.752 (0) Examining (for databases) backup set with group_id=0, nonce=0ce13cbaaf9d, datestamp=1564459395 (Jul 30 2019 04:03:15)
+0045.753 (0) This backup set is the backup set just made, so will not be deleted.
+0045.753 (0) Number of backup sets in history: 1; groups (files): 1
+0045.754 (0) Examining (for files) backup set with nonce=0ce13cbaaf9d, datestamp=1564459395 (Jul 30 2019 04:03:15)
+0045.754 (0) This backup set is the backup set just made, so will not be deleted.
+0045.755 (0) This backup set is the backup set just made, so will not be deleted.
+0045.756 (0) This backup set is the backup set just made, so will not be deleted.
+0045.756 (0) This backup set is the backup set just made, so will not be deleted.
+0045.756 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0045.757 (0) Retain: saving new backup history (sets now: 1) and finishing retain operation
+0045.759 (0) Resume backup (0ce13cbaaf9d, 0): finish run
+0045.761 (0) Decremented the semaphore (fd) by 1
+0045.762 (0) Semaphore (fd) unlocked
+0045.763 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0045.765 (0) The backup apparently succeeded and is now complete
+0045.766 (0) No email will/can be sent - the user has not configured an email address.
+0045.767 (0) Aparentemente o backup foi bem sucedido e está agora concluído

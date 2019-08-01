@@ -1,6 +1,6 @@
 <?php if (!defined('ABSPATH')) die('No direct access.'); ?>
 
-<div class="updraft-ad-container updated">
+<div class="updraft-ad-container notice updated">
 	<div class="updraft_notice_container">
 		<div class="updraft_advert_content_left">
 			<img src="<?php echo METASLIDER_BASE_URL.'admin/images/'.$image;?>" width="60" height="60" alt="<?php _e('Logo','ml-slider');?>" />

@@ -1,3 +1,54 @@
+
+/* TODO: work toward complete Tailwind.css refactor (plus WP override, etc) */
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ */
+@tailwind preflight;
+
+/**
+ * This injects any component classes registered by plugins.
+ */
+@tailwind components;
+
+/**
+ * Here you would add any of your custom component classes; stuff that you'd
+ * want loaded *before* the utilities so that the utilities could still
+ * override them.
+ * Example, UDP universal components
+ */
+@import "./components/toolbar.css";
+@import "./components/tour.css";
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ */
+@tailwind utilities;
+
+@import "./parts/fonts.css";
+
+/**
+ * Here you would add any custom styles you need that don't come out of the
+ * box with Tailwind.
+ */
+@import "./components/wordpress.css";
+@import "./components/notifications.css";
+
+
+/* TODO: Add responsive styles, for now min-width */
+#metaslider-ui,
+.container {
+	min-width: config('screens.xl');
+}
+pre#shortcode::selection,
+pre#shortcode *::selection {
+	@apply bg-blue-highlight text-grey-darker;
+}
+
+/* Consider everything after this a legacy style with the intent to 
+eventually be removed/refactored */
+
 .metaslider.wrap div.updated,
 .metaslider.wrap div.error {
     clear: both
@@ -87,10 +138,6 @@
 
 .metaslider .section {
     cursor: pointer
-}
-
-.metaslider .hidden {
-    display: none
 }
 
 .metaslider .tipsy-tooltip {
@@ -356,7 +403,7 @@
 .metaslider .right .number input {
     display: block;
     float: left;
-    height: 26px;
+    height: 24px;
     margin: 0;
 }
 
@@ -442,10 +489,6 @@
     content: '\f140';
 }
 
-.metaslider .shortcode .inside {
-    padding: 15px 10px;
-}
-
 .metaslider .social .inside {
     padding: 10px;
 }
@@ -454,40 +497,6 @@
     width: 100%;
     margin: 0;
     height: 20px;
-}
-
-.metaslider .shortcode input[type=text],
-.metaslider .shortcode input[type=text]:active,
-.metaslider .shortcode textarea,
-.metaslider .shortcode textarea:active {
-    font-family: monospace;
-    font-size: 11px;
-    width: 100%;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-}
-
-.metaslider .shortcode textarea {
-    height: 65px;
-}
-
-.metaslider .shortcode ul.tabs {
-    margin: 0;
-}
-
-.metaslider .shortcode ul.tabs li.selected {
-    background: #fdfdfd;
-    border-bottom: 1px solid #fdfdfd;
-}
-
-.metaslider .shortcode .tabs-content {
-    clear: both;
-    background: #fdfdfd;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    padding: 10px;
 }
 
 .metaslider .right .ms-postbox table {
@@ -816,11 +825,6 @@
 .metaslider-ui, .metaslider-ui * {
     box-sizing: border-box;
 }
-.metaslider-ui {
-	max-width: 1400px;
-	min-width: 1000px;
-	margin: 0 auto;
-}
 .metaslider-header {
 	display: flex;
     justify-content: space-between;
@@ -897,9 +901,6 @@
 
 
  /* Slider UI wrap */
-.metaslider-ui {
-    margin: 1.5rem 1rem 1rem 0;
-}
 .metaslider-ui .metaslider-inner {
     /* background: rgba(224, 224, 224, 0.25); */
     /* border: 1px solid #ccc; */
@@ -930,72 +931,6 @@
     top: 12px;
 }
 
-/* Shortcode Instructions */
-.metaslider-ui .metaslider-shortcode {
-    padding: 7px 7px 7px 12px;
-    line-height: 15px;
-    margin: 0;
-    color: #cccccc;
-}
-.metaslider-ui .metaslider-shortcode .ms-shortcode::-moz-selection,
-.metaslider-ui .metaslider-shortcode .ms-shortcode span::-moz-selection,
-.metaslider-ui .metaslider-shortcode pre::-moz-selection {
-    color: #444;
-    background: #acd8fc;
-}
-.metaslider-ui .metaslider-shortcode .ms-shortcode::selection,
-.metaslider-ui .metaslider-shortcode .ms-shortcode span::selection,
-.metaslider-ui .metaslider-shortcode pre::selection {
-    color: #444;
-    background: #acd8fc;
-}
-.metaslider-ui .metaslider-shortcode p {
-    margin-top:0;
-    color: #444;
-}
-.metaslider-ui .metaslider-shortcode .ms-shortcode {
-    color: #de6826;
-	cursor: pointer;
-	display: inline;
-    white-space: normal;
-}
-.metaslider-ui .metaslider-shortcode-title {
-	/* background-color: #f7f7f7; */
-	padding: 7px 12px 0 !important;
-}
-.metaslider-ui .metaslider-shortcode-title .ms-action-buttons {
-	position: absolute;
-    top: 0;
-    right: 0;
-    height: 35px;
-}
-.metaslider-ui .metaslider-shortcode-title .ms-action-buttons .ml-button {
-	display: inline-block;
-	border-radius: 0;
-    background: 0;
-    border: 0;
-    box-shadow: none;
-    color: #aaa;
-    cursor: pointer;
-    outline: 0;
-    padding: 7px;
-    box-sizing: border-box;
-}
-.metaslider-ui .metaslider-shortcode-title .ms-action-buttons .ml-button:hover {
-	background: #ededed;
-	color: #de6826;
-}
-.metaslider-ui .metaslider-shortcode-title .ms-action-buttons .ml-button:focus {
-	background-color: #acd7fd !important;
-	color: #444 !important;
-}
-.metaslider-ui .metaslider-shortcode-title .ms-action-buttons .ml-button i {
-	position: static;
-}
-.metaslider-ui .metaslider-shortcode-title .ms-action-buttons .ml-button svg {
-	display: block;
-}
-
 /* Slide Listing */
 .metaslider-ui .metaslider-slides-container * {
     box-sizing: border-box;
@@ -1009,7 +944,6 @@
 }
 .metaslider-ui .metaslider-slides-container .slide {
     background: white;
-    max-height: 215px;
     overflow: hidden;
     transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
@@ -1590,126 +1524,6 @@ input[type="radio"] {
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
- /* Notification */
- #ms-notifications * {
-    box-sizing: border-box;
- }
- #ms-notifications {
-	position: fixed;
-	z-index: 9999999;
-    overflow: hidden;
-    right: 0.5rem;
-    bottom: 0.5rem;
- }
- .ms-notification {
-     cursor: pointer;
-     min-width: 250px;
-     min-height: 56px;
-     background: #de6826;
-     border-left: 5px solid rgb(199, 87, 39);
-     margin: 0.5rem 0 0;
-     padding: 0.5rem;
-     overflow: hidden;
-     box-shadow: 0 0 5px 0px rgb(199, 87, 39);
-}
-.ms-notification:hover {
-    background: rgb(199, 87, 39);
-}
-.ms-notification.finished {
-    position: relative;
-    right: 0;
-    -webkit-animation: slide-right 0.5s forwards;
-            animation: slide-right 0.5s forwards;
-}
-@-webkit-keyframes slide-right {
-    100% { right: -250px; }
-}
-@keyframes slide-right {
-    100% { right: -250px; }
-}
-.ms-notification.has-image .ms-notification-content {
-    width: 150px;
-    float: left;
-}
-.ms-notification.has-image .img {
-    width: 56px;
-    height: 56px;
-    overflow: hidden;
-    float: right;
-    border: 3px solid rgb(255, 127, 71);
-    margin-left: 1rem;
-}
-.ms-notification .img img {
-    width: auto;
-    display: block;
-}
-.ms-notification h3 {
-    margin: 0;
-    color: rgba(0, 0, 0, 0.4);
-}
-.ms-notification p {
-    margin: 0 0 0 0.1rem;
-    color: rgb(240, 240, 240);
-}
-.ms-notification.is-success {
-    background: #46b450;
-    border-left: 5px solid #4e9a55;
-}
-.ms-notification.is-success.has-image .img {
-    border: 3px solid rgb(124, 202, 131);
-}
-.ms-notification.is-success:hover {
-    background: #4e9a55
-}
-.ms-notification.is-success h3 {
-    color: #fff;
-}
-
-/* Tour Specific Styles */
-.blurred-out {
-    cursor: default;
-    -webkit-filter: blur(2px);
-    -moz-filter: blur(2px);
-    -o-filter: blur(2px);
-    -ms-filter: blur(2px);
-    filter: blur(2px);
-}
-
-.shepherd-theme-arrows {
-    z-index: 99;
-    max-width: 300px!important;
-}
-.shepherd-theme-arrows.super-index {
-    z-index: 999999;
-}
-.shepherd-element-attached-bottom.shepherd-element-attached-right.shepherd-target-attached-top.shepherd-target-attached-left .shepherd-content:before,
-.shepherd-element-attached-bottom.shepherd-element-attached-left.shepherd-target-attached-top.shepherd-target-attached-right .shepherd-content:before,
-.shepherd-element-attached-top.shepherd-element-attached-right.shepherd-target-attached-bottom.shepherd-target-attached-left .shepherd-content:before,
-.shepherd-element-attached-top.shepherd-element-attached-left.shepherd-target-attached-bottom.shepherd-target-attached-right .shepherd-content:before {
-  display: none; }
-.shepherd-element.shepherd-theme-arrows.shepherd-element-attached-top.shepherd-element-attached-center.shepherd-has-title .shepherd-content:before,
-.shepherd-element.shepherd-theme-arrows.shepherd-element-attached-top.shepherd-element-attached-right.shepherd-target-attached-bottom.shepherd-has-title .shepherd-content:before,
-.shepherd-element.shepherd-theme-arrows.shepherd-element-attached-top.shepherd-element-attached-left.shepherd-target-attached-bottom.shepherd-has-title .shepherd-content:before {
-    border-bottom-color: #dd6823;
-}
-.shepherd-element.shepherd-theme-arrows.shepherd-has-title .shepherd-content header {
-    background-color: #dd6823
-}
-.shepherd-element.shepherd-theme-arrows .shepherd-content header h3 {
-    color: #ffffff;
-}
-.shepherd-element.shepherd-theme-arrows.shepherd-element-attached-top.shepherd-element-attached-left.shepherd-target-attached-right .shepherd-content:before {
-    top: 44px;
-}
-.shepherd-element.shepherd-theme-arrows .shepherd-content footer .shepherd-buttons li .shepherd-button {
-    padding: .75em 1.3em;
-}
-
- /* Make the cancel button darker */
-.shepherd-element.shepherd-theme-arrows .shepherd-content header a.shepherd-cancel-link {
-    color: black;
-}
-
 /* Styles for edge cases */
 
 /* Removes styling for LastPass autofill */
@@ -1740,13 +1554,7 @@ input.no_last_pass {
 	justify-content: flex-end;
 	position: relative;
 }
-.ms-delete-save .spinner {
-	position: absolute;
-	right: -2.5rem;
-	bottom: 3px;
-}
 .ms-delete-save .ms-delete-slideshow {
-	margin-right: 1.5rem;
     color: #aaa;
     text-transform: uppercase;
     font-weight: 700;

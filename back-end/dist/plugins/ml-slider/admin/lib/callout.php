@@ -3,12 +3,17 @@
 if (!defined('ABSPATH')) { die('No direct access.'); }
 
 /**
+ * TODO: combine this with custom tours that can introduce a new feature
  * Use this file to add a pointer notice that will only show once.
  * Typically you will just want to edit these three variables (the image will default to the MetaSlider logo)
  */
 
-$metaslider_callout_name = 'unsplash';
-$metaslider_callout_text = sprintf(__('Free, easy and unlimited stock images for even better slideshows. Quickly search and import free stock images directly into MetaSlider using our free Unspash API feature. <a href="%s">Get started now</a>', 'ml-slider'), self_admin_url('admin.php?page=metaslider'));
+$metaslider_callout_name = 'toolbar';
+$nonce = wp_create_nonce('metaslider_request');
+$tour_reset = "event.preventDefault();var link = window.jQuery(this);window.jQuery.post(ajaxurl, {action: \'set_tour_status\',current_step: \'0\',\'METASLIDER_NONCE\':\'{$nonce}\'}, function(data){window.location = link.attr(\'href\');});";
+
+$metaslider_callout_text = sprintf(__('A new look! With our new toolbar, it is much easier to duplicate your slideshows. Pro users can now add custom CSS. Need a reminder how MetaSlider works? <a href="%s" onclick="%s">Take the tour</a>', 'ml-slider'), self_admin_url('admin.php?page=metaslider'), esc_attr($tour_reset));
+
 $metaslider_callout_image = '';
 
 /**
@@ -77,6 +82,10 @@ class MetaSlider_Callout {
 	 * Method to load in call out scripts
 	 */
 	public function setup_callout() {
+
+		// Only show to users who can access MetaSlider
+		$capability = apply_filters('metaslider_capability', 'edit_others_posts');
+		if (!current_user_can($capability)) return;
 
 		// Only show on the specified page
 		if ($this->page !== get_current_screen()->id) return;
