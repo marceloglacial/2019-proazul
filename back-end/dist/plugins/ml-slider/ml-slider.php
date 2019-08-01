@@ -6,7 +6,7 @@
  * Plugin Name: MetaSlider
  * Plugin URI:  https://www.metaslider.com
  * Description: Easy to use slideshow plugin. Create SEO optimised responsive slideshows with Nivo Slider, Flex Slider, Coin Slider and Responsive Slides.
- * Version:     3.13.1
+ * Version:     3.14.0
  * Author:      Team Updraft
  * Author URI:  https://www.metaslider.com
  * License:     GPL-2.0+
@@ -32,7 +32,7 @@ class MetaSliderPlugin {
      *
      * @var string
      */
-    public $version = '3.13.1';
+    public $version = '3.14.0';
 
 	/**
      * Pro installed version number
@@ -118,6 +118,7 @@ class MetaSliderPlugin {
 			define('METASLIDER_BASE_URL', plugin_dir_url(metaslider_plugin_is_installed('ml-slider')));
 			define('METASLIDER_ASSETS_URL', METASLIDER_BASE_URL . 'assets/');
 			define('METASLIDER_ADMIN_URL', METASLIDER_BASE_URL . 'admin/');
+			define('METASLIDER_ADMIN_ASSETS_URL', METASLIDER_ADMIN_URL . 'assets/');
 			
 			// Use the themes in the plugin dir if it's there (useful for developing)
 			$has_themes_repo = file_exists(trailingslashit(WP_PLUGIN_DIR) . 'ml-slider-themes/manifest.php');
@@ -151,7 +152,6 @@ class MetaSliderPlugin {
 			'metaslider_slide'  	 => METASLIDER_PATH . 'admin/Slideshows/slides/Slide.php',
 			'metaslider_themes'  	 => METASLIDER_PATH . 'admin/Slideshows/Themes.php',
 			'metaslider_image'  	 => METASLIDER_PATH . 'admin/Slideshows/Image.php',
-            'metaslider_tour'        => METASLIDER_PATH . 'admin/Tour.php',
             'metaslider_gutenberg'   => METASLIDER_PATH . 'admin/Gutenberg.php'
         );
     }
@@ -234,7 +234,6 @@ class MetaSliderPlugin {
         add_action('admin_post_metaslider_delete_slide', array($this, 'delete_slide'));
         add_action('admin_post_metaslider_delete_slider', array($this, 'delete_slider'));
         add_action('admin_post_metaslider_create_slider', array($this, 'create_slider'));
-        add_action('admin_post_metaslider_update_slider', array($this, 'update_slider'));
 
         add_action('media_upload_vimeo', array($this, 'upgrade_to_pro_tab_vimeo'));
         add_action('media_upload_youtube', array($this, 'upgrade_to_pro_tab_youtube'));
@@ -259,7 +258,6 @@ class MetaSliderPlugin {
         add_filter('media_buttons_context', array($this, 'insert_metaslider_button'));
         add_filter("plugin_row_meta", array($this, 'get_extra_meta_links'), 10, 4);
         add_action('admin_head', array($this, 'add_star_styles'));
-        add_action('admin_head', array($this, 'add_tour_nonce_to_activation_page'));
 
         // html5 compatibility for stylesheets enqueued within <body>
         add_filter('style_loader_tag', array($this, 'add_property_attribute_to_stylesheet_links'), 11, 2);
@@ -583,73 +581,13 @@ class MetaSliderPlugin {
 
 	/**
 	 * Update the slider
+	 * 
+	 * @deprecated 3.13.0 use the API
 	 *
 	 * @return string a JSON string with success or failure (and errors)
 	 */
 	public function update_slider() {
-
-		// Wordpress will just die() if this fails
-		check_admin_referer("metaslider_update_slider");
-
-		if (!current_user_can(apply_filters('metaslider_capability', 'edit_others_posts'))) {
-			return wp_send_json_error(array(
-				'message' => __('The security check failed. Please refresh the page and try again.', 'ml-slider')
-			), 401);
-		}
-
-		$slider_id = absint($_POST['slider_id']);
-		if (!$slider_id) {
-			return wp_send_json_error(array(
-				'message' => __("The slideshow you're trying to update was not found.", 'ml-slider')
-			), 401);
-		}
-		
-		$errors = new WP_Error();
-
-		// update settings
-		if (isset($_POST['settings'])) {
-			$new_settings = $_POST['settings'];
-			$old_settings = get_post_meta($slider_id, 'ml-slider_settings', true);
-
-            // convert submitted checkbox values from 'on' or 'off' to boolean values
-            $checkboxes = apply_filters("metaslider_checkbox_settings", array('noConflict', 'fullWidth', 'hoverPause', 'links', 'reverse', 'random', 'printCss', 'printJs', 'smoothHeight', 'center', 'carouselMode', 'autoPlay', 'firstSlideFadeIn', 'responsive_thumbs'));
-
-			foreach ($checkboxes as $checkbox) {
-				$new_settings[$checkbox] = (isset($new_settings[$checkbox]) && 'on' == $new_settings[$checkbox]) ? 'true' : 'false';
-			}
-
-			$settings = array_merge((array) $old_settings, $new_settings);
-
-			// update the slider settings
-			// TODO this will return false if the data is unchanged, so we should consider checking the data prior to updating it.
-			$result = update_post_meta($slider_id, 'ml-slider_settings', $settings);
-			// if (!$result) $errors->add('update_failed', __('There was an error while updating the post meta. Most likely this means nothing has changed.', 'ml-slider'));
-		}
-
-		// update slideshow title
-		if (isset($_POST['title'])) {
-			$result = wp_update_post(array(
-				'ID' => $slider_id,
-				'post_title' => esc_html($_POST['title'])
-			));
-			if (!$result) $errors->add('update_failed', __('There was an error while updating the title.', 'ml-slider'));
-		}
-
-		// update individual slides
-		// TODO Refactor this to return better error handling.
-        if (isset($_POST['attachment'])) {
-            foreach ($_POST['attachment'] as $slide_id => $fields) {
-                do_action("metaslider_save_{$fields['type']}_slide", $slide_id, $slider_id, $fields);
-            }
-		}
-		
-		if (count($errors->get_error_messages())) {
-			return wp_send_json_error($errors, 409);
-		}
-
-		return wp_send_json_success(array(
-			'message' => __('The slideshow was successfully updated.', 'ml-slider'),
-		), 200);
+		return $this->api->save_slideshow(stripslashes_deep($_REQUEST));
 	}
 
     /**
@@ -855,11 +793,13 @@ class MetaSliderPlugin {
 			$theme = $this->themes->get_theme_object(null, apply_filters('metaslider_default_theme', ''));
 		}
 
-		// If nothing found (a first time user) use a random theme
-		if (!$last_modified && !isset($theme['folder'])) {
-			$theme = $this->themes->get_theme_object(null, $this->themes->random());
-		}
-		
+		// @codingStandardsIgnoreStart
+		// If nothing found (a first time user) use a random theme (I think this might be confusing to new users)
+		// if (!$last_modified && !isset($theme['folder'])) {
+		// 	$theme = $this->themes->get_theme_object(null, $this->themes->random());
+		// }
+		// @codingStandardsIgnoreEnd
+
 		// Set the theme if we found something
 		if (isset($theme['folder'])) update_post_meta($id, 'metaslider_slideshow_theme', $theme);
 
@@ -1221,30 +1161,46 @@ class MetaSliderPlugin {
         
         $this->do_system_check();
 
-        $slider_id = $this->slider ? $this->slider->id : 0;
+		$slider_id = $this->slider ? $this->slider->id : 0;
 
-        ?>
+		if (metaslider_user_is_ready_for_notices()) {
+			echo $this->notices->do_notice(false, 'header', true);
+		}
 
-        <script>
-            var metaslider_slider_id = <?php echo $slider_id; ?>;
-        </script>
-
-        <div id="metaslider-ui" class="metaslider metaslider-ui">
-		<?php $slider_settings = get_post_meta($slider_id, 'ml-slider_settings', true); ?>
-		<metaslider	:id='<?php echo $slider_id; ?>' v-bind:settings='<?php echo json_encode($slider_settings);?>' inline-template>
-			<div>
+		// Get the current theme if set
+		$theme = metaslider_themes::get_instance()->get_current_theme($slider_id);
+		if (is_array($theme)) unset($theme['images']);
+		$theme_error = is_wp_error($theme) ? $theme->get_error_message() : '';
+		$theme_id = is_wp_error($theme) ? false : $theme['folder'];
+		if (is_wp_error($theme)) $theme = false; 
+		
+		?>
+        <div id="metaslider-ui" class="metaslider metaslider-ui min-h-screen pb-24 bg-grey-lightest">
+		<?php 
+			$slider_settings = get_post_meta($slider_id, 'ml-slider_settings', true);
+			$tour_position = get_option('metaslider_tour_cancelled_on');
+		?>
+		<metaslider
+			:id='<?php echo $slider_id; ?>'
+			title='<?php echo htmlspecialchars(get_the_title($slider_id)) ?>'
+			v-bind:initial-theme='<?php echo json_encode($theme);?>'
+			v-bind:settings='<?php echo json_encode($slider_settings);?>'
+			tour-status="<?php echo $tour_position ? $tour_position : false ?>"
+			inline-template>
+			<span>
+			<form @keydown.enter.prevent="save()" id="ms-form-settings" accept-charset="UTF-8" action="<?php echo admin_url( 'admin-post.php'); ?>" method="post">
 				
-				<?php include METASLIDER_PATH."admin/views/pages/parts/header.php"; ?>
+				<?php include METASLIDER_PATH."admin/views/pages/parts/toolbar.php"; ?>
 
-            <form accept-charset="UTF-8" action="<?php echo admin_url( 'admin-post.php'); ?>" method="post">
-                <input type="hidden" name="action" value="metaslider_update_slider">
-                <input type="hidden" name="slider_id" value="<?php echo $slider_id; ?>">
-                <?php wp_nonce_field( 'metaslider_update_slider' ); ?>
-
-                <?php $this->print_slideshow_selector(); ?>
-
-                <?php // If there is no slideshow we don't need to show the rest
-                    if (!$this->slider) { echo '</form></div></metaslider>'; return false; } ?>
+				<div class="container">
+				<?php 
+				
+				$this->print_slideshow_selector();
+				
+				// If there is no slideshow we don't need to show the rest
+				if (!$this->slider) { echo '</form></div></metaslider>'; return false; }
+					
+				?>
 				
 				<div id='poststuff' class="metaslider-inner wp-clearfix">
                     <div id='post-body' class='metabox-holder columns-2'>
@@ -1267,14 +1223,6 @@ class MetaSliderPlugin {
                                             <?php } else { ?>
                                                 <th class="slider-title" colspan="2">
                                                 <h3 class="alignleft"><?php echo get_the_title($this->slider->id) ?></h3>
-                                                <?php if (!metaslider_viewing_trashed_slides($this->slider->id)) { 
-                                                    
-                                                    // Remove the actions on trashed view?>
-                                                    <button class='ml-button ml-has-icon ml-skinless-button alignright add-slide' data-editor='content' title='<?php _e( "Add a New Slide", "ml-slider" ) ?>'>
-                                                        <i style="top:0;"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></i>
-                                                        <span><?php _e("Add Slide", "ml-slider") ?></span>
-                                                    </button>
-                                                <?php } ?>
                                                     <?php do_action( "metaslider_admin_table_header_right", $this->slider->id ); ?>
                                                 </th>
                                             <?php } ?>
@@ -1306,23 +1254,8 @@ class MetaSliderPlugin {
                                         echo "<input type='checkbox' style='display:none;' checked class='select-slider' rel='flex'></inpu>";
                                     ?>
                                 </div>
-							<?php } else {
-								$theme = metaslider_themes::get_instance()->get_current_theme($this->slider->id);
-								if (is_array($theme)) unset($theme['images']);
-								$theme_error = is_wp_error($theme) ? $theme->get_error_message() : '';
-								if (is_wp_error($theme)) $theme = false;
-								?>
+							<?php } else { ?>
                                 <div class="ms-postbox" id="metaslider_configuration">
-									<div class='configuration metaslider-actions'>
-										<metaslider-preview
-											slideshow-id="<?php echo $this->slider->id; ?>"
-											:keyboard-control="[18, 80]"
-										></metaslider-preview>
-                                        <button class='alignright button button-primary' type='submit' name='save' id='ms-save'>
-                                            <?php _e("Save", "ml-slider"); ?>
-                                        </button>
-                                        <span class="spinner"></span>
-                                    </div>
                                     <div class="inside wp-clearfix">
                                         <table class="settings">
                                             <tbody>
@@ -1459,9 +1392,9 @@ class MetaSliderPlugin {
 									incoming-error-message="<?php echo $theme_error; ?>"
 									v-bind:initial-theme='<?php echo json_encode($theme); ?>'>
 								</metaslider-theme-viewer>
-                                <div class="ms-postbox">
-									<?php echo $this->shortcode_tip(); ?>
-                                </div>
+								
+								<?php include METASLIDER_PATH . "admin/views/pages/parts/shortcode.php"; ?>
+								
                                 <div class="ms-postbox ms-toggle closed" id="metaslider_advanced_settings">
                                     <div class="handlediv" title="<?php esc_attr_e('Click to toggle', 'ml-slider'); ?>"></div><h3 class="hndle"><span><?php _e("Advanced Settings", "ml-slider") ?></span></h3>
                                     <div class="inside">
@@ -1472,9 +1405,8 @@ class MetaSliderPlugin {
                                                         'fullWidth' => array(
                                                             'priority' => 5,
                                                             'type' => 'checkbox',
-                                                            'label' => __( "Stretch", "ml-slider" ),
+                                                            'label' => __("100% width", "ml-slider"),
                                                             'class' => 'option flex nivo responsive',
-                                                            'after' => __( "100% wide output", "ml-slider" ),
                                                             'checked' => $this->slider->get_setting( 'fullWidth' ) == 'true' ? 'checked' : '',
                                                             'helptext' => __( "Stretch the slideshow output to fill it's parent container", "ml-slider" )
                                                         ),
@@ -1677,15 +1609,11 @@ class MetaSliderPlugin {
                                                         ),
                                                         'opacity' => array(
                                                             'priority' => 180,
-                                                            'type' => 'number',
-                                                            'size' => 3,
-                                                            'min' => 0,
-                                                            'max' => 1,
-                                                            'step' => 0.1,
+                                                            'type' => 'text',
                                                             'value' => $this->slider->get_setting( 'opacity' ),
                                                             'label' => __( "Opacity", "ml-slider" ),
                                                             'class' => 'option coin',
-                                                            'helptext' => __( "Opacity of title and navigation", "ml-slider" ),
+                                                            'helptext' => __( "Opacity of title and navigation, between 0 and 1", "ml-slider" ),
                                                             'after' => ''
                                                         ),
                                                         'titleSpeed' => array(
@@ -1753,19 +1681,23 @@ class MetaSliderPlugin {
                                 <?php $url = wp_nonce_url(admin_url("admin-post.php?action=metaslider_delete_slider&amp;slider_id={$this->slider->id}"), "metaslider_delete_slider"); ?>
 								<div class="ms-delete-save">
 									<a @click="deleteSlideshow" class='ms-delete-slideshow' href='<?php echo $url ?>'>Delete</a>
-									<button class='button button-primary' type='submit' name='save'>
-										<?php _e("Save slideshow", "ml-slider"); ?>
-									</button>
-									<span class="spinner" style="display: none;"></span>
 								</div>
                             </div>
                             <?php } ?>
                         </div>
                     </div>
                 </div>
-			</form>
-			<metaslider-import-module></metaslider-import-module>
 			</div>
+		</form>
+		<metaslider-preview
+			slideshow-id="<?php echo $this->slider->id; ?>"
+			:keyboard-control="[18, 80]"
+			theme-identifier="<?php echo $theme_id; ?>"
+			:showButton="false"></metaslider-preview>
+		<metaslider-import-module></metaslider-import-module>
+		<metaslider-utility-modal></metaslider-utility-modal>
+		<?php do_action('metaslider_add_external_components'); ?>
+		</span>
 		</metaslider>
         </div>
         <?php
@@ -1966,35 +1898,6 @@ class MetaSliderPlugin {
     }
 
     /**
-     * Provide a tip so the user can add the slideshow to thier site
-     * 
-     * @return string the tip
-     */
-    public function shortcode_tip() {
-		// Title
-		return '<h3 class="hndle metaslider-shortcode-title"><span>' . __("How to Use", "ml-slider") . '</span>' .
-
-		// Switch to title button
-		'<div class="ms-action-buttons wp-clearfix"><button data-type="id" id="ms-copy-type" class="ml-button ml-skinless-button tipsy-tooltip-top" title="' . __("Show title", "ml-slider") . '"><i><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shuffle"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg></i></button>' .
-
-		// Copy all button
-		'<button id="ms-copy-all" class="ml-button ml-skinless-button tipsy-tooltip-top" title="' . __("Copy all code", "ml-slider") . '"><i><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-copy"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></i></button></div>' .
-
-		'</h3>' .
-
-		// Container
-		'<div class="inside wp-clearfix metaslider-shortcode">' .
-
-		// Description
-		'<p>' . __('To display your slideshow using id or title, add the following shortcodes (in orange) to your page. If adding the slideshow to your theme files, additionally include the surrounding PHP function (in gray).', 'ml-slider') . '</p>' .
-		
-		// Shortcode
-		'<pre class="ms-entire" id="ms-entire-code">&lt;?php echo do_shortcode(\'<br>&emsp;&emsp;<div class="ms-shortcode">[metaslider <span id="ms-shortcode-id">id="' . $this->slider->id . '"</span><span style="display:none" id="ms-shortcode-title">title="' . get_the_title($this->slider->id) . '"</span>]</div><br>\'); ?&gt;</pre>' .
-
-        '</div>';    
-    }
-
-    /**
      * Adds extra links to the plugin activation page
      *
      * @param  array  $meta   Extra meta links
@@ -2007,7 +1910,7 @@ class MetaSliderPlugin {
 
         if (plugin_basename(__FILE__) == $file) {
             $plugin_page = admin_url('admin.php?page=metaslider');
-            $meta[] = "<a href='{$plugin_page}' onclick=\"event.preventDefault();var link = jQuery(this);jQuery.post(ajaxurl, {action: 'reset_tour_status', _wpnonce: metaslider_tour_nonce }, function(data) {window.location = link.attr('href');});\">" . __('Take a tour', 'ml-slider') . "</a>";
+            $meta[] = "<a href='{$plugin_page}' onclick=\"event.preventDefault();var link = jQuery(this);jQuery.post(ajaxurl, {action: 'set_tour_status', current_step: '0' }, function(data) {window.location = link.attr('href');});\">" . __('Take a tour', 'ml-slider') . "</a>";
             if (metaslider_pro_is_installed()) {
                 $meta[] = "<a href='https://www.metaslider.com/support/' target='_blank'>" . __('Premium Support', 'ml-slider') . "</a>";
             } else {
@@ -2032,17 +1935,6 @@ class MetaSliderPlugin {
                 .ml-stars svg:hover{fill:#ffb900}
                 .ml-stars svg:hover ~ svg{fill:none}
             </style>
-    <?php }
-    }
-
-   /**
-    * Add nonce to activation pa
-    */
-    public function add_tour_nonce_to_activation_page() {
-        if (metaslider_user_is_on_admin_page('plugins.php')) {?>
-            <script>
-                var metaslider_tour_nonce = "<?php echo wp_create_nonce('metaslider_tour_nonce'); ?>";
-            </script>
     <?php }
     }
 

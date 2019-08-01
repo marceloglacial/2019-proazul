@@ -47,10 +47,10 @@ class MetaSlider_Slideshows {
 	 */
 	public function create() {
 
-		// Check if there's an existing slideshow
-		$ms_settings = new MetaSlider_Slideshow_Settings();
+		// Duplicate settings from their recently modified slideshow, or use defaults.
 		$recent_slideshow =  $this->get_recent_slideshow();
-		$defaults = !empty($recent_slideshow) ? get_post_meta($recent_slideshow['id'], 'ml-slider_settings', true) : $ms_settings->defaults();
+		$latest_slideshow_id = !empty($recent_slideshow) ? $recent_slideshow['id'] : null;
+		$settings = new MetaSlider_Slideshow_Settings($latest_slideshow_id);
 		
 		// Insert the slideshow
 		// TODO: Maybe have a list of 100 random words that could be slideshow titles
@@ -65,17 +65,109 @@ class MetaSlider_Slideshows {
 			return new WP_Error('post_create_failed', 'A new, blank slideshow could not be created', array('status' => 409));
 		}
 
-		// insert the settings
 		// TODO: Perhaps we create a settings page and let the user select defaults
-        add_post_meta($slideshow_id, 'ml-slider_settings', $defaults, true);
+        add_post_meta($slideshow_id, 'ml-slider_settings', $settings->get_settings(), true);
 
-		// Create the taxonomy term, the term is the ID of the slideshow itself
-		// I'm not sure this is needed but it's in the original code so I'm leaving it in
-		// I believe it might be here for backwards compatibility
-		// I'm not handling the error because as stated I'm not sure it's required in modern WP
+		// Needed for creating a relationship with slides
 		wp_insert_term($slideshow_id, 'ml-slider');
 		
 		return $slideshow_id;
+	}
+
+	/**
+	 * Method to save a slideshow
+	 * 
+	 * @param int|string $slideshow_id - The id of the slideshow
+	 * @param array		 $new_settings - The settings
+	 * 
+	 * @return int - id of the slideshow
+	 */
+	public function save($slideshow_id, $new_settings) {
+
+		// TODO: This is old code copied over and should eventually be refactored to not require hard-coded values
+		$old_settings = get_post_meta($slideshow_id, 'ml-slider_settings', true);
+
+		// convert submitted checkbox values from 'on' or 'off' to boolean values
+		$checkboxes = apply_filters("metaslider_checkbox_settings", array('noConflict', 'fullWidth', 'hoverPause', 'links', 'reverse', 'random', 'printCss', 'printJs', 'smoothHeight', 'center', 'carouselMode', 'autoPlay', 'firstSlideFadeIn', 'responsive_thumbs'));
+
+		foreach ($checkboxes as $checkbox) {
+			$new_settings[$checkbox] = (isset($new_settings[$checkbox]) && 'on' == $new_settings[$checkbox]) ? 'true' : 'false';
+		}
+
+		$settings = array_merge((array) $old_settings, $new_settings);
+
+		update_post_meta($slideshow_id, 'ml-slider_settings', $settings);
+		
+		return $slideshow_id;
+	}
+
+	/**
+	 * Method to duplicate a slideshow
+	 * 
+	 * @param int|string $slideshow_id - The id of the slideshow to duplicate
+	 * 
+	 * @throws Exception - handled within method.
+	 * @return int|boolean - id of the new slideshow to show, or false
+	 */
+	public function duplicate($slideshow_id) {
+		$new_slideshow_id = 0;
+
+		try {
+			$new_slideshow_id = wp_insert_post(array(
+				'post_title' => get_the_title($slideshow_id),
+				'post_status' => 'publish',
+				'post_type' => 'ml-slider'
+			), true);
+	
+			if (is_wp_error($new_slideshow_id)) {
+				throw new Exception($new_slideshow_id->get_error_message());
+			}
+	
+			foreach (get_post_meta($slideshow_id) as $key => $value) {
+				update_post_meta($new_slideshow_id, $key, maybe_unserialize($value[0]));
+			}
+
+			// Not used at the moment, but indicates this is a copy
+			update_post_meta($new_slideshow_id, 'metaslider_copy_of', $slideshow_id);
+
+			// Slides are associated to a slideshow via post terms
+			$term = wp_insert_term($new_slideshow_id, 'ml-slider');
+			
+			// Duplicate each slide
+			foreach ($this->active_slide_ids($slideshow_id) as $slide_id) {
+
+				$type = get_post_meta($slide_id, 'ml-slider_type', true);
+				$new_slide_id = wp_insert_post(array(
+					'post_title' => "Slider {$new_slideshow_id} - {$type}",
+					'post_status' => 'publish',
+					'post_type' => 'ml-slide',
+					'menu_order' => get_post_field('menu_order', $slide_id)
+				), true);
+
+				if (is_wp_error($new_slide_id)) {
+					throw new Exception($new_slideshow_id->get_error_message());
+				}
+				
+				foreach (get_post_meta($slide_id) as $key => $value) {
+					add_post_meta($new_slide_id, $key, maybe_unserialize($value[0]));
+				}
+
+				wp_set_post_terms($new_slide_id, $term['term_id'], 'ml-slider', true);
+			}
+
+		} catch (Exception $e) {
+
+			// If there was a failure somewhere, clean up
+			wp_trash_post($new_slideshow_id);
+			$this->delete_all_slides($new_slideshow_id);
+			
+			return new WP_Error('slide_duplication_failed', $e->getMessage());
+		}
+
+		// External modules manipulate data here
+		do_action('metaslider_slideshow_duplicated', $slideshow_id, $new_slideshow_id);
+
+		return $new_slideshow_id;
 	}
 
 	/**
@@ -141,7 +233,7 @@ class MetaSlider_Slideshows {
 	/**
 	 * Method to get the most recently modified slideshow
 	 * 
-	 * @return int The id of the slideshow
+	 * @return array The id of the slideshow
 	 */
 	public function get_recent_slideshow() {
 

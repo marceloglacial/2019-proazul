@@ -3,7 +3,7 @@ Contributors: matchalabs, DavidAnderson, dnutbourne, kbat82
 Tags: slideshow, slider, image slider, carousel, gallery, flexslider, wordpress slider, nivoslider, rotating banner, responsive slideshow, seo slideshow, unsplash
 Donate link: https://david.dw-perspective.org.uk/donate
 Requires at least: 3.5
-Stable tag: 3.13.1
+Stable tag: 3.14.0
 Requires PHP: 5.2
 Tested up to: 5.2
 License: GPLv2 or later
@@ -83,6 +83,7 @@ The <a href="https://www.metaslider.com/upgrade">MetaSlider Pro</a> includes ad
 * YouTube & Vimeo slides
 * HTML slides
 * Layer slides with CSS3 animations & HTML5 Video backgrounds
+* Full-featured text editor to include extra CSS
 * Dynamic Post Feed/Featured Image Slides (content slider)
 * Slide scheduling & slide visibility
 * Custom Themes - build your own theme
@@ -164,6 +165,18 @@ See https://www.metaslider.com/documentation/image-cropping/
 
 == Changelog ==
 
+= 3.14.0 - 2019/July/26 =
+
+* FEATURE: Adds ability to duplicate a slideshow
+* FEATURE: Adds toolbar with various utilities
+* FEATURE: Adds unified notification system
+* REFACTOR: Moves inline styles out of the body tag
+* REFACTOR: Refactors the preview module to be caled from anywhere
+* REFACTOR: Refactors the way slides and the slideshow saving works
+* REFACTOR: Refactors the shortcode copy module
+* REFACTOR: Adds helper functions to better manage the routes files
+* FIX: Fixes bug where adding a class name via Gutenberg crashes the block
+
 = 3.13.1 - 2019/May/11 =
 
 * TWEAK: Corrects a check on a variable in Theme.php, preventing a possible PHP notice
@@ -173,7 +186,7 @@ See https://www.metaslider.com/documentation/image-cropping/
 * FEATURE: Allows captions to inherit the image description
 * FEATURE: Adds support for theme developers to register a theme
 * TWEAK: Adds extra checks for when a theme is missing
-* TWEAK: Removed some ancient code for compatibility with PHP < 5.1
+* TWEAK: Removes some ancient code for compatibility with PHP < 5.1
 * TWEAK: Stops random theme being inherited when user removes it
 * REFACTOR: DOM appended slides are now rendered as Vue components
 
@@ -771,4 +784,4 @@ More info/Comments: http://www.metaslider.com/coming-soon-meta-slider-2-6-free/
 * Initial version
 
 == Upgrade Notice ==
-* 3.13.1 : Upgrade now if you are seeing a PHP notice on your site
+* 3.14.0 : Update now to be able to duplicate your slideshow

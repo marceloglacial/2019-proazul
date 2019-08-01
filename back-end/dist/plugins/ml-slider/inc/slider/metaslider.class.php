@@ -113,7 +113,7 @@ class MetaSlider {
 			'smartCrop' => true,
 			'carouselMode' => false,
 			'carouselMargin' => 5,
-			'firstSlideFadeIn' => true,
+			'firstSlideFadeIn' => false,
 			'easing' => 'linear',
 			'autoPlay' => true,
 			'thumb_width' => 150,
@@ -228,8 +228,7 @@ class MetaSlider {
      * @return string HTML & Javascrpt
      */
     public function render_public_slides() {
-        $html[] = '<div style="' . $this->get_container_style() . '" class="' . esc_attr($this->get_container_class()) .'">';
-        $html[] = '    ' . $this->get_inline_css();
+        $html[] = '<div id="metaslider-id-' . $this->id . '" style="' . $this->get_container_style() . '" class="' . esc_attr($this->get_container_class()) .'">';
         $html[] = '    <div id="' . $this->get_container_id() . '">';
         $html[] = '        ' . $this->get_html();
         $html[] = '        ' . $this->get_html_after();
@@ -428,24 +427,6 @@ class MetaSlider {
     }
 
     /**
-     * Apply any custom inline styling
-     *
-     * @return string
-     */
-    private function get_inline_css() {
-        $css = apply_filters( "metaslider_css", "", $this->settings, $this->id );
-
-        // use this to add the scoped attribute for HTML5 validation (if needed)
-        $attributes = apply_filters( "metaslider_style_attributes", "", $this->settings, $this->id );
-
-        if ( strlen( $css ) ) {
-            return "<style type=\"text/css\"{$attributes} id=\"metaslider-css-{$this->id}\">{$css}\n    </style>";
-        }
-
-        return "";
-    }
-
-    /**
      * Polyfill to handle the wp_add_inline_script() function.
      *
      * @param  string $handle   [description]
@@ -467,24 +448,24 @@ class MetaSlider {
         return $wp_scripts->add_data($handle, 'data', $script);
     }
 
-    /**
-     * Include slider assets, JS and CSS paths are specified by child classes.
-     */
-    public function enqueue_scripts() {
-        if ('true' == $this->get_setting('printJs')) {
-            $handle = 'metaslider-' . $this->get_setting('type') . '-slider';
-            wp_enqueue_script($handle, METASLIDER_ASSETS_URL . $this->js_path, array('jquery'), METASLIDER_VERSION);
-            $this->wp_add_inline_script($handle, $this->get_inline_javascript());
-        }
+	/**
+	 * Include slider assets, JS and CSS paths are specified by child classes.
+	 */
+	public function enqueue_scripts() {
+		if (filter_var($this->get_setting('printJs'), FILTER_VALIDATE_BOOLEAN)) {
+			$handle = 'metaslider-' . $this->get_setting('type') . '-slider';
+			wp_enqueue_script($handle, METASLIDER_ASSETS_URL . $this->js_path, array('jquery'), METASLIDER_VERSION);
+			$this->wp_add_inline_script($handle, $this->get_inline_javascript());
+		}
 
-        if ( $this->get_setting( 'printCss' ) == 'true' ) {
-            // this will be added to the bottom of the page as <head> has already been processed by WordPress.
-            // For HTML5 compatibility, use a minification plugin to move the CSS to the <head>
-            wp_enqueue_style( 'metaslider-' . $this->get_setting( 'type' ) . '-slider', METASLIDER_ASSETS_URL . $this->css_path, false, METASLIDER_VERSION );
-            wp_enqueue_style( 'metaslider-public', METASLIDER_ASSETS_URL . 'metaslider/public.css', false, METASLIDER_VERSION );
-        }
-        do_action( 'metaslider_register_public_styles' );
-    }
+		if (filter_var($this->get_setting('printCss'), FILTER_VALIDATE_BOOLEAN)) {
+			wp_enqueue_style('metaslider-' . $this->get_setting('type') . '-slider', METASLIDER_ASSETS_URL . $this->css_path, false, METASLIDER_VERSION);
+			wp_enqueue_style('metaslider-public', METASLIDER_ASSETS_URL . 'metaslider/public.css', false, METASLIDER_VERSION);
 
+			$extra_css = apply_filters("metaslider_css", "", $this->settings, $this->id);
+			wp_add_inline_style('metaslider-public', $extra_css);
+		}
+		do_action('metaslider_register_public_styles');
+	}
 
 }

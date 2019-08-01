@@ -48,6 +48,13 @@
         }
     }
 
+    &-image {
+        max-height: 210px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+
     &-description {
         font-size: $category-list-item-description-size;
     }
