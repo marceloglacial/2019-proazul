@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite84bf7e4d02f9619ebfda4a31cc4c31b
+class ComposerStaticInitde8e4f17527a322e8e7f40d08cb85c32
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -124,6 +124,13 @@ class ComposerStaticInite84bf7e4d02f9619ebfda4a31cc4c31b
     );
 
     public static $prefixesPsr0 = array (
+        'U' => 
+        array (
+            'UpdateHelper\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/kylekatarnls/update-helper/src',
+            ),
+        ),
         'P' => 
         array (
             'Pimple' => 
@@ -140,6 +147,7 @@ class ComposerStaticInite84bf7e4d02f9619ebfda4a31cc4c31b
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'Carbon\\Laravel\\ServiceProvider' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Laravel/ServiceProvider.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'Carbon\\Upgrade' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Upgrade.php',
         'Composer\\Installers\\AglInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/AglInstaller.php',
         'Composer\\Installers\\AimeosInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/AimeosInstaller.php',
         'Composer\\Installers\\AnnotateCmsInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/AnnotateCmsInstaller.php',
@@ -570,6 +578,9 @@ class ComposerStaticInite84bf7e4d02f9619ebfda4a31cc4c31b
         'Symfony\\Component\\Translation\\Writer\\TranslationWriter' => __DIR__ . '/..' . '/symfony/translation/Writer/TranslationWriter.php',
         'Symfony\\Component\\Translation\\Writer\\TranslationWriterInterface' => __DIR__ . '/..' . '/symfony/translation/Writer/TranslationWriterInterface.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
+        'UpdateHelper\\ComposerPlugin' => __DIR__ . '/..' . '/kylekatarnls/update-helper/src/UpdateHelper/ComposerPlugin.php',
+        'UpdateHelper\\UpdateHelper' => __DIR__ . '/..' . '/kylekatarnls/update-helper/src/UpdateHelper/UpdateHelper.php',
+        'UpdateHelper\\UpdateHelperInterface' => __DIR__ . '/..' . '/kylekatarnls/update-helper/src/UpdateHelper/UpdateHelperInterface.php',
         'WP_Queue\\Connections\\ConnectionInterface' => __DIR__ . '/..' . '/a5hleyrich/wp-queue/src/WP_Queue/Connections/ConnectionInterface.php',
         'WP_Queue\\Connections\\DatabaseConnection' => __DIR__ . '/..' . '/a5hleyrich/wp-queue/src/WP_Queue/Connections/DatabaseConnection.php',
         'WP_Queue\\Connections\\RedisConnection' => __DIR__ . '/..' . '/a5hleyrich/wp-queue/src/WP_Queue/Connections/RedisConnection.php',
@@ -692,11 +703,11 @@ class ComposerStaticInite84bf7e4d02f9619ebfda4a31cc4c31b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite84bf7e4d02f9619ebfda4a31cc4c31b::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite84bf7e4d02f9619ebfda4a31cc4c31b::$prefixDirsPsr4;
-            $loader->fallbackDirsPsr4 = ComposerStaticInite84bf7e4d02f9619ebfda4a31cc4c31b::$fallbackDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInite84bf7e4d02f9619ebfda4a31cc4c31b::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInite84bf7e4d02f9619ebfda4a31cc4c31b::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitde8e4f17527a322e8e7f40d08cb85c32::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitde8e4f17527a322e8e7f40d08cb85c32::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInitde8e4f17527a322e8e7f40d08cb85c32::$fallbackDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitde8e4f17527a322e8e7f40d08cb85c32::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitde8e4f17527a322e8e7f40d08cb85c32::$classMap;
 
         }, null, ClassLoader::class);
     }

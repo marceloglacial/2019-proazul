@@ -6,10 +6,11 @@
 	$image_description = (esc_textarea($attachment->post_content));
 
 	// Deprecate inherit_image_caption by deleting it and setting the source as the image 
-	if ($use_image_caption = (bool) get_post_meta($this->slide->ID, 'ml-slider_inherit_image_caption', true)) {
+	if (filter_var(get_post_meta($this->slide->ID, 'ml-slider_inherit_image_caption', true), FILTER_VALIDATE_BOOLEAN)) {
 		update_post_meta($this->slide->ID, 'ml-slider_caption_source', 'image-caption');
 		delete_post_meta($this->slide->ID, 'ml-slider_inherit_image_caption');
 	}
+
 
 	$caption_source = get_post_meta($this->slide->ID, 'ml-slider_caption_source', true); ?>
 	<metaslider-caption

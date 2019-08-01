@@ -1,86 +1,6 @@
-jQuery(function($) {
-    
-        /**
-         * Allow the user to click on the element to select it.
-         *
-         * @param string elm Element The html element to be selected
-         */
-        var metaslider_select_text = function (elm) {
-            var range;
-            var selection;
+window.jQuery(function($) {
 
-            // Most browsers will be able to select the text
-            if (window.getSelection) {
-                selection = window.getSelection();
-                range = document.createRange();
-                range.selectNodeContents(elm);
-                selection.removeAllRanges();
-                selection.addRange(range);
-            } else if (document.body.createTextRange) {
-                range = document.body.createTextRange();
-                range.moveToElementText(elm);
-                range.select();
-            }
-
-            // Some browsers will be able to copy the text too!
-            try {
-                if (document.execCommand('copy')) {
-                    var notice = new MS_Notification(metaslider.success_language, metaslider.copied_language, undefined, 'is-success');
-                    notice.fire(2000);
-                }
-            } catch (err) {
-                console.warn('MetaSlider: Couldn\'t copy the text');
-            }
-        }
-
-        // Select the shortcode on click
-        $('.ms-shortcode').on('click', function () {
-            metaslider_select_text(this);
-        });
-
-        // Select the entire codeblock when the button is clicked
-		document.getElementById('ms-copy-all') && 
-			document.getElementById('ms-copy-all').addEventListener('click', function (event) {
-				event.preventDefault()
-				metaslider_select_text(document.getElementById('ms-entire-code'))
-        })
-
-		// Update the shortcode when the button is clicked (id, title)
-		document.getElementById('ms-copy-type') && 
-			document.getElementById('ms-copy-type').addEventListener('click', function (event) {
-				event.preventDefault()
-				
-				// Hide the current shortcode text
-				$('#ms-shortcode-' + $(this).data('type')).css('display', 'none')
-
-				// update the button name
-				$(this).prop('title', 'Show ' + $(this).data('type'))
-
-				// Set the expected shortcode text
-				if ('title' === $(this).data('type')) {
-					$(this).data('type', 'id')
-				} else {
-					$(this).data('type', 'title')
-				}
-
-				// Show the shortcode text
-				$('#ms-shortcode-' + $(this).data('type')).css('display', 'inline')
-        })
-
-        /**
-         * Filter out spaces when copying the shortcode.
-         */
-		document.getElementById('ms-entire-code') &&
-			document.getElementById('ms-entire-code').addEventListener('copy', function(event) {
-				var text = window.getSelection()
-					.toString().split("'")
-					.map(function(string, index) {
-						return string.trim()
-					}).join("'")
-            event.clipboardData.setData('text/plain', text)
-            event.preventDefault()
-        })
-
+	const APP = window.metaslider.app ? window.metaslider.app.MetaSlider : null
 	/**
 	 * Event listening to media library edits
 	 */
@@ -188,44 +108,32 @@ jQuery(function($) {
 		})
 	})
 
-        /**
-         * Starts to watch the media library for changes 
-         */
-        create_slides.on('attach', function() {
-            if (!media_library_events.loaded) {
-                media_library_events.attach_event(create_slides);
-            }
-		});
-		
-		/**
-		 * Fire events when the modal is opened
-		 * Available events: create_slides.on('all', function (e) { console.log(e) })
-		 */
-		// This is also a little "hack-ish" but necessary since we are accessing the UI indirectly
-		create_slides.on('open activate uploader:ready', function() {
-			add_image_apis()
-		})
-		create_slides.on('deactivate close', function() {
-			remove_image_apis()
-		})
+	/**
+	 * Starts to watch the media library for changes
+	 */
+	create_slides.on('attach', function() {
+		if (!media_library_events.loaded) {
+			media_library_events.attach_event(create_slides)
+		}
+	})
 
-        /**
-         * I for changing slide image. Managed through the WP media upload UI
-         * Initialized dynamically due to multiple slides.
-         */
-        var update_slide_frame;
-    
-        /**
-         * Opens the UI for the slide selection.
-         */
-        $('.metaslider').on('click', '.add-slide', function(event) {
-            event.preventDefault();
-            create_slides.open();
-    
-            // Remove the Media Library tab (media_upload_tabs filter is broken in 3.6)
-            // TODO investigate if this is needed
-            $(".media-menu a:contains('Media Library')").remove();
-		});
+	/**
+	 * Fire events when the modal is opened
+	 * Available events: create_slides.on('all', function (e) { console.log(e) })
+	 */
+	// This is also a little "hack-ish" but necessary since we are accessing the UI indirectly
+	create_slides.on('open activate uploader:ready', function() {
+		// TODO: when converted to vue component make this work for other languages
+		$('.media-menu a:contains("Media Library")').remove()
+		add_image_apis()
+	})
+	APP && create_slides.on('open', function() {
+		APP.notifyInfo('metaslider/add-slide-opening-ui', APP.__('Opening add slide UI...', 'ml-slider'))
+	})
+	APP && create_slides.on('deactivate close', function() {
+		APP.notifyInfo('metaslider/add-slide-closing-ui', APP.__('Closing add slide UI...', 'ml-slider'))
+		remove_image_apis()
+	})
 
 	/**
 	* Handles changing alt and title on SEO tab
@@ -248,6 +156,12 @@ jQuery(function($) {
 			}
 		}
 	})
+
+	/**
+	 * For changing slide image. Managed through the WP media upload UI
+	 * Initialized dynamically due to multiple slides.
+	 */
+	var update_slide_frame;
 
         /**
          * Handles changing an image when edited by the user.
@@ -502,16 +416,19 @@ jQuery(function($) {
 
                         // If the image is the same as the URL then it's empty (external slide type)
                         img = (window.location.href === img) ? '' : img;
-                        
+						
+						// @codingStandardsIgnoreStart
+						// Will be refactored in the the next branch
                         // Send a notice to the user
-                        var notice = new MS_Notification(metaslider.deleted_language, metaslider.click_to_undo_language, img);
+                        // var notice = new MS_Notification(metaslider.deleted_language, metaslider.click_to_undo_language, img);
 
                         // Fire the notice and set callback to undo
-                        notice.fire(10000, function() {
-                            jQuery('#slide-' + $this.data('slideId'))
-                                .addClass('hide-status')
-                                .find('.undo-delete-slide').trigger('click');
-                        });
+                        // notice.fire(10000, function() {
+                        //     jQuery('#slide-' + $this.data('slideId'))
+                        //         .addClass('hide-status')
+                        //         .find('.undo-delete-slide').trigger('click');
+						// });
+						// @codingStandardsIgnoreEnd
 
                         // If the trash link isn't there, add it in (without counter)
                         if ('none' == $('.restore-slide-link').css('display')) {
@@ -590,11 +507,15 @@ jQuery(function($) {
                     // If the image is the same as the URL then it's empty (external slide type)
                     img = (window.location.href === img) ? '' : img;
 
-                    // Send a success notification
-                    var notice = new MS_Notification(metaslider.restored_language, '', img, 'is-success');
+					// @codingStandardsIgnoreStart
+					// Will be refactored in the the next branch
+					// Send a success notification
+					// TODO: fire notification
+                    // var notice = new MS_Notification(metaslider.restored_language, '', img, 'is-success');
                     
                     // Fire the notice
-                    notice.fire(5000);
+					// notice.fire(5000);
+					// @codingStandardsIgnoreEnd
                 }
             });
         });
@@ -660,18 +581,10 @@ jQuery(function($) {
             helper: metaslider_sortable_helper,
             handle: "td.col-1",
             stop: function() {
-                $(".metaslider table#metaslider-slides-list").trigger("updateSlideOrder");
                 $("#ms-save").click();
             }
         });
     
-        // bind an event to the slides table to update the menu order of each slide
-        $(".metaslider table#metaslider-slides-list").live("updateSlideOrder", function(event) {
-            $("tr", this).each(function() {
-                $("input.menu_order", $(this)).val($(this).index());
-            });
-        });
-
         $("input.width, input.height").on('change', function(e) {
             $(".metaslider table#metaslider-slides-list").trigger('metaslider/size-has-changed', {
                 width: $("input.width").val(),
@@ -737,11 +650,7 @@ jQuery(function($) {
         $('.tipsy-tooltip').tipsy({className: 'msTipsy', live: true, delayIn: 500, html: true, gravity: 'e'})
 		$('.tipsy-tooltip-top').tipsy({live: true, delayIn: 500, html: true, gravity: 's'})
 		$('.tipsy-tooltip-bottom').tipsy({ live: true, delayIn: 500, html: true, gravity: 'n' })
-    
-        // Select input field contents when clicked
-        $(".metaslider .shortcode input, .metaslider .shortcode textarea").on('click', function() {
-            this.select();
-        });
+		$('.tipsy-tooltip-bottom-toolbar').tipsy({ live: true, delayIn: 500, html: true, gravity: 'n', offset: 2 })
     
         // return lightbox width
         var getLightboxWidth = function() {
@@ -768,17 +677,6 @@ jQuery(function($) {
                 }
             }
             return height;
-        };
-    
-    
-        // IE10 treats placeholder text as the actual value of a textarea
-        // http://stackoverflow.com/questions/13764607/html5-placeholder-attribute-on-textarea-via-$-in-ie10
-        var fixIE10PlaceholderText = function() {
-            $("textarea").each(function() {
-                if ($(this).val() == $(this).attr('placeholder')) {
-                    $(this).val('');
-                }
-            });
         };
     
         $(".metaslider .ms-toggle .hndle, .metaslider .ms-toggle .handlediv").on('click', function() {
@@ -820,57 +718,7 @@ jQuery(function($) {
                 $('.slider-lib-row #' + $(this).attr('for')).trigger('click');
             }
         });
-    
-	// AJAX save & preview
-	$(".metaslider form").find("button[type=submit]").on("click", function(e) {
-		e.preventDefault()
-		$(".metaslider .spinner").show().css('visibility', 'visible')
-		$(".metaslider input[type=submit]").attr("disabled", "disabled")
 
-		// update slide order
-		$(".metaslider table#metaslider-slides-list").trigger('updateSlideOrder')
-		fixIE10PlaceholderText();
-
-		// get some values from elements on the page:
-		var the_form = $(this).parents("form")
-		var url = the_form.attr("action")
-		var button = $(this)
-
-		var form_data = new FormData()
-		the_form.serializeArray().forEach(function(data) {
-			form_data.append(data.name, data.value)
-		})
-
-		$.ajax({
-			type: "POST",
-			data: form_data,
-			cache: false,
-			contentType: false,
-			processData: false,
-			url: url,
-			success: function(data) {
-				var response = $(data)
-				$.when($(".metaslider table#metaslider-slides-list").trigger("resizeSlides")).done(function() {
-
-					$("button[data-thumb]", response).each(function() {
-						var $this = $(this)
-						var editor_id = $this.attr("data-editor_id")
-						$("button[data-editor_id=" + editor_id + "]")
-							.attr("data-thumb", $this.attr("data-thumb"))
-							.attr("data-width", $this.attr("data-width"))
-							.attr("data-height", $this.attr("data-height"))
-					});
-					fixIE10PlaceholderText()
-
-					// Send a message that vuejs can use to fire the preview
-					// .prop and .data return undefined, so using attr
-					if (button.attr('preview-id')) {
-						$(window).trigger('metaslider/show-preview-' + button.attr('preview-id'))
-					}
-				})
-			}
-		})
-	})
 
     // UI/Feedback
     // Events for the slideshow title
@@ -881,15 +729,16 @@ jQuery(function($) {
     }).on('focusout', function() {
 
         // Retract and save the slideshow title
-        $(this).css('width', 150);
+		$(this).css('width', 150);
+		window.metaslider.app.Current.title = $(this).val()
         $("#ms-save").trigger('click');
     }).on('keypress', function() {
 
         // Pressing enter on the slide title saves it and focuses outside.
         if (13 === event.which) {
-            event.preventDefault();
+			event.preventDefault();
+			window.metaslider.app.Current.title = $(this).val()
             $("#ms-save").trigger('click');
-            $("button.add-slide").focus();
         }
     });
 
@@ -900,9 +749,6 @@ jQuery(function($) {
 
         var title = new MS_Binder(".slider-title > h3");
         title.bind($(this).val());
-		
-		var shortcode_title = new MS_Binder("#ms-shortcode-title");
-		shortcode_title.bind('title="' + $(this).val() + '"')
 
         var dropdown = document.querySelector('select[name="select-slideshow"]');
         if (dropdown) {
@@ -959,99 +805,4 @@ MS_Binder.prototype.bind = function(value){
     
     this.value = value;
     this.dom.innerText = this.value;
-};
-
-/**
- * Simple notifications
- * var notice = new MS_Notification("Slide Deleted", "click to undo", 'img.jpg', 'success');
- * Can use a custom function for the callback as well
- * requires jQuery
- */
-var MS_Notification = function(message, submessage, image, _classname) {
-    this.panel = document.getElementById('ms-notifications');
-    if (!this.panel) {
-        this.panel = document.createElement('div');
-        this.panel.id = "ms-notifications";
-    }
-    this.notice = jQuery('<div class="ms-notification"><div class="ms-notification-content"><h3></h3><p></p></div><div class="img"></div></div>');
-    this.notice.find('h3').text(message);
-    this.notice.find('p').text(submessage);
-
-    // If there is an image, let's add it.
-    if (('undefined' !== typeof image) && image.length) {
-        this.notice.addClass('has-image')
-        .find('.img')
-        .append('<img width=50 height=50 src="' + image + '">');
-    }
-
-    // TODO add an option for svg
-    // If an extra class is set, set it
-    ('undefined' !== typeof _classname) && this.notice.addClass(_classname);
-    
-    // Append the panel to the body and
-    jQuery(this.panel).appendTo(jQuery('body'));
-};
-
-/**
- * Hide a notification
- */
-MS_Notification.prototype.hide = function() {
-    var _this = this;
-    _this.notice.addClass('finished');
-    this.notice.fadeOut(500, function () {
-        _this.notice.remove();
-    });
-};
-
-/**
- * Launch a notification and add a click event
- *
- * @param int      delay    the time in milliseconds
- * @param Function callback a method on the object or anon function
- */
-MS_Notification.prototype.fire = function(delay, callback) {
-    var _this = this;
-    var _callback = ('undefined' !== typeof callback) ? callback : 'hide';
-
-    // Prepend this to the notification stack
-    this.notice.prependTo(this.panel);
-
-    // Automatically hide after the delay
-    this.timeout = setTimeout(function() {
-        _this.hide();
-    }, delay);
-
-    // Clear this timeout on click
-    this.notice.on('click', function() {
-        clearTimeout(_this.timeout);
-    });
-
-    // Pause the timeout on hover
-    this.notice.on('mouseenter', function() {
-        clearTimeout(_this.timeout);
-    });
-    
-    // Restart the timeout after leaving
-    this.notice.on('mouseleave', function() {
-        _this.timeout = setTimeout(function() {
-            _this.hide();
-        }, delay);
-    });
-
-    // If callback is a method
-    if (MS_Notification.prototype.hasOwnProperty(_callback)) {
-        this.notice.on('click', function() {
-            if ('hide' !== _callback) {
-                _this.hide();
-            }
-            MS_Notification.call(_this[_callback]());
-        });
-    } else {
-
-        // If the callback is a custom function
-        this.notice.on('click', function() {
-            _this.hide();
-            _callback();
-        });
-    }
 };

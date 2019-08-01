@@ -29,8 +29,7 @@ Class MetaSlider_Admin_Pages extends MetaSliderPlugin {
      */
     public function __construct($plugin) {
         $this->plugin = $plugin;
-        $this->notices = new MetaSlider_Notices($plugin);
-        $this->tour = new MetaSlider_Tour($plugin, 'toplevel_page_metaslider');
+		$this->notices = new MetaSlider_Notices($plugin);
         add_action('admin_enqueue_scripts', array($this, 'load_icon_css'));
         add_action('admin_enqueue_scripts', array($this, 'load_upgrade_page_assets'));
     }
@@ -93,6 +92,7 @@ Class MetaSlider_Admin_Pages extends MetaSliderPlugin {
 		do_action('metaslider_register_admin_scripts');
 		
 		// Register components and add support for the REST API / Admin AJAX
+		do_action('metaslider_register_admin_components');
 		wp_register_script('metaslider-admin-components', METASLIDER_ADMIN_URL . 'assets/js/app-' . sanitize_title(METASLIDER_VERSION) . '.js', array(), METASLIDER_VERSION, true);
 
 		// Check if rest is available
@@ -107,6 +107,7 @@ Class MetaSlider_Admin_Pages extends MetaSliderPlugin {
 			'ajaxurl' => admin_url('admin-ajax.php'),
 			'proUser' => metaslider_pro_is_active(),
 			'hoplink' => metaslider_get_upgrade_link(),
+			'metaslider_admin_assets' => METASLIDER_ADMIN_ASSETS_URL,
 			'metaslider_page' => admin_url('admin.php?page=metaslider'),
 			'theme_editor_link' => admin_url('admin.php?page=metaslider-theme-editor'),
 			'supports_rest' => $can_use_rest,
@@ -129,6 +130,7 @@ Class MetaSlider_Admin_Pages extends MetaSliderPlugin {
      * Loads in custom styling
      */    
     public function load_styles() {
+		wp_enqueue_style('metaslider-shepherd-css', METASLIDER_ADMIN_URL . 'assets/tether-shepherd/shepherd-theme-arrows.css', false, METASLIDER_VERSION);
         wp_enqueue_style('metaslider-admin-styles', METASLIDER_ADMIN_URL . 'assets/css/admin-' . sanitize_title(METASLIDER_VERSION) . '.css', false, METASLIDER_VERSION);
 
         // Hook to load more styles and scripts (from pro)

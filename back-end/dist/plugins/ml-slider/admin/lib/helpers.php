@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) die('No direct access.');
  * @param  string $name name of the plugin 'ml-slider'
  * @return bool|string - will return path, ex. 'ml-slider/ml-slider.php'
  */
-function metaslider_plugin_is_installed($name) {
+function metaslider_plugin_is_installed($name = 'ml-slider') {
     if (!function_exists('get_plugins')) include_once(ABSPATH.'wp-admin/includes/plugin.php');
 	foreach (get_plugins() as $plugin => $data) {
 		if ($data['TextDomain'] == $name)
