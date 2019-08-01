@@ -1,6 +1,8 @@
 <section class="category-list-item row">
     <div class="category-list-item-header col-12 col-lg-4">
-        <img src="<?php echo catch_that_image($post_id); ?>" alt="">
+        <figure class="category-list-item-image">
+            <img src="<?php echo catch_that_image($post_id); ?>" alt="">
+        </figure>
     </div>
     <div class="category-list-item-lead col-12 col-lg">
         <div class="category-list-item-tags container-fluid">

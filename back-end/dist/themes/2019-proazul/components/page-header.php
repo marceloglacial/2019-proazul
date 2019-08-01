@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="page-header-brand col-auto">
-                <a class="page-header-logo" href="/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/brand-logo.svg" alt=""></a>
+                <a class="page-header-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/brand-logo.svg" alt=""></a>
                 <h1 class="page-header-title"><?php echo get_bloginfo( 'name' ); ?></h1>
             </div>
             <div class="col d-none d-md-none d-lg-block">
